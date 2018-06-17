@@ -7,6 +7,9 @@ import {
   LOGIN_USER_STARTS
 } from './types';
 
+import AuthenticationService from '../services/AuthenticationService';
+
+
 export const emailChanged = (text) => ({
   type: EMAIL_CHANGED,
   payload: text
@@ -21,15 +24,13 @@ export const loginUser = ({ email, password }) => {
   return (dispatch) => {
     dispatch({ type: LOGIN_USER_STARTS });
 
-    // firebase
-    //   .auth()
-    //   .signInWithEmailAndPassword(email, password)
-    //   .then(user => loginUserSuccess(dispatch, user))
-    //   .catch(() => {
-    //     firebase.auth().createUserWithEmailAndPassword(email, password)
-    //       .then(user => loginUserSuccess(dispatch, user))
-    //       .catch(() => loginUserFail(dispatch));
-    //   });
+    const user = AuthenticationService.logIn(email, password);
+
+    if (user) {
+        loginUserSuccess(dispatch, user);
+    } else {
+      loginUserFail(dispatch);
+    }
   };
 };
 
