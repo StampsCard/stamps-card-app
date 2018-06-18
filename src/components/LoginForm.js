@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Text, Image } from 'react-native';
+import { Container, Content, Item, Form, Input } from 'native-base';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { FormInput, Button, Spinner, Card, CardSection, Logo } from './common';
+import { FormInput, Button, Spinner } from './common';
+import { LoginHeader, FormItem } from "./login";
 
 class LoginForm extends React.Component {
 
@@ -22,9 +24,9 @@ class LoginForm extends React.Component {
   renderError() {
     if (this.props.error) {
       return (
-        <CardSection>
+        <Item style={styles.formItemStyle}>
           <Text style={styles.errorTextStyle}>{ this.props.error }</Text>
-        </CardSection>
+        </Item>
       );
     }
   }
@@ -40,44 +42,41 @@ class LoginForm extends React.Component {
     );
   }
 
-  render() {
+    render() {
 
-    const { cardStyle, logoStyle, containerLogoStyle, backgroundImageStyle } = styles;
+      const { formStyle } = styles;
+        return (
+            <Container>
+                <LoginHeader />
+                <Content>
+                    <Form style={formStyle}>
+                        <FormItem>
+                            <FormInput
+                                label="Email"
+                                placeholder="example@email.com"
+                                onChangeText={this.onEmailChange.bind(this)}
+                                value={this.props.email}
+                            />
+                        </FormItem>
 
-    return (
-      <Card style={cardStyle}>
-              <CardSection style={containerLogoStyle}>
-                  <Image source={require('../../resources/img/stamps_card_logo.png')} style={logoStyle} />
-              </CardSection>
+                        <FormItem>
+                            <FormInput
+                                secureTextEnty
+                                label="Password"
+                                placeholder="password"
+                                onChangeText={this.onPasswordChange.bind(this)}
+                                value={this.props.password}
+                            />
+                        </FormItem>
 
-              <CardSection>
-                  <FormInput
-                      label="Email"
-                      placeholder="example@email.com"
-                      onChangeText={this.onEmailChange.bind(this)}
-                      value={this.props.email}
-                  />
-              </CardSection>
+                        { this.renderError() }
 
-              <CardSection>
-                  <FormInput
-                      secureTextEnty
-                      label="Password"
-                      placeholder="password"
-                      onChangeText={this.onPasswordChange.bind(this)}
-                      value={this.props.password}
-                  />
-              </CardSection>
-
-            { this.renderError() }
-
-            <CardSection>
-              { this.renderButton() }
-            </CardSection>
-
-      </Card>
-    );
-  }
+                        { this.renderButton() }
+                    </Form>
+                </Content>
+            </Container>
+        );
+    }
 }
 
 const mapStateToProps = state => {
@@ -96,26 +95,23 @@ const styles = {
     fontSize: 20
   },
 
-  cardStyle: {
+  containerStyle: {
       alignItems: 'center',
+      width: '100%'
+  },
+
+  contentStyle: {
       fontFamily: 'Roboto'
-  },
-
-  containerLogoStyle: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingTop: 25
-  },
-
-  logoStyle: {
-      width: 45,
-      height: 45
   },
 
   backgroundImageStyle: {
       width: '100%',
       height: '100%',
       position: 'absolute'
+  },
+
+  formStyle: {
+      marginHorizontal: '10%',
   }
 };
 

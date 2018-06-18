@@ -20,15 +20,10 @@ const styles = {
     inputStyle: {
         backgroundColor: '#5C9CCB',
         borderColor: '#80ADD3',
+        borderWidth: 2,
         borderRadius: 15,
         color: '#FFF',
-        placeholderTextColor: '#FFF'
-    },
-    containerStyle: {
-      height: 40,
-      flex: 1,
-      flexDirection: 'row',
-      alignItems: 'center'
+        // placeholderTextColor: '#FFF',
     }
 };
 
