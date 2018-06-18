@@ -77,7 +77,7 @@ export default {
     return this.iconFontSize * 0.6;
   },
 
-  // Card
+  // DefaultContainer
   cardDefaultBg: "#fff",
   cardBorderColor: "#ccc",
 

@@ -1,12 +1,34 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Container, Content, Item } from 'native-base';
 
 class ProfileSelector extends React.Component {
+  showStampsCard() {
+
+  }
+
+  showCustomers() {
+
+  }
+
   render() {
     return (
-      <Text>Select a profile</Text>
+      <Container>
+        <Item>
+          S
+        </Item>
+
+        <Item>
+          C
+        </Item>
+      </Container>
     );
   }
 }
+
+const styles = {
+  containerStyle: {
+    flexDirection: 'column'
+  }
+};
 
 export default ProfileSelector;

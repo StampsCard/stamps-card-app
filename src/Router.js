@@ -7,16 +7,15 @@ class RouterComponent extends React.Component {
   render() {
     return (
       <Router>
-        <Scene key="root" hideNavBar>
-          <Scene key="auth">
-            <Scene key="login" component={LoginForm} title="Please Login" initial />
+        <Scene key="root">
+          <Scene key="auth" hideNavBar>
+            <Scene key="login" component={LoginForm} initial />
           </Scene>
-          <Scene key="main">
+          <Scene key="select">
             <Scene
               key="ProfileSelector"
               component={ProfileSelector}
               title="Select a Profile"
-              rightTitle="Add"
               initial
             />
           </Scene>

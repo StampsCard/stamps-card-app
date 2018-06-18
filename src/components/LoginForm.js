@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
-
+import { Text, Image } from 'react-native';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { Card, CardSection, Input, Button, Spinner } from './common';
+import { FormInput, Button, Spinner, Card, CardSection, Logo } from './common';
 
 class LoginForm extends React.Component {
 
@@ -23,9 +22,9 @@ class LoginForm extends React.Component {
   renderError() {
     if (this.props.error) {
       return (
-        <View>
+        <CardSection>
           <Text style={styles.errorTextStyle}>{ this.props.error }</Text>
-        </View>
+        </CardSection>
       );
     }
   }
@@ -42,32 +41,40 @@ class LoginForm extends React.Component {
   }
 
   render() {
+
+    const { cardStyle, logoStyle, containerLogoStyle, backgroundImageStyle } = styles;
+
     return (
-      <Card>
-        <CardSection>
-          <Input
-            label="Email"
-            placeholder="example@email.com"
-            onChangeText={this.onEmailChange.bind(this)}
-            value={this.props.email}
-          />
-        </CardSection>
+      <Card style={cardStyle}>
+              <CardSection style={containerLogoStyle}>
+                  <Image source={require('../../resources/img/stamps_card_logo.png')} style={logoStyle} />
+              </CardSection>
 
-        <CardSection>
-          <Input
-            secureTextEnty
-            label="Password"
-            placeholder="password"
-            onChangeText={this.onPasswordChange.bind(this)}
-            value={this.props.password}
-          />
-        </CardSection>
+              <CardSection>
+                  <FormInput
+                      label="Email"
+                      placeholder="example@email.com"
+                      onChangeText={this.onEmailChange.bind(this)}
+                      value={this.props.email}
+                  />
+              </CardSection>
 
-        { this.renderError() }
+              <CardSection>
+                  <FormInput
+                      secureTextEnty
+                      label="Password"
+                      placeholder="password"
+                      onChangeText={this.onPasswordChange.bind(this)}
+                      value={this.props.password}
+                  />
+              </CardSection>
 
-        <CardSection>
-          { this.renderButton() }
-        </CardSection>
+            { this.renderError() }
+
+            <CardSection>
+              { this.renderButton() }
+            </CardSection>
+
       </Card>
     );
   }
@@ -87,6 +94,28 @@ const styles = {
     color: 'red',
     alignSelf: 'center',
     fontSize: 20
+  },
+
+  cardStyle: {
+      alignItems: 'center',
+      fontFamily: 'Roboto'
+  },
+
+  containerLogoStyle: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingTop: 25
+  },
+
+  logoStyle: {
+      width: 45,
+      height: 45
+  },
+
+  backgroundImageStyle: {
+      width: '100%',
+      height: '100%',
+      position: 'absolute'
   }
 };
 
