@@ -10,12 +10,14 @@ class RouterComponent extends React.Component {
         <Scene key="root">
           <Scene key="auth" hideNavBar>
             <Scene key="login" component={LoginForm} initial />
+
           </Scene>
           <Scene key="select">
             <Scene
               key="profileSelector"
               component={ProfileSelector}
               hideNavBar
+              initial
             />
           </Scene>
         </Scene>

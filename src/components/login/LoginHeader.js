@@ -16,14 +16,15 @@ const LoginHeader = () => {
 
 const styles = {
     headerStyle: {
-        backgroundColor: '#fff',
+        backgroundColor: 'transparent',
         height: 100,
         paddingTop: 40,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        borderBottomWidth: 0
     },
 
     bodyStyle: {
-        alignItems: 'center',
+        alignItems: 'center'
     }
 };
 

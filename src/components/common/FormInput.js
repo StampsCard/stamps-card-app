@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from 'native-base';
 
-const FormInput = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+const FormInput = ({ value, onChangeText, placeholder, secureTextEntry }) => {
   const { inputStyle } = styles;
   return (
         <Input

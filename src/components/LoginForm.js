@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Toast } from 'native-base';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { FormInput, Button, Spinner } from './common';
-import { LoginHeader, FormItem } from "./login";
+import { FormInput, Button, Spinner, BackgroundImage } from './common';
+import { LoginHeader, FormItem } from './login';
 
 class LoginForm extends React.Component {
 
@@ -11,7 +11,7 @@ constructor(props) {
     super(props);
     this.state = {
         showToast: false
-    }
+    };
 }
 
   onEmailChange(text) {
@@ -40,10 +40,10 @@ constructor(props) {
   }
 
     render() {
-
       const { formStyle } = styles;
         return (
             <Container>
+                <BackgroundImage />
                 <LoginHeader />
                 <Content>
                     <Form style={formStyle}>
@@ -67,12 +67,13 @@ constructor(props) {
                         </FormItem>
 
                         <Toast
-                            showToast={this.props.showToast}
-                            buttonPress={()=> this.setState({
-                                showToast: !this.props.showToast
+                            showToast={this.props.error}
+                            buttonPress={() => this.setState({
+                                showToast: !this.props.error
                             })}
-                            position="bottom">
-                            {this.props.error}
+                            position="bottom"
+                        >
+                          { this.props.error }
                         </Toast>
 
                         { this.renderButton() }
