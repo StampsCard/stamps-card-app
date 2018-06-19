@@ -6,3 +6,4 @@ export * from './Card';
 export * from './CardSection';
 export * from './Logo';
 export * from './BackgroundImage';
+export * from './SimpleHeader';

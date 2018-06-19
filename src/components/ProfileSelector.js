@@ -1,10 +1,19 @@
 import React from 'react';
-import { Container, Content, H1, H2, Button } from 'native-base';
+import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
-import { LoginHeader } from './login';
-import { BackgroundImage } from './common';
+
+import { Container, Content, H1, H2, Button } from 'native-base';
+import { BackgroundImage, SimpleHeader } from './common';
+import { businessOwnerSelected, customerSelected } from '../actions';
 
 class ProfileSelector extends React.Component {
+  pressBusinessOwnerButton() {
+    this.props.businessOwnerSelected(this.props.user);
+  }
+
+  pressCustomerButton() {
+    this.props.customerSelected(this.props.user);
+  }
   render() {
     const {
       containerButtonStyle,
@@ -18,16 +27,22 @@ class ProfileSelector extends React.Component {
     return (
       <Container>
           <BackgroundImage />
-          <LoginHeader />
+          <SimpleHeader />
           <Content contentContainerStyle={styles.contentContainer}>
             <View style={titleContainerStyle}>
               <H1 style={titleStyle}>Who are you?</H1>
             </View>
             <View style={containerButtonStyle}>
-                <Button style={buttonStyle}>
+                <Button
+                  style={buttonStyle}
+                  onPress={this.pressCustomerButton.bind(this)}
+                >
                     <Text style={textButtonStyle}>C</Text>
                 </Button>
-                <Button style={buttonStyle}>
+                <Button
+                  style={buttonStyle}
+                  onPress={this.pressBusinessOwnerButton.bind(this)}
+                >
                     <Text style={textButtonStyle}>B</Text>
                 </Button>
             </View>
@@ -94,4 +109,17 @@ const styles = {
    }
 };
 
-export default ProfileSelector;
+const mapStateToProps = state => {
+  return {
+    user: state.profile.user,
+    profile: state.profile.profile
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    businessOwnerSelected,
+    customerSelected
+ }
+)(ProfileSelector);

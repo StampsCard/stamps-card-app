@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, Body, Left, Right } from 'native-base';
 import { Logo } from '../common';
 
-const LoginHeader = () => {
+const SimpleHeader = () => {
     return (
         <Header style={styles.headerStyle}>
             <Left />
@@ -28,4 +28,4 @@ const styles = {
     }
 };
 
-export { LoginHeader };
+export { SimpleHeader };

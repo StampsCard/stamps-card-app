@@ -1,7 +1,8 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import LoginForm from './components/LoginForm';
+import LoginForm from './components/login/LoginForm';
 import ProfileSelector from './components/ProfileSelector';
+import Welcome from './components/Welcome';
 
 class RouterComponent extends React.Component {
   render() {
@@ -12,12 +13,18 @@ class RouterComponent extends React.Component {
             <Scene key="login" component={LoginForm} initial />
 
           </Scene>
-          <Scene key="select">
+          <Scene key="main">
             <Scene
               key="profileSelector"
               component={ProfileSelector}
               hideNavBar
               initial
+            />
+
+            <Scene
+              key="welcome"
+              component={Welcome}
+              hideNavBar
             />
           </Scene>
         </Scene>

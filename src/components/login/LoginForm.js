@@ -1,9 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Toast } from 'native-base';
-import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { FormInput, Button, Spinner, BackgroundImage } from './common';
-import { LoginHeader, FormItem } from './login';
+import { emailChanged, passwordChanged, loginUser } from '../../actions';
+import {
+  FormInput,
+  Button,
+  Spinner,
+  BackgroundImage,
+  SimpleHeader
+} from '../common';
+import { FormItem } from '.';
 
 class LoginForm extends React.Component {
 
@@ -44,7 +50,7 @@ constructor(props) {
         return (
             <Container>
                 <BackgroundImage />
-                <LoginHeader />
+                <SimpleHeader />
                 <Content>
                     <Form style={formStyle}>
                         <FormItem>
