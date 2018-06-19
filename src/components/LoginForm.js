@@ -1,12 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Text, Image } from 'react-native';
-import { Container, Content, Item, Form, Input } from 'native-base';
+import { Container, Content, Form, Toast } from 'native-base';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { FormInput, Button, Spinner } from './common';
 import { LoginHeader, FormItem } from "./login";
 
 class LoginForm extends React.Component {
+
+constructor(props) {
+    super(props);
+    this.state = {
+        showToast: false
+    }
+}
 
   onEmailChange(text) {
     this.props.emailChanged(text);
@@ -21,15 +27,6 @@ class LoginForm extends React.Component {
     this.props.loginUser({ email, password });
   }
 
-  renderError() {
-    if (this.props.error) {
-      return (
-        <Item style={styles.formItemStyle}>
-          <Text style={styles.errorTextStyle}>{ this.props.error }</Text>
-        </Item>
-      );
-    }
-  }
 
   renderButton() {
     if (this.props.loading) {
@@ -69,7 +66,14 @@ class LoginForm extends React.Component {
                             />
                         </FormItem>
 
-                        { this.renderError() }
+                        <Toast
+                            showToast={this.props.showToast}
+                            buttonPress={()=> this.setState({
+                                showToast: !this.props.showToast
+                            })}
+                            position="bottom">
+                            {this.props.error}
+                        </Toast>
 
                         { this.renderButton() }
                     </Form>

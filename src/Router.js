@@ -13,10 +13,9 @@ class RouterComponent extends React.Component {
           </Scene>
           <Scene key="select">
             <Scene
-              key="ProfileSelector"
+              key="profileSelector"
               component={ProfileSelector}
-              title="Select a Profile"
-              initial
+              hideNavBar
             />
           </Scene>
         </Scene>

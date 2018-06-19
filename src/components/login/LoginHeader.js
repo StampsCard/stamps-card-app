@@ -18,7 +18,7 @@ const styles = {
     headerStyle: {
         backgroundColor: '#fff',
         height: 100,
-        paddingTop: 20,
+        paddingTop: 40,
         justifyContent: 'space-between'
     },
 
