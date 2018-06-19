@@ -1,10 +1,15 @@
 module.exports.logIn = (email, password) => {
-
     'use strict';
 
-    if (['ricard@stampscard.com', 'david@stampscard.com', 'peter@stampscard.com'].indexOf(email) >= 0) {
+    const validEmails = [
+      'ricard@stampscard.com',
+      'david@stampscard.com',
+      'peter@stampscard.com'
+    ];
+
+    if (validEmails.indexOf(email) >= 0) {
         return {
-            'id': '1',
+            id: '1',
             email,
             password,
             role: 'BUSINESS_OWNER'
@@ -13,7 +18,7 @@ module.exports.logIn = (email, password) => {
 
     if (email === 'customer@stampscard.com') {
         return {
-            'id': '1',
+            id: '1',
             email,
             password,
             role: 'CUSTOMER'
