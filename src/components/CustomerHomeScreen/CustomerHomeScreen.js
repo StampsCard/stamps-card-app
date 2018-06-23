@@ -3,16 +3,21 @@ import {
   Container,
   Content
 } from 'native-base';
-import { SimpleHeader, Button, NavBar } from '../common';
+import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 
 class CustomerHomeScreen extends React.Component {
+  openDrawer() {
+    console.log('Drawer open');
+    this.props.navigation.navigate('DrawerOpen');
+  }
   render() {
     const { menuButton } = styles;
     return (
       <Container>
         <NavBar
-          onPressMenu={() => this.props.navigation.navigate('DrawerOpen')}
+          onPressMenu={this.openDrawer.bind(this)}
         />
+        <BackgroundImage />
         <Content padder>
             <SimpleHeader />
             <Button style={menuButton}>

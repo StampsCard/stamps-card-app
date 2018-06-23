@@ -13,11 +13,6 @@ class RouterComponent extends React.Component {
         <Scene key="root" hideNavBar>
           <Scene key="auth" hideNavBar>
             <Scene key="login" component={LoginForm} initial />
-            <Scene
-              key="customerHomeScreen"
-              component={CustomerHomeScreen}
-              initial
-            />
           </Scene>
           <Scene key="main" hideNavBar>
             <Scene
