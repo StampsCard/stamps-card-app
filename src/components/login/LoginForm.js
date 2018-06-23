@@ -38,7 +38,8 @@ class LoginForm extends React.Component {
       Toast.show({
         text: this.props.error,
         buttonText: 'Okay',
-        position: 'bottom'
+        position: 'bottom',
+        duration: 5000
       });
     }
   }
@@ -48,8 +49,10 @@ class LoginForm extends React.Component {
       return <Spinner size="large" />;
     }
     return (
-      <Button onPress={this.onButtonPress.bind(this)}>
-        Login
+      <Button
+        onPress={this.onButtonPress.bind(this)}
+      >
+        LOGIN
       </Button>
     );
   }
@@ -81,9 +84,12 @@ class LoginForm extends React.Component {
                             />
                         </FormItem>
 
+                        <FormItem>
+                          { this.renderButton() }
+                        </FormItem>
+
                         { this.renderToast() }
 
-                        { this.renderButton() }
                     </Form>
                 </Content>
             </Container>
@@ -110,10 +116,6 @@ const styles = {
   containerStyle: {
       alignItems: 'center',
       width: '100%'
-  },
-
-  contentStyle: {
-      fontFamily: 'Roboto'
   },
 
   backgroundImageStyle: {

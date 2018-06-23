@@ -3,6 +3,8 @@ import { Scene, Router } from 'react-native-router-flux';
 import LoginForm from './components/login/LoginForm';
 import ProfileSelector from './components/ProfileSelector';
 import Welcome from './components/Welcome';
+import MyCustomers from './components/MyCustomers';
+import MyStores from './components/MyStores';
 
 class RouterComponent extends React.Component {
   render() {
@@ -25,6 +27,16 @@ class RouterComponent extends React.Component {
               key="welcome"
               component={Welcome}
               hideNavBar
+            />
+
+            <Scene
+              key="myCustomers"
+              component={MyCustomers}
+            />
+
+            <Scene
+              key="myStores"
+              component={MyStores}
             />
           </Scene>
         </Scene>
