@@ -2,9 +2,9 @@ import React from 'react';
 import { Header, Body, Left, Right } from 'native-base';
 import { Logo } from '../common';
 
-const SimpleHeader = () => {
+const SimpleHeader = ({ style }) => {
     return (
-        <Header style={styles.headerStyle}>
+        <Header style={[styles.headerStyle, style]}>
             <Left />
             <Body style={styles.bodyStyle}>
                 <Logo />

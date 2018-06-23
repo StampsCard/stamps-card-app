@@ -13,12 +13,12 @@ import { FormItem } from '.';
 
 class LoginForm extends React.Component {
 
-constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-        showToast: false
+      showToast: false
     };
-}
+  }
 
   onEmailChange(text) {
     this.props.emailChanged(text);
@@ -33,6 +33,15 @@ constructor(props) {
     this.props.loginUser({ email, password });
   }
 
+  renderToast() {
+    if (this.props.error) {
+      Toast.show({
+        text: this.props.error,
+        buttonText: 'Okay',
+        position: 'bottom'
+      });
+    }
+  }
 
   renderButton() {
     if (this.props.loading) {
@@ -72,15 +81,7 @@ constructor(props) {
                             />
                         </FormItem>
 
-                        <Toast
-                            showToast={this.props.error}
-                            buttonPress={() => this.setState({
-                                showToast: !this.props.error
-                            })}
-                            position="bottom"
-                        >
-                          { this.props.error }
-                        </Toast>
+                        { this.renderToast() }
 
                         { this.renderButton() }
                     </Form>
