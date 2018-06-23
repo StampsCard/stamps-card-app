@@ -45,10 +45,10 @@ export const goToMainPage = (user, profileId) => {
         payload: user
       });
       if (BUSINESS_OWNER === profileId) {
-        return Actions.myStores({ user });
+        return Actions.businessOwnerHomeScreen({ user });
       }
       if (CUSTOMER === profileId) {
-        return Actions.myCustomers({ user });
+        return Actions.customerHomeScreen({ user });
       }
       return Actions.login({ error: 'The profile selected is incorrect.' });
    };

@@ -7,3 +7,4 @@ export * from './CardSection';
 export * from './Logo';
 export * from './BackgroundImage';
 export * from './SimpleHeader';
+export * from './NavBar';
