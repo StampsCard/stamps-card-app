@@ -9,59 +9,64 @@ import {
   Right,
   Body,
   Header,
-  Button,
+  Button as NativeButton,
   Icon
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import { BackgroundImage } from '../common';
+import { BackgroundImage, Button } from '../common';
 
-const PaymentDetail = ({ payment }) => {
-  console.log(payment);
-  const { cardItemStyle, boldText, contentStyle } = styles;
-  return (
-    <Container>
-      <BackgroundImage />
-      <Header>
-        <Left />
-        <Body>
-          <Text>Payment Details</Text>
-        </Body>
-        <Right>
-          <Button
-            transparent
-            onPress={() => Actions.pop()}
-          >
-            <Icon name="ios-arrow-dropleft" />
+class PaymentDetail extends React.Component {
+  render() {
+    const { cardItemStyle, boldText, contentStyle } = styles;
+    return (
+      <Container>
+        <BackgroundImage />
+        <Header>
+          <Left />
+          <Body>
+            <Text>Payment Details</Text>
+          </Body>
+          <Right>
+            <NativeButton
+              transparent
+              onPress={() => Actions.myLastPayments()}
+            >
+              <Icon name="ios-arrow-dropleft" />
+            </NativeButton>
+          </Right>
+        </Header>
+        <Content style={contentStyle}>
+          <Card>
+            <CardItem style={cardItemStyle}>
+              <Text style={boldText}>Business:</Text>
+              <Text>{this.props.payment.business}</Text>
+            </CardItem>
+            <CardItem style={cardItemStyle}>
+              <Text style={boldText}>Amount:</Text>
+              <Text> {this.props.payment.amount} $</Text>
+            </CardItem>
+            <CardItem style={cardItemStyle}>
+              <Text style={boldText}># of Stamps:</Text>
+              <Text>{this.props.payment.stamps}</Text>
+            </CardItem>
+            <CardItem style={cardItemStyle}>
+              <Text style={boldText}>Date:</Text>
+              <Text>{this.props.payment.confirmedAt}</Text>
+            </CardItem>
+            <CardItem style={cardItemStyle}>
+              <Text style={boldText}>Concept:</Text>
+              <Text>{this.props.payment.concept}</Text>
+            </CardItem>
+          </Card>
+
+          <Button onPress={() => Actions.myLastPayments()}>
+            Go back to payments
           </Button>
-        </Right>
-      </Header>
-      <Content style={contentStyle}>
-        <Card>
-          <CardItem style={cardItemStyle}>
-            <Text style={boldText}>Business:</Text>
-            <Text>MediaMarkt</Text>
-          </CardItem>
-          <CardItem style={cardItemStyle}>
-            <Text style={boldText}>Amount:</Text>
-            <Text> 10.0 $</Text>
-          </CardItem>
-          <CardItem style={cardItemStyle}>
-            <Text style={boldText}># of Stamps:</Text>
-            <Text>5</Text>
-          </CardItem>
-          <CardItem style={cardItemStyle}>
-            <Text style={boldText}>Date:</Text>
-            <Text>20-02-2018</Text>
-          </CardItem>
-          <CardItem style={cardItemStyle}>
-            <Text style={boldText}>Concept:</Text>
-            <Text>Some stuff</Text>
-          </CardItem>
-        </Card>
-      </Content>
-    </Container>
-  );
-};
+        </Content>
+      </Container>
+    );
+  }
+}
 
 export default PaymentDetail;
 
