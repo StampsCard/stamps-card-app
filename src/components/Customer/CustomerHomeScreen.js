@@ -3,10 +3,15 @@ import {
   Container,
   Content
 } from 'native-base';
-
+import { Actions } from 'react-native-router-flux';
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 
 class CustomerHomeScreen extends React.Component {
+
+  lastPayments() {
+    Actions.myLastPayments({ user: this.props.userLogged });
+  }
+
   render() {
     const { menuButton } = styles;
     return (
@@ -18,7 +23,10 @@ class CustomerHomeScreen extends React.Component {
             <Button style={menuButton}>
               Scan a purcharse code
             </Button>
-            <Button style={menuButton}>
+            <Button
+              style={menuButton}
+              onPress={this.lastPayments.bind(this)}
+            >
               My Last payments
             </Button>
             <Button style={menuButton}>

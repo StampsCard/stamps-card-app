@@ -18,7 +18,7 @@ export const businessOwnerSelected = (user) => {
       text: 'Business Owner'
     };
 
-    Actions.welcome({ user, profile });
+    Actions.welcome({ userLogged: user, profile });
   };
 };
 
@@ -34,7 +34,7 @@ export const customerSelected = (user) => {
       text: 'Customer'
     };
 
-    Actions.welcome({ user, profile });
+    Actions.welcome({ userLogged: user, profile });
   };
 };
 
@@ -45,10 +45,10 @@ export const goToMainPage = (user, profileId) => {
         payload: user
       });
       if (BUSINESS_OWNER === profileId) {
-        return Actions.businessOwnerHomeScreen({ user });
+        return Actions.businessOwnerHomeScreen({ userLogged: user });
       }
       if (CUSTOMER === profileId) {
-        return Actions.customerHomeScreen({ user });
+        return Actions.customerHomeScreen({ userLogged: user });
       }
       return Actions.login({ error: 'The profile selected is incorrect.' });
    };

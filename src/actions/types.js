@@ -9,3 +9,6 @@ export const LOGIN_USER_STARTS = 'login_user_starts';
 export const BUSINESS_OWNER_SELECTED = 'business_owner_selected';
 export const CUSTOMER_SELECTED = 'customer_selected';
 export const MAIN_PAGE = 'main_page';
+
+//CUSTOMER
+export const LAST_PAYMENTS_FETCH_SUCCESS = 'last_payments_fetch_success';

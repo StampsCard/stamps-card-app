@@ -9,8 +9,8 @@ import { goToMainPage } from '../actions';
 class Welcome extends React.Component {
   componentDidMount() {
     setTimeout(() => {
-      this.props.goToMainPage(this.props.user, this.props.profile.id);
-    }, 3000);
+      this.props.goToMainPage(this.props.userLogged, this.props.profile.id);
+    }, 1500);
   }
 
   render() {

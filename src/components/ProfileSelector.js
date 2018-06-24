@@ -8,11 +8,11 @@ import { businessOwnerSelected, customerSelected } from '../actions';
 
 class ProfileSelector extends React.Component {
   pressBusinessOwnerButton() {
-    this.props.businessOwnerSelected(this.props.user);
+    this.props.businessOwnerSelected(this.props.userLogged);
   }
 
   pressCustomerButton() {
-    this.props.customerSelected(this.props.user);
+    this.props.customerSelected(this.props.userLogged);
   }
   render() {
     const {

@@ -14,12 +14,6 @@ class RouterComponent extends React.Component {
         <Scene key="root" hideNavBar>
           <Scene key="auth" hideNavBar>
             <Scene key="login" component={LoginForm} />
-            <Scene
-              key="myLastPayments"
-              component={MyLastPayments}
-              hideNavBar
-              initial
-            />
           </Scene>
           <Scene key="main" hideNavBar>
             <Scene

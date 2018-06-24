@@ -1,16 +1,30 @@
 import React from 'react';
 import {
   Container,
-  Content,
-  Card,
-  CardItem,
-  Icon,
-  Text,
-  Right
+  Content
 } from 'native-base';
+import { FlatList } from 'react-native';
+import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
+import { fetchLastPayments } from '../../actions';
+import LastPaymentItem from './fragments/LastPaymentItem';
 
 class MyLastPayments extends React.Component {
+
+  componentWillMount() {
+    this.props.fetchLastPayments(this.props.user.id);
+  }
+
+  renderItems() {
+    console.log(this.props);
+    return (
+      <FlatList
+        data={this.props.lastPayments}
+        renderItem={(payment) => <LastPaymentItem payment={payment} />}
+      />
+    );
+  }
+
   render() {
     return (
       <Container>
@@ -18,46 +32,15 @@ class MyLastPayments extends React.Component {
         <BackgroundImage />
         <Content padder>
           <Title>My Last Payments</Title>
-          <Card>
-            <CardItem style={styles.cardContent} bordered>
-                <Icon active name="card" />
-                <Text>Jumbo Supermarkt</Text>
-                <Text>30.0 $</Text>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-            </CardItem>
-            <CardItem style={styles.cardContent} bordered>
-                <Icon active name="card" />
-                <Text>Jumbo Supermarkt</Text>
-                <Text>30.0 $</Text>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-            </CardItem>
-            <CardItem style={styles.cardContent} bordered>
-                <Icon active name="card" />
-                <Text>Jumbo Supermarkt</Text>
-                <Text>30.0 $</Text>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-            </CardItem>
-          </Card>
+          {this.renderItems()}
         </Content>
       </Container>
     );
   }
 }
 
-const styles = {
-    cardContent: {
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      borderBottom: 1,
-      borderColor: ''
-    }
+const mapStateToProps = (state) => {
+  return { lastPayments: state.customer.lastPayments };
 };
 
-export default MyLastPayments;
+export default connect(mapStateToProps, { fetchLastPayments })(MyLastPayments);
