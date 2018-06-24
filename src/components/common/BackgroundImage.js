@@ -11,7 +11,8 @@ const BackgroundImage = () => {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          opacity: 0.2
+          opacity: 0.2,
+          zIndex: -1
         }}
         source={require('../../../resources/img/login_background.jpg')}
       />

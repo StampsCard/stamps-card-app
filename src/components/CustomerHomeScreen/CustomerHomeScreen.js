@@ -3,20 +3,15 @@ import {
   Container,
   Content
 } from 'native-base';
+
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 
 class CustomerHomeScreen extends React.Component {
-  openDrawer() {
-    console.log('Drawer open');
-    this.props.navigation.navigate('DrawerOpen');
-  }
   render() {
     const { menuButton } = styles;
     return (
       <Container>
-        <NavBar
-          onPressMenu={this.openDrawer.bind(this)}
-        />
+        <NavBar />
         <BackgroundImage />
         <Content padder>
             <SimpleHeader />
@@ -24,7 +19,7 @@ class CustomerHomeScreen extends React.Component {
               Scan a purcharse code
             </Button>
             <Button style={menuButton}>
-              My Last Payments
+              My Last payments
             </Button>
             <Button style={menuButton}>
               Stores

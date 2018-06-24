@@ -6,17 +6,11 @@ import {
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 
 class BusinessOwnerHomeScreen extends React.Component {
-  openDrawer() {
-    console.log('Drawer open');
-    this.props.navigation.navigate('DrawerOpen');
-  }
   render() {
     const { menuButton } = styles;
     return (
       <Container>
-        <NavBar
-          onPressMenu={this.openDrawer.bind(this)}
-        />
+        <NavBar />
         <BackgroundImage />
         <Content padder>
             <SimpleHeader />

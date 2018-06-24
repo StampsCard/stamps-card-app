@@ -12,7 +12,13 @@ class RouterComponent extends React.Component {
       <Router>
         <Scene key="root" hideNavBar>
           <Scene key="auth" hideNavBar>
-            <Scene key="login" component={LoginForm} initial />
+            <Scene key="login" component={LoginForm} />
+            <Scene
+              key="customerHomeScreen"
+              component={CustomerHomeScreen}
+              hideNavBar
+              initial
+            />
           </Scene>
           <Scene key="main" hideNavBar>
             <Scene
@@ -28,7 +34,7 @@ class RouterComponent extends React.Component {
               hideNavBar
             />
 
-            <Scene key="customer" hideNavBar>
+            <Scene key="customer" hideNavBar drawer>
               <Scene
                 key="customerHomeScreen"
                 component={CustomerHomeScreen}
@@ -39,6 +45,7 @@ class RouterComponent extends React.Component {
             <Scene
               key="businessOwner"
               hideNavBar
+              drawer
             >
               <Scene
                 key="businessOwnerHomeScreen"
