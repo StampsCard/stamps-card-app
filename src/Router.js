@@ -1,11 +1,12 @@
 import React from 'react';
-import { Scene, Router } from 'react-native-router-flux';
+import { Scene, Router, Lightbox } from 'react-native-router-flux';
 import LoginForm from './components/login/LoginForm';
 import ProfileSelector from './components/ProfileSelector';
 import Welcome from './components/Welcome';
 import CustomerHomeScreen from './components/Customer/CustomerHomeScreen';
 import BusinessOwnerHomeScreen from './components/BusinessOwner/BusinessOwnerHomeScreen';
 import MyLastPayments from './components/Customer/MyLastPayments';
+import PaymentDetail from './components/Customer/PaymentDetail';
 
 class RouterComponent extends React.Component {
   render() {
@@ -29,18 +30,26 @@ class RouterComponent extends React.Component {
               hideNavBar
             />
 
-            <Scene key="customer" hideNavBar drawer>
-              <Scene
-                key="customerHomeScreen"
-                component={CustomerHomeScreen}
-                hideNavBar
-              />
-              <Scene
-                key="myLastPayments"
-                component={MyLastPayments}
-                hideNavBar
-              />
-            </Scene>
+            <Lightbox>
+              <Scene key="customer" hideNavBar drawer>
+                <Scene
+                  key="customerHomeScreen"
+                  component={CustomerHomeScreen}
+                  hideNavBar
+                  initial
+                />
+                <Scene
+                  key="myLastPayments"
+                  component={MyLastPayments}
+                  hideNavBar
+                />
+                <Scene
+                  key="paymentDetail"
+                  component={PaymentDetail}
+                  hideNavBar
+                />
+              </Scene>
+            </Lightbox>
 
             <Scene
               key="businessOwner"

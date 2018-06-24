@@ -16,7 +16,6 @@ class MyLastPayments extends React.Component {
   }
 
   renderItems() {
-    console.log(this.props);
     return (
       <FlatList
         data={this.props.lastPayments}

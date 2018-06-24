@@ -1,20 +1,32 @@
 import React from 'react';
 import { ListItem, Text, Right, Icon } from 'native-base';
+import { Actions } from 'react-native-router-flux';
 
-const LastPaymentItem = ({ payment }) => {
-  const item = payment.item;
-  const { cardContentStyle, nameTextStyle, amountTextStyle } = styles;
-  return (
-    <ListItem style={cardContentStyle} bordered>
-        <Icon active name="card" />
-        <Text style={nameTextStyle}>{item.business}</Text>
-        <Text style={amountTextStyle}>{item.amount}$</Text>
-        <Right>
-          <Icon name="arrow-forward" />
-        </Right>
-    </ListItem>
-  );
-};
+class LastPaymentItem extends React.Component {
+  openDetail() {
+    Actions.push('paymentDetail', { payment: this.props.payment.item });
+  }
+
+  render() {
+    const item = this.props.payment.item;
+    const { cardContentStyle, nameTextStyle, amountTextStyle } = styles;
+    return (
+      <ListItem
+        style={cardContentStyle}
+        key={item.id}
+        onPress={this.openDetail.bind(this)}
+        bordered
+      >
+          <Icon active name="card" />
+          <Text style={nameTextStyle}>{item.business}</Text>
+          <Text style={amountTextStyle}>{item.amount}$</Text>
+          <Right>
+              <Icon name="arrow-forward" />
+          </Right>
+      </ListItem>
+    );
+  }
+}
 
 const styles = {
     cardContentStyle: {
