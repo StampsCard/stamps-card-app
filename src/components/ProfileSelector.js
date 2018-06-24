@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text } from 'react-native';
 
-import { Container, Content, H1, H2, Button } from 'native-base';
-import { BackgroundImage, SimpleHeader } from './common';
+import { Container, Content, H2, Button } from 'native-base';
+import { BackgroundImage, SimpleHeader, Title } from './common';
 import { businessOwnerSelected, customerSelected } from '../actions';
 
 class ProfileSelector extends React.Component {
@@ -17,8 +17,6 @@ class ProfileSelector extends React.Component {
   render() {
     const {
       containerButtonStyle,
-      titleContainerStyle,
-      titleStyle,
       buttonStyle,
       textButtonStyle,
       subTitleStyle
@@ -29,9 +27,7 @@ class ProfileSelector extends React.Component {
           <BackgroundImage />
           <SimpleHeader />
           <Content contentContainerStyle={styles.contentContainer}>
-            <View style={titleContainerStyle}>
-              <H1 style={titleStyle}>Who are you?</H1>
-            </View>
+            <Title>Who are you?</Title>
             <View style={containerButtonStyle}>
                 <Button
                   style={buttonStyle}
@@ -57,18 +53,6 @@ class ProfileSelector extends React.Component {
 }
 
 const styles = {
-  titleContainerStyle: {
-    width: '100%',
-    alignItems: 'center',
-    borderBottomWidth: 0,
-    marginBottom: 25
-  },
-
-   titleStyle: {
-    color: '#80ADD3',
-    marginVertical: 10,
-    fontWeight: 'bold'
-   },
 
   subTitleStyle: {
       color: '#80ADD3',
