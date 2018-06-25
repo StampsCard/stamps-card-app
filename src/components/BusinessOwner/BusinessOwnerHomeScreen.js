@@ -3,9 +3,15 @@ import {
   Container,
   Content
 } from 'native-base';
+import { Actions } from 'react-native-router-flux';
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 
 class BusinessOwnerHomeScreen extends React.Component {
+
+  myCustomers() {
+    Actions.myCustomers({ user: this.props.userLogged });
+  }
+
   render() {
     const { menuButton } = styles;
     return (
@@ -17,7 +23,7 @@ class BusinessOwnerHomeScreen extends React.Component {
             <Button style={menuButton}>
               Register a purchase
             </Button>
-            <Button style={menuButton}>
+            <Button style={menuButton} onPress={this.myCustomers.bind(this)}>
               My Customers
             </Button>
         </Content>
