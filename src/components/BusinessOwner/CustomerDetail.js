@@ -15,7 +15,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 import { BackgroundImage, Button } from '../common';
 
-class PaymentDetail extends React.Component {
+class CustomerDetail extends React.Component {
   render() {
     const { cardItemStyle, boldText, contentStyle } = styles;
     return (
@@ -66,7 +66,7 @@ class PaymentDetail extends React.Component {
   }
 }
 
-export default PaymentDetail;
+export default CustomerDetail;
 
 const styles = {
   contentStyle: {
