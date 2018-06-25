@@ -9,7 +9,7 @@ module.exports.fetch = (businessId) => {
         firstName: 'David',
         lastName: 'Sola',
         lastPayment: '10/11/17',
-        Spend: 156.50
+        spent: 156.50
       },
       {
         id: 2,
@@ -18,7 +18,7 @@ module.exports.fetch = (businessId) => {
         firstName: 'Ricard',
         lastName: 'Bague',
         lastPayment: '10/11/17',
-        Spend: 156.50
+        spent: 156.50
       },
       {
         id: 1,
@@ -27,7 +27,7 @@ module.exports.fetch = (businessId) => {
         firstName: 'Peter',
         lastName: 'Joustra',
         lastPayment: '10/11/17',
-        Spend: 156.50
+        spent: 156.50
       },
       {
         id: 1,
@@ -36,7 +36,7 @@ module.exports.fetch = (businessId) => {
         firstName: 'Lillian',
         lastName: 'Dampah',
         lastPayment: '10/11/17',
-        Spend: 156.50
+        spent: 156.50
       },
     ];
 };

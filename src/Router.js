@@ -8,6 +8,7 @@ import BusinessOwnerHomeScreen from './components/BusinessOwner/BusinessOwnerHom
 import MyLastPayments from './components/Customer/MyLastPayments';
 import PaymentDetail from './components/Customer/PaymentDetail';
 import MyCustomers from './components/BusinessOwner/MyCustomers';
+import CustomerDetail from './components/BusinessOwner/CustomerDetail';
 
 class RouterComponent extends React.Component {
   render() {
@@ -65,6 +66,11 @@ class RouterComponent extends React.Component {
               <Scene
                 key="myCustomers"
                 component={MyCustomers}
+                hideNavBar
+              />
+              <Scene
+                key="customerDetail"
+                component={CustomerDetail}
                 hideNavBar
               />
             </Scene>
