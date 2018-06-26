@@ -8,6 +8,7 @@ import CustomerHomeScreen from './components/Customer/CustomerHomeScreen';
 import MyLastPayments from './components/Customer/MyLastPayments';
 import PaymentDetail from './components/Customer/PaymentDetail';
 import MyStores from './components/Customer/MyStores';
+import MyStampCards from './components/Customer/MyStampCards';
 
 import BusinessOwnerHomeScreen from './components/BusinessOwner/BusinessOwnerHomeScreen';
 import MyCustomers from './components/BusinessOwner/MyCustomers';
@@ -62,6 +63,11 @@ class RouterComponent extends React.Component {
                 <Scene
                   key="storeDetail"
                   component={StoreDetail}
+                  hideNavBar
+                />
+                <Scene
+                  key="myStampCards"
+                  component={MyStampCards}
                   hideNavBar
                 />
               </Scene>

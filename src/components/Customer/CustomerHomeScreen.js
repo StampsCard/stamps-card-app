@@ -16,6 +16,10 @@ class CustomerHomeScreen extends React.Component {
     Actions.myStores({ user: this.props.userLogged });
   }
 
+  myStampCards() {
+    Actions.myStampCards({ user: this.props.userLogged });
+  }
+
   render() {
     const { menuButton } = styles;
     return (
@@ -29,15 +33,21 @@ class CustomerHomeScreen extends React.Component {
             </Button>
             <Button
               style={menuButton}
+              onPress={this.myStampCards.bind(this)}
+            >
+              My stamps
+            </Button>
+            <Button
+              style={menuButton}
               onPress={this.lastPayments.bind(this)}
             >
-              My Last payments
+              My last payments
             </Button>
             <Button
               style={menuButton}
               onPress={this.myStores.bind(this)}
             >
-              Stores
+              My stores
             </Button>
         </Content>
       </Container>
