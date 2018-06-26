@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 
 class MyStoreItem extends React.Component {
   openDetail() {
-    Actions.paymentDetail({ store: this.props.store.item });
+    Actions.storeDetail({ store: this.props.store.item });
   }
 
   render() {
