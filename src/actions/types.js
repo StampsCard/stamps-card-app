@@ -12,6 +12,7 @@ export const MAIN_PAGE = 'main_page';
 
 //CUSTOMER
 export const LAST_PAYMENTS_FETCH_SUCCESS = 'last_payments_fetch_success';
+export const MY_STORES_FETCH_SUCCESS = 'my_stores_fetch_success';
 
 //BUSINESS OWNER
 export const MY_CUSTOMERS_FETCH_SUCCESS = 'my_customers_fetch_success';

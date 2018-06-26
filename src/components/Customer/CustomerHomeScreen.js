@@ -12,6 +12,10 @@ class CustomerHomeScreen extends React.Component {
     Actions.myLastPayments({ user: this.props.userLogged });
   }
 
+  myStores() {
+    Actions.myStores({ user: this.props.userLogged });
+  }
+
   render() {
     const { menuButton } = styles;
     return (
@@ -29,7 +33,10 @@ class CustomerHomeScreen extends React.Component {
             >
               My Last payments
             </Button>
-            <Button style={menuButton}>
+            <Button
+              style={menuButton}
+              onPress={this.myStores.bind(this)}
+            >
               Stores
             </Button>
         </Content>
