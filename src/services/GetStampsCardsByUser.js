@@ -4,6 +4,7 @@ module.exports.fetch = (userId) => {
     return [
       {
         id: 1,
+        businessName: 'Media Markt',
         stamp_price: 5.0,
         total: 30,
         business: 'Jumbo Supermarkt',
@@ -13,6 +14,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 1,
+        businessName: 'Media Markt',
         stamp_price: 5.0,
         total: 30,
         business: 'Praxis',
@@ -23,6 +25,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 1,
+        businessName: 'Media Markt',
         stamp_price: 5.0,
         total: 30,
         business: 'MediaMarkt',
@@ -33,6 +36,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 1,
+        businessName: 'Media Markt',
         stamp_price: 5.0,
         total: 30,
         business: 'HEMMA',
@@ -42,6 +46,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 1,
+        businessName: 'Media Markt',
         stamp_price: 5.0,
         total: 30,
         business: 'HEMMA',
@@ -52,6 +57,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 1,
+        businessName: 'Media Markt',
         stamp_price: 5.0,
         total: 30,
         business: 'HEMMA',

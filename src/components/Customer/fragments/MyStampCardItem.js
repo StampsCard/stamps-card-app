@@ -1,13 +1,14 @@
 import React from 'react';
-import { ScrollView, Image } from 'react-native';
-import { Card, Item } from 'native-base';
+import { ScrollView, Image, View } from 'react-native';
+import { Card, Item, H2, Text } from 'native-base';
 
 class MyStampCardItem extends React.Component {
 
   renderStamp() {
     let i = 0;
-    const stampsAmount = this.props.stampCard.item.stampsAmount;
-    const totalStamps = this.props.stampCard.item.total;
+    const item = this.props.stampCard.item;
+    const stampsAmount = item.stampsAmount;
+    const totalStamps = item.total;
 
     const stamps = [];
     const { filledStampStyle, emptyStampStyle } = styles;
@@ -33,22 +34,61 @@ class MyStampCardItem extends React.Component {
 
   render() {
     const item = this.props.stampCard.item;
-    const { cardContentStyle, contentContainer } = styles;
+    const {
+      cardContentStyle,
+      contentContainer,
+      h2Style,
+      contentStyle,
+      cardInfoStyle
+    } = styles;
+
     return (
-      <Card
-        style={cardContentStyle}
-        key={item.id}
-        bordered
-      >
-          <ScrollView contentContainerStyle={contentContainer}>
-            {this.renderStamp()}
-          </ScrollView>
-      </Card>
+      <View style={contentStyle}>
+        <H2 style={h2Style}>{item.businessName}</H2>
+        <Card
+          style={cardContentStyle}
+          key={item.id}
+          bordered
+        >
+            <ScrollView contentContainerStyle={contentContainer}>
+              {this.renderStamp()}
+            </ScrollView>
+        </Card>
+
+        <Card style={cardInfoStyle}>
+          <Text
+            style={{ fontWeight: 'bold' }}
+          >
+            You got {item.stampsAmount}/{item.total} Stamps
+          </Text>
+          <Text>You paid {item.spent} €</Text>
+        </Card>
+      </View>
     );
   }
 }
 
 const styles = {
+    contentStyle: {
+      width: '100%',
+      alignItems: 'center'
+    },
+
+    cardInfoStyle: {
+      width: 300,
+      padding: 15,
+      backgroundColor: '#fff',
+      shadowOffset: {
+        width: 5,
+        height: 5
+      },
+      marginBottom: 30,
+      shadowColor: '#020202',
+      shadowOpacity: 0.7,
+      borderWidth: 2,
+      borderRadius: 15
+    },
+
     cardContentStyle: {
       backgroundColor: '#5C9CCB',
       borderColor: '#80ADD3',
@@ -57,7 +97,14 @@ const styles = {
       color: '#FFF',
       paddingLeft: 20,
       width: 300,
-      height: 250
+      height: 250,
+      shadowOffset: {
+        width: 5,
+        height: 5
+      },
+      marginBottom: 5,
+      shadowColor: '#020202',
+      shadowOpacity: 0.7
     },
 
     contentContainer: {
@@ -80,6 +127,10 @@ const styles = {
       width: 40,
       height: 40,
       margin: 10
+    },
+
+    h2Style: {
+      color: '#5C9CCB'
     }
 };
 
