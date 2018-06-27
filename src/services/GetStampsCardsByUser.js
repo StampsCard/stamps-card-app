@@ -5,7 +5,7 @@ module.exports.fetch = (userId) => {
       {
         id: 1,
         stamp_price: 5.0,
-        total: 60,
+        total: 30,
         business: 'Jumbo Supermarkt',
         discount: 'Free bottle',
         spent: 15.30,

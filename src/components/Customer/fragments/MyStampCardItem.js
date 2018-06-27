@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Image } from 'react-native';
 import { Card, Item } from 'native-base';
 
 class MyStampCardItem extends React.Component {
@@ -13,7 +13,14 @@ class MyStampCardItem extends React.Component {
     const { filledStampStyle, emptyStampStyle } = styles;
 
     for (i = 0; i < stampsAmount; ++i) {
-        stamps.push(<Item style={filledStampStyle} />);
+        stamps.push(
+          <Item style={filledStampStyle}>
+            <Image
+              source={require('../../../../resources/img/stamp.png')}
+              style={{ width: 50, height: 50 }}
+            />
+          </Item>
+        );
     }
 
     for (i = 0; i < totalStamps - stampsAmount; ++i) {
