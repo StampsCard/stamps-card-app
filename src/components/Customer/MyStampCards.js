@@ -3,7 +3,7 @@ import {
   Container,
   Content
 } from 'native-base';
-import { FlatList } from 'react-native';
+import { FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
 import { fetchStamps } from '../../actions';
@@ -31,15 +31,22 @@ class MyStampCards extends React.Component {
         <BackgroundImage />
         <Content padder>
           <Title>My Stamp Cards</Title>
-          {this.renderItems()}
+          <ScrollView contentContainerStyle={styles.contentContainer}>
+            {this.renderItems()}
+          </ScrollView>
         </Content>
       </Container>
     );
   }
 }
 
+const styles = {
+  contentContainer: {
+    alignItems: 'center'
+  }
+};
+
 const mapStateToProps = (state) => {
-  console.log(state.customer);
   return { stampCards: state.customer.stampCards };
 };
 

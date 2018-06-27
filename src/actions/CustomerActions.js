@@ -31,7 +31,6 @@ export const fetchBusinesses = (user) => {
 export const fetchStamps = (user) => {
   return (dispatch) => {
     const stampCards = GetStampsCardsByUserService.fetch(user.id);
-    console.log(stampCards);
     dispatch({
       type: STAMPS_CARDS_FETCH_SUCCESS,
       payload: { stampCards }

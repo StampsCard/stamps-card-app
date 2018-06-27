@@ -5,10 +5,11 @@ module.exports.fetch = (userId) => {
       {
         id: 1,
         stamp_price: 5.0,
-        total: 30,
+        total: 60,
         business: 'Jumbo Supermarkt',
         discount: 'Free bottle',
-        spent: 15.30
+        spent: 15.30,
+        stampsAmount: 5
       },
       {
         id: 1,
@@ -16,7 +17,9 @@ module.exports.fetch = (userId) => {
         total: 30,
         business: 'Praxis',
         discount: 'Free tool',
-        spent: 14.50
+        spent: 14.50,
+        stampsAmount: 2
+
       },
       {
         id: 1,
@@ -24,7 +27,9 @@ module.exports.fetch = (userId) => {
         total: 30,
         business: 'MediaMarkt',
         discount: 'Phone battery',
-        spent: 18.30
+        spent: 18.30,
+        stampsAmount: 2
+
       },
       {
         id: 1,
@@ -32,7 +37,28 @@ module.exports.fetch = (userId) => {
         total: 30,
         business: 'HEMMA',
         discount: 'bike chain',
-        spent: 10
+        spent: 10,
+        stampsAmount: 3
+      },
+      {
+        id: 1,
+        stamp_price: 5.0,
+        total: 30,
+        business: 'HEMMA',
+        discount: 'bike chain',
+        spent: 10,
+        stampsAmount: 3
+
+      },
+      {
+        id: 1,
+        stamp_price: 5.0,
+        total: 30,
+        business: 'HEMMA',
+        discount: 'bike chain',
+        spent: 10,
+        stampsAmount: 3
+
       },
     ];
 };

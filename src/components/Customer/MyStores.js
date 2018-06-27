@@ -16,7 +16,6 @@ class MyStores extends React.Component {
   }
 
   renderItems() {
-    console.log(this.props.stores);
     return (
       <FlatList
         data={this.props.stores}
