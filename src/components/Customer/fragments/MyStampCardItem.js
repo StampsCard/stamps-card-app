@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, Image, View } from 'react-native';
-import { Card, Item, H2, Text } from 'native-base';
+import { Card, Item, H2, Text, Left, Right } from 'native-base';
 
 class MyStampCardItem extends React.Component {
 
@@ -38,6 +38,7 @@ class MyStampCardItem extends React.Component {
       cardContentStyle,
       contentContainer,
       h2Style,
+      boldText,
       contentStyle,
       cardInfoStyle
     } = styles;
@@ -56,12 +57,18 @@ class MyStampCardItem extends React.Component {
         </Card>
 
         <Card style={cardInfoStyle}>
-          <Text
-            style={{ fontWeight: 'bold' }}
-          >
-            You got {item.stampsAmount}/{item.total} Stamps
-          </Text>
-          <Text>You paid {item.spent} €</Text>
+          <Left>
+            <Text>You got</Text>
+            <Text>You paid</Text>
+            <Text>Discount</Text>
+          </Left>
+          <Right>
+            <Text style={boldText}>
+              {item.stampsAmount}/{item.total} stamps
+            </Text>
+            <Text style={boldText}>{item.spent} €</Text>
+            <Text style={boldText}>{item.discount}</Text>
+          </Right>
         </Card>
       </View>
     );
@@ -74,9 +81,18 @@ const styles = {
       alignItems: 'center'
     },
 
+    boldText: {
+      fontWeight: 'bold',
+      marginLeft: 2,
+      marginRight: 2
+    },
+
     cardInfoStyle: {
       width: 300,
       padding: 15,
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
       backgroundColor: '#fff',
       shadowOffset: {
         width: 5,
