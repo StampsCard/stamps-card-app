@@ -12,6 +12,10 @@ class BusinessOwnerHomeScreen extends React.Component {
     Actions.myCustomers({ user: this.props.userLogged });
   }
 
+  registerPurchase() {
+    Actions.registerPurchase({ user: this.props.userLogged });
+  }
+
   render() {
     const { menuButton } = styles;
     return (
@@ -20,7 +24,7 @@ class BusinessOwnerHomeScreen extends React.Component {
         <BackgroundImage />
         <Content padder>
             <SimpleHeader />
-            <Button style={menuButton}>
+            <Button style={menuButton} onPress={this.registerPurchase.bind(this)}>
               Register a purchase
             </Button>
             <Button style={menuButton} onPress={this.myCustomers.bind(this)}>

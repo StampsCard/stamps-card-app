@@ -7,7 +7,7 @@ import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
 import { fetchMyCustomers } from '../../actions';
-import MyCustomerItem from './fragments/MyCustomerItem';
+import MyCustomerItem from './fragments/items/MyCustomerItem';
 
 class MyCustomers extends React.Component {
 
