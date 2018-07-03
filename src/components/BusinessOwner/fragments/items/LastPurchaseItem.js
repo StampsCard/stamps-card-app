@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 
 class LastPurchaseItem extends React.Component {
   openDetail() {
-    Actions.paymentDetail({ payment: this.props.purchase.item });
+    Actions.purchaseDetail({ purchase: this.props.purchase.item });
   }
 
   render() {

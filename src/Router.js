@@ -15,6 +15,7 @@ import BusinessOwnerHomeScreen from './components/BusinessOwner/BusinessOwnerHom
 import MyCustomers from './components/BusinessOwner/MyCustomers';
 import CustomerDetail from './components/BusinessOwner/CustomerDetail';
 import RegisterPurchase from './components/BusinessOwner/RegisterPurchase';
+import PurchaseDetail from './components/BusinessOwner/PurchaseDetail';
 
 class RouterComponent extends React.Component {
   render() {
@@ -97,6 +98,11 @@ class RouterComponent extends React.Component {
               <Scene
                 key="registerPurchase"
                 component={RegisterPurchase}
+                hideNavBar
+              />
+              <Scene
+                key="purchaseDetail"
+                component={PurchaseDetail}
                 hideNavBar
               />
             </Scene>
