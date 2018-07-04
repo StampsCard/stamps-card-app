@@ -18,3 +18,10 @@ export const STAMPS_CARDS_FETCH_SUCCESS = 'stamps_cards_fetch_success';
 //BUSINESS OWNER
 export const MY_CUSTOMERS_FETCH_SUCCESS = 'my_customers_fetch_success';
 export const LAST_PURCHASES_FETCH_SUCCESS = 'last_purchases_fetch_success';
+
+// REGISTER PURCHASE
+export const PRODUCT_CONCEPT_CHANGED = 'product_concept_changed';
+export const AMOUNT_CHANGED = 'amount_changed';
+export const QR_CODE_GENERATION_SUCCESS = 'qr_code_generation_success';
+export const QR_CODE_GENERATION_FAILED = 'qr_code_generation_failed';
+export const QR_CODE_GENERATION_STARTS = 'qr_code_generation_starts';
