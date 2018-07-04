@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import {
   Container,
   Content,
@@ -17,6 +18,11 @@ class LastPurchases extends React.Component {
     this.props.fetchLastPurchases(this.props.user.id);
   }
 
+  registerPurchase() {
+    Actions.registerPurchase({ user: this.props.user });
+  }
+
+
   render() {
     const { buttonView, lastPurchasesView, H2Style } = styles;
 
@@ -26,7 +32,9 @@ class LastPurchases extends React.Component {
         <BackgroundImage />
         <Content padder>
           <View style={buttonView}>
-            <Button>Register Purchase</Button>
+            <Button onPress={this.registerPurchase.bind(this)}>
+              Register Purchase
+            </Button>
           </View>
           <View style={lastPurchasesView}>
             <H2 style={H2Style}>Last Purchases</H2>

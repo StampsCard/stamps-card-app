@@ -12,11 +12,11 @@ import {
 import {
   NavBar,
   BackgroundImage,
-  SimpleHeader,
+  InputWithLabel,
   FormItem,
-  FormInput,
   Spinner,
-  Button
+  Button,
+  Title
 } from '../common';
 
 class RegisterPurchase extends React.Component {
@@ -26,6 +26,10 @@ class RegisterPurchase extends React.Component {
   }
 
   onAmountChange() {
+
+  }
+
+  onButtonPress() {
 
   }
 
@@ -47,28 +51,23 @@ class RegisterPurchase extends React.Component {
   }
 
   render() {
+    const { formStyle } = styles;
+
     return (
       <Container>
         <NavBar />
         <BackgroundImage />
         <Content padder>
-          <SimpleHeader />
-          <Form>
-              <FormItem>
-                  <FormInput
-                      label="Product Concept (optional)"
-                      placeholder="example@email.com"
-                      onChangeText={this.onProductConceptChange.bind(this)}
-                  />
-              </FormItem>
-
-              <FormItem>
-                  <FormInput
-                      label="Amount (€)"
-                      placeholder="30"
-                      onChangeText={this.onAmountChange.bind(this)}
-                  />
-              </FormItem>
+          <Title>Register a purchase</Title>
+          <Form style={formStyle}>
+              <InputWithLabel
+                label="Product Concept (optional)"
+                onChangeText={this.onProductConceptChange.bind(this)}
+              />
+              <InputWithLabel
+                label="Amount (€)"
+                onChangeText={this.onAmountChange.bind(this)}
+              />
 
               <FormItem>
                 { this.renderButton() }
@@ -82,6 +81,12 @@ class RegisterPurchase extends React.Component {
     );
   }
 }
+
+const styles = {
+  formStyle: {
+    margin: 20
+  }
+};
 
 const mapStateToProps = state => {
   return {

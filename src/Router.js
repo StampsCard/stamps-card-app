@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scene, Router, Lightbox } from 'react-native-router-flux';
-import LoginForm from './components/login/LoginForm';
+import LoginForm from './components/LoginForm';
 import ProfileSelector from './components/ProfileSelector';
 import Welcome from './components/Welcome';
 
@@ -16,6 +16,7 @@ import MyCustomers from './components/BusinessOwner/MyCustomers';
 import CustomerDetail from './components/BusinessOwner/CustomerDetail';
 import LastPurchases from './components/BusinessOwner/LastPurchases';
 import PurchaseDetail from './components/BusinessOwner/PurchaseDetail';
+import RegisterPurchase from './components/BusinessOwner/RegisterPurchase';
 
 class RouterComponent extends React.Component {
   render() {
@@ -103,6 +104,11 @@ class RouterComponent extends React.Component {
               <Scene
                 key="purchaseDetail"
                 component={PurchaseDetail}
+                hideNavBar
+              />
+              <Scene
+                key="registerPurchase"
+                component={RegisterPurchase}
                 hideNavBar
               />
             </Scene>

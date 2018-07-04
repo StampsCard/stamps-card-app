@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Toast } from 'native-base';
-import { emailChanged, passwordChanged, loginUser } from '../../actions';
+import { emailChanged, passwordChanged, loginUser } from '../actions';
 import {
   FormInput,
   Button,
   Spinner,
   BackgroundImage,
-  SimpleHeader
-} from '../common';
-import { FormItem } from '.';
+  SimpleHeader,
+  FormItem
+} from './common';
 
 class LoginForm extends React.Component {
 

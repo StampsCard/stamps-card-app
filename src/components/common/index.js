@@ -7,3 +7,5 @@ export * from './BackgroundImage';
 export * from './SimpleHeader';
 export * from './NavBar';
 export * from './Title';
+export * from './FormItem';
+export * from './InputWithLabel';
