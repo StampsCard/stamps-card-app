@@ -22,6 +22,7 @@ export const LAST_PURCHASES_FETCH_SUCCESS = 'last_purchases_fetch_success';
 // REGISTER PURCHASE
 export const PRODUCT_CONCEPT_CHANGED = 'product_concept_changed';
 export const AMOUNT_CHANGED = 'amount_changed';
-export const QR_CODE_GENERATION_SUCCESS = 'qr_code_generation_success';
-export const QR_CODE_GENERATION_FAILED = 'qr_code_generation_failed';
-export const QR_CODE_GENERATION_STARTS = 'qr_code_generation_starts';
+export const PURCHASE_GENERATION_SUCCESS = 'purchase_generation_success';
+export const PURCHASE_GENERATION_FAILED = 'purchase_generation_failed';
+export const PURCHASE_GENERATION_STARTS = 'purchase_generation_starts';
+export const PURCHASE_CANCELED = 'purchase_canceled';

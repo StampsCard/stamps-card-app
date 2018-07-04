@@ -1,10 +1,13 @@
 import {
   PRODUCT_CONCEPT_CHANGED,
   AMOUNT_CHANGED,
-  QR_CODE_GENERATION_STARTS,
-  QR_CODE_GENERATION_FAILED,
-  QR_CODE_GENERATION_SUCCESS
+  PURCHASE_GENERATION_SUCCESS,
+  PURCHASE_GENERATION_FAILED,
+  PURCHASE_GENERATION_STARTS,
+  PURCHASE_CANCELED
 } from './types';
+import GeneratePurchaseService from '../services/GeneratePurchase';
+import CancelPurchaseService from '../services/CancelPurchase';
 
 
 export const productConceptChanged = (text) => ({
@@ -17,21 +20,34 @@ export const amountChanged = (text) => ({
   payload: text
 });
 
-export const generateQrCode = ({ businessId, concept, amount }) => {
+export const generatePurchase = ({ userId, concept, amount }) => {
   return (dispatch) => {
-    dispatch({ type: QR_CODE_GENERATION_STARTS });
-    // generate QR Code given the user concept and amount
+    dispatch({ type: PURCHASE_GENERATION_STARTS });
+    const purchase = GeneratePurchaseService.exec(userId, concept, amount);
+    if (purchase) {
+      purchaseGenerated(dispatch, purchase.id);
+    } else {
+      purchaseGenerationFailed(dispatch);
+    }
   };
 };
 
-export const generateQrCodeFailed = (dispatch) => {
-  dispatch({ type: QR_CODE_GENERATION_FAILED });
+export const purchaseGenerationFailed = (dispatch) => {
+  dispatch({ type: PURCHASE_GENERATION_FAILED });
 };
 
-export const generateQrCodeSuccess = (dispatch, user) => {
+export const purchaseGenerated = (dispatch, purchaseId) => {
+  // Generate the Link
+  const link = 'http://google.es';
   dispatch({
-    type: QR_CODE_GENERATION_SUCCESS,
-    payload: user
+    type: PURCHASE_GENERATION_SUCCESS,
+    payload: { link, purchaseId }
   });
-  // Send the QR Code generated
+};
+
+export const cancelPurchase = (purchaseId) => {
+  return (dispatch) => {
+    CancelPurchaseService.exec(purchaseId);
+    dispatch({ type: PURCHASE_CANCELED });
+  };
 };

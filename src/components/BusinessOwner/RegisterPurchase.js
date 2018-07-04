@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container, Content, Form } from 'native-base';
+import { Container, Content, Form, Toast } from 'native-base';
 import { connect } from 'react-redux';
+import { View } from 'react-native';
+import QRCode from 'react-native-qrcode';
 
 import {
   productConceptChanged,
   amountChanged,
-  generateQrCode,
-  generateQrCodeFailed,
-  generateQrCodeSuccess
+  generatePurchase,
+  purchaseGenerationFailed,
+  purchaseGenerated,
+  cancelPurchase
 } from '../../actions';
 import {
   NavBar,
@@ -21,20 +24,38 @@ import {
 
 class RegisterPurchase extends React.Component {
 
-  onProductConceptChange() {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      showToast: false
+    };
   }
 
-  onAmountChange() {
-
+  onProductConceptChange(text) {
+    this.props.productConceptChanged(text);
   }
 
-  onButtonPress() {
+  onAmountChange(text) {
+    this.props.amountChanged(text);
+  }
 
+  generatePurchase() {
+    this.props.generatePurchase(this.props.user);
+  }
+
+  cancelPurchase() {
+    this.props.cancelPurchase(this.props.purchaseId);
   }
 
   renderToast() {
-
+    if (this.props.error) {
+      Toast.show({
+        text: this.props.error,
+        buttonText: 'Okay',
+        position: 'bottom',
+        duration: 5000
+      });
+    }
   }
 
   renderButton() {
@@ -43,39 +64,72 @@ class RegisterPurchase extends React.Component {
     }
     return (
       <Button
-        onPress={this.onButtonPress.bind(this)}
+        onPress={this.generatePurchase.bind(this)}
       >
         Generate QR Code
       </Button>
     );
   }
 
-  render() {
+  renderForm() {
     const { formStyle } = styles;
+    return (
+      <Form style={formStyle}>
+          <InputWithLabel
+            label="Product Concept (optional)"
+            onChangeText={this.onProductConceptChange.bind(this)}
+          />
+          <InputWithLabel
+            label="Amount (€)"
+            onChangeText={this.onAmountChange.bind(this)}
+          />
 
+          <FormItem>
+            { this.renderButton() }
+          </FormItem>
+
+          { this.renderToast() }
+
+      </Form>
+    );
+  }
+
+  renderQrCode() {
+    return (
+      <View style={styles.qrCodeContent}>
+        <QRCode
+            value={this.props.link}
+            size={300}
+            bgColor='black'
+            fgColor='white'
+        />
+        <Button
+          onPress={this.cancelPurchase.bind(this)}
+          style={styles.cancelPurchaseButton}
+        >
+          Cancel Purchase
+        </Button>
+      </View>
+
+    );
+  }
+
+  renderContent() {
+    if (this.props.link) {
+      return this.renderQrCode();
+    }
+
+    return this.renderForm();
+  }
+
+  render() {
     return (
       <Container>
         <NavBar />
         <BackgroundImage />
         <Content padder>
           <Title>Register a purchase</Title>
-          <Form style={formStyle}>
-              <InputWithLabel
-                label="Product Concept (optional)"
-                onChangeText={this.onProductConceptChange.bind(this)}
-              />
-              <InputWithLabel
-                label="Amount (€)"
-                onChangeText={this.onAmountChange.bind(this)}
-              />
-
-              <FormItem>
-                { this.renderButton() }
-              </FormItem>
-
-              { this.renderToast() }
-
-          </Form>
+          { this.renderContent() }
         </Content>
       </Container>
     );
@@ -85,22 +139,33 @@ class RegisterPurchase extends React.Component {
 const styles = {
   formStyle: {
     margin: 20
+  },
+  qrCodeContent: {
+    width: '100%',
+    alignItems: 'center'
+  },
+  cancelPurchaseButton: {
+    marginTop: 15
   }
 };
 
 const mapStateToProps = state => {
+  console.log(state.registerPurchase);
   return {
     amount: state.registerPurchase.amount,
     productConcept: state.registerPurchase.productConcept,
     error: state.registerPurchase.error,
-    loading: state.registerPurchase.loading
+    loading: state.registerPurchase.loading,
+    link: state.registerPurchase.link,
+    purchaseId: state.registerPurchase.purchaseId
   };
 };
 
 export default connect(mapStateToProps, {
   productConceptChanged,
   amountChanged,
-  generateQrCode,
-  generateQrCodeFailed,
-  generateQrCodeSuccess
+  generatePurchase,
+  purchaseGenerationFailed,
+  purchaseGenerated,
+  cancelPurchase
 })(RegisterPurchase);
