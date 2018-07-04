@@ -29,7 +29,7 @@ class PurchaseDetail extends React.Component {
           <Right>
             <NativeButton
               transparent
-              onPress={() => Actions.registerPurchase()}
+              onPress={() => Actions.lastPurchases()}
             >
               <Icon name="ios-arrow-dropleft" />
             </NativeButton>
@@ -59,7 +59,7 @@ class PurchaseDetail extends React.Component {
             </CardItem>
           </Card>
 
-          <Button onPress={() => Actions.registerPurchase()}>
+          <Button onPress={() => Actions.lastPurchases()}>
             Go back to Register Purchase
           </Button>
         </Content>

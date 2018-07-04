@@ -12,8 +12,8 @@ class BusinessOwnerHomeScreen extends React.Component {
     Actions.myCustomers({ user: this.props.userLogged });
   }
 
-  registerPurchase() {
-    Actions.registerPurchase({ user: this.props.userLogged });
+  lastPurchases() {
+    Actions.lastPurchases({ user: this.props.userLogged });
   }
 
   render() {
@@ -24,7 +24,7 @@ class BusinessOwnerHomeScreen extends React.Component {
         <BackgroundImage />
         <Content padder>
             <SimpleHeader />
-            <Button style={menuButton} onPress={this.registerPurchase.bind(this)}>
+            <Button style={menuButton} onPress={this.lastPurchases.bind(this)}>
               Register a purchase
             </Button>
             <Button style={menuButton} onPress={this.myCustomers.bind(this)}>

@@ -37,7 +37,8 @@ const styles = {
       borderBottomWidth: 2,
       borderColor: '#80ADD3',
       backgroundColor: '#fff',
-      paddingLeft: 10
+      paddingLeft: 10,
+      width: '100%'
     },
     nameTextStyle: {
       width: 100

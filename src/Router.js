@@ -14,7 +14,7 @@ import StoreDetail from './components/Customer/StoreDetail';
 import BusinessOwnerHomeScreen from './components/BusinessOwner/BusinessOwnerHomeScreen';
 import MyCustomers from './components/BusinessOwner/MyCustomers';
 import CustomerDetail from './components/BusinessOwner/CustomerDetail';
-import RegisterPurchase from './components/BusinessOwner/RegisterPurchase';
+import LastPurchases from './components/BusinessOwner/LastPurchases';
 import PurchaseDetail from './components/BusinessOwner/PurchaseDetail';
 
 class RouterComponent extends React.Component {
@@ -96,8 +96,8 @@ class RouterComponent extends React.Component {
                 hideNavBar
               />
               <Scene
-                key="registerPurchase"
-                component={RegisterPurchase}
+                key="lastPurchases"
+                component={LastPurchases}
                 hideNavBar
               />
               <Scene
