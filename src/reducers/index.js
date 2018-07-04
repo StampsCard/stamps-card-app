@@ -4,11 +4,13 @@ import ProfileReducer from './ProfileReducer';
 import CustomerReducer from './CustomerReducer';
 import BusinessOwnerReducer from './BusinessOwnerReducer';
 import RegisterPurchaseReducer from './RegisterPurchaseReducer';
+import ConfirmPurchaseReducer from './ConfirmPurchaseReducer';
 
 export default combineReducers({
   auth: AuthReducer,
   profile: ProfileReducer,
   customer: CustomerReducer,
   businessOwner: BusinessOwnerReducer,
-  registerPurchase: RegisterPurchaseReducer
+  registerPurchase: RegisterPurchaseReducer,
+  confirmPurchase: ConfirmPurchaseReducer
 });

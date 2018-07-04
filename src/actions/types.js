@@ -26,3 +26,7 @@ export const PURCHASE_GENERATION_SUCCESS = 'purchase_generation_success';
 export const PURCHASE_GENERATION_FAILED = 'purchase_generation_failed';
 export const PURCHASE_GENERATION_STARTS = 'purchase_generation_starts';
 export const PURCHASE_CANCELED = 'purchase_canceled';
+
+//CONFIRM PURCHASE
+export const PURCHASE_CONFIRMED = 'purchase_confirmed';
+export const PURCHASE_FETCH_SUCCESS = 'purchase_fetch_success';

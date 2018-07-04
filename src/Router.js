@@ -10,6 +10,7 @@ import PaymentDetail from './components/Customer/PaymentDetail';
 import MyStores from './components/Customer/MyStores';
 import MyStampCards from './components/Customer/MyStampCards';
 import StoreDetail from './components/Customer/StoreDetail';
+import ConfirmPurchase from './components/Customer/ConfirmPurchase';
 
 import BusinessOwnerHomeScreen from './components/BusinessOwner/BusinessOwnerHomeScreen';
 import MyCustomers from './components/BusinessOwner/MyCustomers';
@@ -25,6 +26,8 @@ class RouterComponent extends React.Component {
         <Scene key="root" hideNavBar>
           <Scene key="auth" hideNavBar>
             <Scene key="login" component={LoginForm} />
+            <Scene key="confirmPurchase" component={ConfirmPurchase} initial />
+
           </Scene>
           <Scene key="main" hideNavBar>
             <Scene
