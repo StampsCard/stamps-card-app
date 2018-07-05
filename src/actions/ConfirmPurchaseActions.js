@@ -1,3 +1,5 @@
+import { Actions } from 'react-native-router-flux';
+
 import {
   PURCHASE_FETCH_SUCCESS,
   PURCHASE_CONFIRMED,
@@ -10,7 +12,6 @@ import GetPurchaseByIdService from '../services/GetPurchaseById';
 export const fetchPurchase = (purchaseId) => {
   return (dispatch) => {
     const purchase = GetPurchaseByIdService.exec(purchaseId);
-    console.log('Action', purchase); 
     dispatch({
       type: PURCHASE_FETCH_SUCCESS,
       payload: purchase
@@ -18,12 +19,13 @@ export const fetchPurchase = (purchaseId) => {
   };
 };
 
-export const confirmPurchase = (purchaseId, userId) => {
+export const acceptPurchaseFromConfirmation = (purchaseId, userId) => {
   return (dispatch) => {
     const purchase = ConfirmPurchaseService.exec(purchaseId, userId);
     // Notify the business owner with a PUSH notification
     dispatch({ type: PURCHASE_CONFIRMED, payload: purchase });
     // Redirect to purchase finished
+    Actions.purchaseFinished({ userId });
   };
 };
 
@@ -38,5 +40,6 @@ export const cancelPurchaseFromConfirmation = (purchaseId) => {
       }
     );
     // Redirect to home screen
+    Actions.customerHomeScreen();
   };
 };

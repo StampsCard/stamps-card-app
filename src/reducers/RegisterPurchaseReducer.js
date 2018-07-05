@@ -36,7 +36,8 @@ export default (state = INITIAL_STATE, action) => {
         link: null
       };
     case PURCHASE_GENERATION_SUCCESS:
-      return { ...state,
+      return {
+        ...state,
         link: action.payload.link,
         loading: true,
         purchaseId: action.payload.purchaseId

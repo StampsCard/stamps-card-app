@@ -11,7 +11,6 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case PURCHASE_FETCH_SUCCESS:
-     console.log('Reducer', { ...state, purchase: action.payload });
       return { ...state, purchase: action.payload };
     case PURCHASE_CONFIRMED:
       return { ...state, purchase: action.payload };

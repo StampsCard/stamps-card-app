@@ -11,11 +11,12 @@ import { Text } from 'react-native';
 import { Title, Button, BackgroundImage, NavBar } from '../common';
 import {
   fetchPurchase,
-  confirmPurchase,
+  acceptPurchaseFromConfirmation,
   cancelPurchaseFromConfirmation
 } from '../../actions';
 
 class ConfirmPurchase extends React.Component {
+
   componentWillMount() {
     //this.props.paymentId from Linking
     this.props.fetchPurchase(1);
@@ -23,7 +24,7 @@ class ConfirmPurchase extends React.Component {
 
   confirmPurchase() {
     //user from the logged in
-    this.props.confirmPurchase(1, 1);
+    this.props.acceptPurchaseFromConfirmation(1, 1);
   }
 
   cancelPurchase() {
@@ -37,26 +38,34 @@ class ConfirmPurchase extends React.Component {
       boldText
     } = styles;
 
+    const purchase = this.props.purchase;
+
     return (
       <Card>
         <CardItem style={cardItemStyle}>
           <Text style={boldText}>Business:</Text>
-          <Text>{this.props.purchase.business}</Text>
+          <Text>
+            {purchase ? purchase.business : ''}
+          </Text>
         </CardItem>
 
         <CardItem style={cardItemStyle}>
           <Text style={boldText}>Concept:</Text>
-          <Text>{this.props.purchase.concept}</Text>
+          <Text>
+            {purchase ? purchase.concept : ''}
+          </Text>
         </CardItem>
 
         <CardItem style={cardItemStyle}>
           <Text style={boldText}>Amount:</Text>
-          <Text>{this.props.purchase.amount} €</Text>
+          <Text>
+            {purchase ? purchase.amount : ''} €
+          </Text>
         </CardItem>
 
         <CardItem style={cardItemStyle}>
           <Text style={boldText}>Stamps:</Text>
-          <Text>{this.props.purchase.stamps}</Text>
+          <Text>{purchase ? purchase.stamps : ''}</Text>
         </CardItem>
       </Card>
     );
@@ -94,18 +103,8 @@ class ConfirmPurchase extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('State', state.confirmPurchase);
-
   return { purchase: state.confirmPurchase.purchase };
 };
-
-export default connect(
-  mapStateToProps, {
-    fetchPurchase,
-    confirmPurchase,
-    cancelPurchaseFromConfirmation
-  }
-)(ConfirmPurchase);
 
 const styles = {
   contentStyle: {
@@ -134,3 +133,10 @@ const styles = {
     opacity: 0.6
   }
 };
+
+export default connect(mapStateToProps, {
+    fetchPurchase,
+    acceptPurchaseFromConfirmation,
+    cancelPurchaseFromConfirmation
+  }
+)(ConfirmPurchase);

@@ -20,6 +20,10 @@ class CustomerHomeScreen extends React.Component {
     Actions.myStampCards({ user: this.props.userLogged });
   }
 
+  confirmPurchase() {
+    Actions.confirmPurchase({ user: this.props.userLogged });
+  }
+
   render() {
     const { menuButton } = styles;
     return (
@@ -48,6 +52,13 @@ class CustomerHomeScreen extends React.Component {
               onPress={this.myStores.bind(this)}
             >
               My stores
+            </Button>
+
+            <Button
+              style={menuButton}
+              onPress={this.confirmPurchase.bind(this)}
+            >
+              Confirm Purchase
             </Button>
         </Content>
       </Container>
