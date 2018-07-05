@@ -3,11 +3,13 @@ import { Actions } from 'react-native-router-flux';
 import {
   PURCHASE_FETCH_SUCCESS,
   PURCHASE_CONFIRMED,
-  PURCHASE_CANCELED
+  PURCHASE_CANCELED,
+  USER_FETCH_SUCCESS
 } from './types';
 import CancelPurchaseService from '../services/CancelPurchase';
 import ConfirmPurchaseService from '../services/ConfirmPurchase';
 import GetPurchaseByIdService from '../services/GetPurchaseById';
+import GetUserById from '../services/GetUserById';
 
 export const fetchPurchase = (purchaseId) => {
   return (dispatch) => {
@@ -19,17 +21,17 @@ export const fetchPurchase = (purchaseId) => {
   };
 };
 
-export const acceptPurchaseFromConfirmation = (purchaseId, userId) => {
+export const acceptPurchaseFromConfirmation = (purchaseId, user) => {
   return (dispatch) => {
-    const purchase = ConfirmPurchaseService.exec(purchaseId, userId);
+    const purchase = ConfirmPurchaseService.exec(purchaseId, user.id);
     // Notify the business owner with a PUSH notification
     dispatch({ type: PURCHASE_CONFIRMED, payload: purchase });
     // Redirect to purchase finished
-    Actions.purchaseFinished({ userId });
+    Actions.purchaseFinished({ user });
   };
 };
 
-export const cancelPurchaseFromConfirmation = (purchaseId) => {
+export const cancelPurchaseFromConfirmation = (purchaseId, user) => {
   return (dispatch) => {
     CancelPurchaseService.exec(purchaseId);
     // Notify the business owner with a PUSH notification
@@ -40,6 +42,16 @@ export const cancelPurchaseFromConfirmation = (purchaseId) => {
       }
     );
     // Redirect to home screen
-    Actions.customerHomeScreen();
+    Actions.customerHomeScreen({ userLogged: user });
+  };
+};
+
+export const fetchUser = (userId) => {
+  return (dispatch) => {
+    const user = GetUserById.exec(userId);
+    dispatch({
+      type: USER_FETCH_SUCCESS,
+      payload: user
+    });
   };
 };

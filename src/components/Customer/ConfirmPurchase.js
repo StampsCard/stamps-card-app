@@ -11,6 +11,7 @@ import { Text } from 'react-native';
 import { Title, Button, BackgroundImage, NavBar } from '../common';
 import {
   fetchPurchase,
+  fetchUser,
   acceptPurchaseFromConfirmation,
   cancelPurchaseFromConfirmation
 } from '../../actions';
@@ -18,18 +19,27 @@ import {
 class ConfirmPurchase extends React.Component {
 
   componentWillMount() {
-    //this.props.paymentId from Linking
-    this.props.fetchPurchase(1);
+    //this.props.purchaseId from Linking
+    //this.props.userId from Linking
+    this.props.purchaseId = 1;
+    this.props.userId = 1;
+
+    this.props.fetchPurchase(this.props.purchaseId);
+    this.props.fetchUser(this.props.userId);
   }
 
   confirmPurchase() {
-    //user from the logged in
-    this.props.acceptPurchaseFromConfirmation(1, 1);
+    this.props.acceptPurchaseFromConfirmation(
+      this.props.purchaseId,
+      this.props.user
+    );
   }
 
   cancelPurchase() {
-    //user from the logged in
-    this.props.cancelPurchaseFromConfirmation(1, 1);
+    this.props.cancelPurchaseFromConfirmation(
+      this.props.purchaseId,
+      this.props.user
+    );
   }
 
   renderCard() {
@@ -103,7 +113,10 @@ class ConfirmPurchase extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { purchase: state.confirmPurchase.purchase };
+  return {
+    purchase: state.confirmPurchase.purchase,
+    user: state.confirmPurchase.user
+  };
 };
 
 const styles = {
@@ -137,6 +150,7 @@ const styles = {
 export default connect(mapStateToProps, {
     fetchPurchase,
     acceptPurchaseFromConfirmation,
-    cancelPurchaseFromConfirmation
+    cancelPurchaseFromConfirmation,
+    fetchUser
   }
 )(ConfirmPurchase);

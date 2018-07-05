@@ -3,13 +3,12 @@ import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Container, Content, Text } from 'native-base';
 import { BackgroundImage, SimpleHeader, NavBar, Button } from '../common';
-import { fetchUserInfo, fetchStampsInfo } from '../../actions';
+import { fetchStampsInfo } from '../../actions';
 
 class PurchaseFinished extends React.Component {
 
   componentWillMount() {
-    this.props.fetchUserInfo(this.props.userId);
-    this.props.fetchStampsInfo(this.props.userId);
+    this.props.fetchStampsInfo(this.props.user.id);
   }
 
   myStampCards() {
@@ -84,13 +83,11 @@ const styles = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.purchaseFinished);
   return {
-    user: state.purchaseFinished.user,
     stampsInfo: state.purchaseFinished.stampsInfo
   };
 };
 
 export default connect(
-  mapStateToProps, { fetchUserInfo, fetchStampsInfo }
+  mapStateToProps, { fetchStampsInfo }
 )(PurchaseFinished);
