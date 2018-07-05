@@ -1,12 +1,19 @@
 import React from 'react';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 import { Container, Content, Text } from 'native-base';
 import { BackgroundImage, SimpleHeader, NavBar, Button } from '../common';
+import { fetchUserInfo, fetchStampsInfo } from '../../actions';
 
 class PurchaseFinished extends React.Component {
 
+  componentWillMount() {
+    this.props.fetchUserInfo(this.props.userId);
+    this.props.fetchStampsInfo(this.props.userId);
+  }
+
   myStampCards() {
-    Actions.myStampCards();
+    Actions.myStampCards({ user: this.props.user });
   }
 
   scanPurchase() {
@@ -15,6 +22,8 @@ class PurchaseFinished extends React.Component {
 
   render() {
     const { contentStyle, h2Style, h3Style, boldStyle, buttonStyle } = styles;
+    const stampsInfo = this.props.stampsInfo;
+    const stamps = stampsInfo ? (stampsInfo.totalStamps - stampsInfo.stamps) : 0;
     return (
       <Container>
         <NavBar />
@@ -25,7 +34,12 @@ class PurchaseFinished extends React.Component {
             The payment has been completed with success!
           </Text>
           <Text style={h3Style}>
-            You need <Text style={boldStyle}>5</Text> stamps more to get a new bottle
+            You need <Text style={boldStyle}>
+                {stamps}
+              </Text> stamps
+            more to get: <Text style={boldStyle}>
+                  {stampsInfo ? stampsInfo.discount : ''}
+              </Text>
           </Text>
 
           <Button style={buttonStyle} onPress={this.myStampCards.bind(this)}>
@@ -33,7 +47,7 @@ class PurchaseFinished extends React.Component {
           </Button>
 
           <Button style={buttonStyle} onPress={this.scanPurchase.bind(this)}>
-            Register another purchase
+            Scan another purchase
           </Button>
 
         </Content>
@@ -69,4 +83,14 @@ const styles = {
   }
 };
 
-export default PurchaseFinished;
+const mapStateToProps = (state) => {
+  console.log(state.purchaseFinished);
+  return {
+    user: state.purchaseFinished.user,
+    stampsInfo: state.purchaseFinished.stampsInfo
+  };
+};
+
+export default connect(
+  mapStateToProps, { fetchUserInfo, fetchStampsInfo }
+)(PurchaseFinished);

@@ -30,3 +30,7 @@ export const PURCHASE_CANCELED = 'purchase_canceled';
 //CONFIRM PURCHASE
 export const PURCHASE_CONFIRMED = 'purchase_confirmed';
 export const PURCHASE_FETCH_SUCCESS = 'purchase_fetch_success';
+
+//PURCHASE FINISHED
+export const STAMPS_INFO_FETCH_SUCCESS = 'stamps_info_fetch_success';
+export const USER_INFO_FETCH_SUCCESS = 'user_info_fetch_success';
