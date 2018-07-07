@@ -1,5 +1,9 @@
 import React from 'react';
-import { Scene, Router, Lightbox } from 'react-native-router-flux';
+import { Scene, Actions, Lightbox } from 'react-native-router-flux';
+import crossroads from 'crossroads';
+
+import LinkedRouter from './components/LinkedRouter';
+
 import LoginForm from './components/LoginForm';
 import ProfileSelector from './components/ProfileSelector';
 import Welcome from './components/Welcome';
@@ -20,117 +24,121 @@ import LastPurchases from './components/BusinessOwner/LastPurchases';
 import PurchaseDetail from './components/BusinessOwner/PurchaseDetail';
 import RegisterPurchase from './components/BusinessOwner/RegisterPurchase';
 
-class RouterComponent extends React.Component {
+class Router extends React.Component {
   render() {
-    return (
-      <Router>
-        <Scene key="root" hideNavBar>
-          <Scene key="auth" hideNavBar>
-            <Scene key="login" component={LoginForm} />
-            <Scene
-              key="confirmPurchase"
-              component={ConfirmPurchase}
-              initial
-            />
-          </Scene>
-          <Scene key="main" hideNavBar>
-            <Scene
-              key="profileSelector"
-              component={ProfileSelector}
-              hideNavBar
-              initial
-            />
+    const scenes = Actions.create(
+      <Scene key="root" hideNavBar>
+        <Scene key="auth" hideNavBar>
+          <Scene key="login" component={LoginForm} />
+        </Scene>
+        <Scene key="main" hideNavBar>
+          <Scene
+            key="profileSelector"
+            component={ProfileSelector}
+            hideNavBar
+            initial
+          />
 
-            <Scene
-              key="welcome"
-              component={Welcome}
-              hideNavBar
-            />
+          <Scene
+            key="welcome"
+            component={Welcome}
+            hideNavBar
+          />
 
-            <Lightbox>
-              <Scene key="customer" hideNavBar drawer>
-                <Scene
-                  key="customerHomeScreen"
-                  component={CustomerHomeScreen}
-                  hideNavBar
-                  initial
-                />
-                <Scene
-                  key="myLastPayments"
-                  component={MyLastPayments}
-                  hideNavBar
-                />
-                <Scene
-                  key="myStores"
-                  component={MyStores}
-                  hideNavBar
-                />
-                <Scene
-                  key="paymentDetail"
-                  component={PaymentDetail}
-                  hideNavBar
-                />
-                <Scene
-                  key="storeDetail"
-                  component={StoreDetail}
-                  hideNavBar
-                />
-                <Scene
-                  key="myStampCards"
-                  component={MyStampCards}
-                  hideNavBar
-                />
-                <Scene
-                  key="purchaseFinished"
-                  component={PurchaseFinished}
-                  hideNavBar
-                />
-              </Scene>
-            </Lightbox>
-
-            <Scene
-              key="businessOwner"
-              hideNavBar
-              drawer
-            >
+          <Lightbox>
+            <Scene key="customer" hideNavBar drawer>
               <Scene
-                key="businessOwnerHomeScreen"
-                component={BusinessOwnerHomeScreen}
+                key="customerHomeScreen"
+                component={CustomerHomeScreen}
+                hideNavBar
+                initial
+              />
+              <Scene
+                key="myLastPayments"
+                component={MyLastPayments}
                 hideNavBar
               />
               <Scene
-                key="myCustomers"
-                component={MyCustomers}
+                key="myStores"
+                component={MyStores}
                 hideNavBar
               />
               <Scene
-                key="customerDetail"
-                component={CustomerDetail}
+                key="paymentDetail"
+                component={PaymentDetail}
                 hideNavBar
               />
               <Scene
-                key="lastPurchases"
-                component={LastPurchases}
+                key="storeDetail"
+                component={StoreDetail}
                 hideNavBar
               />
               <Scene
-                key="purchaseDetail"
-                component={PurchaseDetail}
+                key="myStampCards"
+                component={MyStampCards}
                 hideNavBar
               />
               <Scene
-                key="registerPurchase"
-                component={RegisterPurchase}
+                key="confirmPurchase"
+                component={ConfirmPurchase}
+                initial
+              />
+              <Scene
+                key="purchaseFinished"
+                component={PurchaseFinished}
                 hideNavBar
               />
             </Scene>
+          </Lightbox>
 
+          <Scene
+            key="businessOwner"
+            hideNavBar
+            drawer
+          >
+            <Scene
+              key="businessOwnerHomeScreen"
+              component={BusinessOwnerHomeScreen}
+              hideNavBar
+            />
+            <Scene
+              key="myCustomers"
+              component={MyCustomers}
+              hideNavBar
+            />
+            <Scene
+              key="customerDetail"
+              component={CustomerDetail}
+              hideNavBar
+            />
+            <Scene
+              key="lastPurchases"
+              component={LastPurchases}
+              hideNavBar
+            />
+            <Scene
+              key="purchaseDetail"
+              component={PurchaseDetail}
+              hideNavBar
+            />
+            <Scene
+              key="registerPurchase"
+              component={RegisterPurchase}
+              hideNavBar
+            />
           </Scene>
-
         </Scene>
-      </Router>
+      </Scene>
+    );
+
+    crossroads.addRoute('customer/confirmPurchase/{purchaseId}', (purchaseId) => {
+      Actions.confirmPurchase({ purchaseId });
+    });
+
+    return (
+      <LinkedRouter scenes={scenes} scheme="stampscard" />
     );
   }
 }
 
-export default RouterComponent;
+export default Router;

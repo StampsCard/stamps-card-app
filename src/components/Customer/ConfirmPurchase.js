@@ -19,9 +19,6 @@ import {
 class ConfirmPurchase extends React.Component {
 
   componentWillMount() {
-    //this.props.purchaseId from Linking
-    //this.props.userId from Linking
-    this.props.purchaseId = 1;
     this.props.userId = 1;
 
     this.props.fetchPurchase(this.props.purchaseId);

@@ -20,6 +20,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "crossroads": "^0.12.2",
     "expo": "^25.0.0",
     "lodash": "^4.17.10",
     "native-base": "^2.4.1",
