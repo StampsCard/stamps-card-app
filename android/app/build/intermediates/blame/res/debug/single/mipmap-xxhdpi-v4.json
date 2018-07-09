@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi-v4/stamps_logo_round.png",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/src/main/res/mipmap-xxhdpi/stamps_logo_round.png"
+    },
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi-v4/stamps_logo_foreground.png",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/src/main/res/mipmap-xxhdpi/stamps_logo_foreground.png"
+    },
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi-v4/stamps_logo.png",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/src/main/res/mipmap-xxhdpi/stamps_logo.png"
+    },
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi-v4/ic_launcher_foreground.png",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi-v4/ic_launcher.png",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    }
+]

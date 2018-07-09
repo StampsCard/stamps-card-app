@@ -88,7 +88,7 @@ const styles = {
     },
 
     cardInfoStyle: {
-      width: 300,
+      width: 350,
       padding: 15,
       flex: 1,
       flexDirection: 'row',
@@ -112,8 +112,8 @@ const styles = {
       borderRadius: 15,
       color: '#FFF',
       paddingLeft: 20,
-      width: 300,
-      height: 250,
+      width: 350,
+      height: 280,
       shadowOffset: {
         width: 5,
         height: 5
@@ -132,16 +132,16 @@ const styles = {
     emptyStampStyle: {
       backgroundColor: '#fff',
       borderRadius: 50,
-      width: 40,
-      height: 40,
+      width: 50,
+      height: 50,
       margin: 10
     },
 
     filledStampStyle: {
       backgroundColor: '#000',
       borderRadius: 50,
-      width: 40,
-      height: 40,
+      width: 50,
+      height: 50,
       margin: 10
     },
 

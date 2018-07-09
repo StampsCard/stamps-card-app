@@ -1,15 +1,18 @@
 {
   "expo": {
-  "name": "StampsCard",
-   "icon": "./resources/img/stamps_card_logo.png",
-   "version": "0.1.0",
-   "slug": "stamps-card",
-   "sdkVersion": "25.0.0",
-   "ios": {
-     "bundleIdentifier": "com.stampscard.app"
-   },
-   "android": {
-     "package": "com.stampscard.app"
-   }
-  }
+    "name": "StampsCard",
+    "scheme": "stampscard",
+    "icon": "./resources/img/stamps_card_logo.png",
+    "version": "0.1.0",
+    "slug": "stamps-card",
+    "sdkVersion": "25.0.0",
+    "ios": {
+      "bundleIdentifier": "com.stampscard.app"
+    },
+    "android": {
+      "package": "com.stampscard.app"
+    }
+  },
+  "name": "stampscardapp",
+  "displayName": "StampsCard"
 }

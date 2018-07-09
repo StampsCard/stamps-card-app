@@ -8,6 +8,10 @@ import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 
 class CustomerHomeScreen extends React.Component {
 
+  scanPurchase() {
+      Actions.scanPurchase({ user: this.props.userLogged });
+  }
+
   lastPayments() {
     Actions.myLastPayments({ user: this.props.userLogged });
   }
@@ -32,7 +36,10 @@ class CustomerHomeScreen extends React.Component {
         <BackgroundImage />
         <Content padder>
             <SimpleHeader />
-            <Button style={menuButton}>
+            <Button
+              style={menuButton}
+              onPress={this.scanPurchase.bind(this)}
+            >
               Scan a purcharse code
             </Button>
             <Button

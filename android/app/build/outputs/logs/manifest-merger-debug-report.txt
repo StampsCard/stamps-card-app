@@ -1,0 +1,272 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12
+MERGED from [com.facebook.react:react-native:0.52.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/react-native-0.52.0.aar/599fe21054ee854d4ddb010563f78d91/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/753238dd897693e62e8a74db4e1c5a65/AndroidManifest.xml:17:1-22:12
+MERGED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-20:12
+MERGED from [com.android.support:exifinterface:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/81d19b3db03af4ba52be6d743eb77279/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/85d8ad50e29307abb426a05e02a31b32/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/8b87fa602f52851de1c0df545bea3e97/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/931f20e19d032faf2b63bbcf25a649be/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/f631a42bb01e8dab4465f4cb1da6334c/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/f7f0f1ef0f2e6504588c70585f20e43c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/3cbccefe4960b1195a5ed406387a2641/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/b5b4d9790c463a130d8f0d73d7650082/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/bd4a038c67b37552f1c5e917d420c17d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/8e6f4d99faab829be714c172dd39949f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/e11418cef60b436301a57aaa8cc6a46d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/3cf61290b26c6636bcbf39da59f2c6ff/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/83444eca44546cd9cbd2149867cd5a5c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/62c04ad09af38c3ec58519a0faf98bc3/AndroidManifest.xml:10:1-18:12
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/8acaf722fcbf1289c06419df9551de2f/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/e652fc01066e5359c2d37b8d63ec01b5/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/00f6614ecb2eb900800d53a338b6a9eb/AndroidManifest.xml:1:1-4:12
+MERGED from [org.webkit:android-jsc:r174650] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/b1e23c2e184c438498948c958088795f/AndroidManifest.xml:1:1-3:12
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/d0fbe02905147f002213cc953a2fc6df/AndroidManifest.xml:17:1-24:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/4eb7f982bfce01ea73a486a04e9e314b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/936cab8323a1e8c420da164346445239/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/5ad3ed155c1ef6f877748564c33c479e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/2943b31be9820a941ff98e995ff260dc/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/d9ae48d75b4e5dec2e622861da830f56/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/5dd9675b4804d4e677b69f2766d3316f/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/82a45cfbb011a7dfa56ed9d93020b115/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/d19f7424aeaf7d8be20832a47937a170/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/ac1b85cb1fdc9ecaf58562cba664b3ff/AndroidManifest.xml:17:1-24:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/f829d59114d7eadf88028e52e9c3e1c4/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/a9234700394739a3d4b894f6e64a3ea0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/a0a9a027f1345021dd4d56dab673fbb6/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12
+	package
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:2:5-32
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:4:5-30
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:11-69
+	android:versionCode
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:6:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:7:5-77
+MERGED from [com.facebook.react:react-native:0.52.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/react-native-0.52.0.aar/599fe21054ee854d4ddb010563f78d91/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.52.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/react-native-0.52.0.aar/599fe21054ee854d4ddb010563f78d91/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:7:22-75
+uses-permission#android.permission.CAMERA
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:8:5-65
+MERGED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-65
+MERGED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-65
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:8:22-62
+uses-sdk
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:10:5-12:41
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:10:5-12:41
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:10:5-12:41
+MERGED from [com.facebook.react:react-native:0.52.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/react-native-0.52.0.aar/599fe21054ee854d4ddb010563f78d91/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.52.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/react-native-0.52.0.aar/599fe21054ee854d4ddb010563f78d91/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/753238dd897693e62e8a74db4e1c5a65/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/753238dd897693e62e8a74db4e1c5a65/AndroidManifest.xml:20:5-44
+MERGED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:exifinterface:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/81d19b3db03af4ba52be6d743eb77279/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.0.aar/81d19b3db03af4ba52be6d743eb77279/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/85d8ad50e29307abb426a05e02a31b32/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/85d8ad50e29307abb426a05e02a31b32/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/8b87fa602f52851de1c0df545bea3e97/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/8b87fa602f52851de1c0df545bea3e97/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/931f20e19d032faf2b63bbcf25a649be/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/931f20e19d032faf2b63bbcf25a649be/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/f631a42bb01e8dab4465f4cb1da6334c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/f631a42bb01e8dab4465f4cb1da6334c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/f7f0f1ef0f2e6504588c70585f20e43c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/f7f0f1ef0f2e6504588c70585f20e43c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/3cbccefe4960b1195a5ed406387a2641/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/3cbccefe4960b1195a5ed406387a2641/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/b5b4d9790c463a130d8f0d73d7650082/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/b5b4d9790c463a130d8f0d73d7650082/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/bd4a038c67b37552f1c5e917d420c17d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/bd4a038c67b37552f1c5e917d420c17d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/8e6f4d99faab829be714c172dd39949f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/8e6f4d99faab829be714c172dd39949f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/e11418cef60b436301a57aaa8cc6a46d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/e11418cef60b436301a57aaa8cc6a46d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/3cf61290b26c6636bcbf39da59f2c6ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/3cf61290b26c6636bcbf39da59f2c6ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/83444eca44546cd9cbd2149867cd5a5c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/83444eca44546cd9cbd2149867cd5a5c/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/62c04ad09af38c3ec58519a0faf98bc3/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/62c04ad09af38c3ec58519a0faf98bc3/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/8acaf722fcbf1289c06419df9551de2f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/8acaf722fcbf1289c06419df9551de2f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/e652fc01066e5359c2d37b8d63ec01b5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/e652fc01066e5359c2d37b8d63ec01b5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/00f6614ecb2eb900800d53a338b6a9eb/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/00f6614ecb2eb900800d53a338b6a9eb/AndroidManifest.xml:2:3-70
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/d0fbe02905147f002213cc953a2fc6df/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/d0fbe02905147f002213cc953a2fc6df/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/4eb7f982bfce01ea73a486a04e9e314b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/4eb7f982bfce01ea73a486a04e9e314b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/936cab8323a1e8c420da164346445239/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/936cab8323a1e8c420da164346445239/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/5ad3ed155c1ef6f877748564c33c479e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/5ad3ed155c1ef6f877748564c33c479e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/2943b31be9820a941ff98e995ff260dc/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/2943b31be9820a941ff98e995ff260dc/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/d9ae48d75b4e5dec2e622861da830f56/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/d9ae48d75b4e5dec2e622861da830f56/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/5dd9675b4804d4e677b69f2766d3316f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/5dd9675b4804d4e677b69f2766d3316f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/82a45cfbb011a7dfa56ed9d93020b115/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/82a45cfbb011a7dfa56ed9d93020b115/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/d19f7424aeaf7d8be20832a47937a170/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/d19f7424aeaf7d8be20832a47937a170/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/ac1b85cb1fdc9ecaf58562cba664b3ff/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/ac1b85cb1fdc9ecaf58562cba664b3ff/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/f829d59114d7eadf88028e52e9c3e1c4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/f829d59114d7eadf88028e52e9c3e1c4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/a9234700394739a3d4b894f6e64a3ea0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/a9234700394739a3d4b894f6e64a3ea0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/a0a9a027f1345021dd4d56dab673fbb6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/a0a9a027f1345021dd4d56dab673fbb6/AndroidManifest.xml:20:5-44
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:10:5-12:41
+INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:10:5-12:41
+	android:targetSdkVersion
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:12:9-38
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:11:9-35
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml
+application
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:14:5-40:19
+MERGED from [com.facebook.react:react-native:0.52.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/react-native-0.52.0.aar/599fe21054ee854d4ddb010563f78d91/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.52.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/react-native-0.52.0.aar/599fe21054ee854d4ddb010563f78d91/AndroidManifest.xml:13:5-20
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/85d8ad50e29307abb426a05e02a31b32/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/85d8ad50e29307abb426a05e02a31b32/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/8b87fa602f52851de1c0df545bea3e97/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/8b87fa602f52851de1c0df545bea3e97/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/931f20e19d032faf2b63bbcf25a649be/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/931f20e19d032faf2b63bbcf25a649be/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/f631a42bb01e8dab4465f4cb1da6334c/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/f631a42bb01e8dab4465f4cb1da6334c/AndroidManifest.xml:22:5-26:19
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/00f6614ecb2eb900800d53a338b6a9eb/AndroidManifest.xml:3:3-17
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/00f6614ecb2eb900800d53a338b6a9eb/AndroidManifest.xml:3:3-17
+MERGED from [org.webkit:android-jsc:r174650] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/b1e23c2e184c438498948c958088795f/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/b1e23c2e184c438498948c958088795f/AndroidManifest.xml:2:3-17
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/d0fbe02905147f002213cc953a2fc6df/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/d0fbe02905147f002213cc953a2fc6df/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/82a45cfbb011a7dfa56ed9d93020b115/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/82a45cfbb011a7dfa56ed9d93020b115/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/d19f7424aeaf7d8be20832a47937a170/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/d19f7424aeaf7d8be20832a47937a170/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/ac1b85cb1fdc9ecaf58562cba664b3ff/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/ac1b85cb1fdc9ecaf58562cba664b3ff/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/a0a9a027f1345021dd4d56dab673fbb6/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/a0a9a027f1345021dd4d56dab673fbb6/AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:17:7-39
+	android:icon
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:18:7-41
+	android:allowBackup
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:16:7-33
+	android:theme
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:19:7-38
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:15:7-38
+activity#com.stampscardapp.MainActivity
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:20:7-38:18
+	android:label
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:22:9-41
+	android:windowSoftInputMode
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:24:9-51
+	android:configChanges
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:23:9-79
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:21:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:25:9-28:25
+action#android.intent.action.MAIN
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:26:13-65
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:26:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:27:13-73
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:27:23-70
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:customer/confirmPurchase+data:pathPrefix:/+data:scheme:stampscard
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:30:9-37:25
+action#android.intent.action.VIEW
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:31:11-62
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:31:19-60
+category#android.intent.category.DEFAULT
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:32:11-69
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:32:21-67
+category#android.intent.category.BROWSABLE
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:33:11-71
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:33:21-69
+data
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:34:11-36:40
+	android:host
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:35:15-54
+	android:scheme
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:34:17-44
+	android:pathPrefix
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:36:15-37
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:39:7-84
+	android:name
+		ADDED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:39:17-81
+uses-feature#android.hardware.camera
+ADDED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:5-15:36
+	android:required
+		ADDED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:9-33
+	android:name
+		ADDED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:9-47
+uses-feature#android.hardware.camera.autofocus
+ADDED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:16:5-18:36
+	android:required
+		ADDED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:18:9-33
+	android:name
+		ADDED from [:react-native-camera] /Users/david.sola/Projects/SC/app/node_modules/react-native-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:9-57
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/c7408f9aa55081da4bda1e2059146b2c/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/f631a42bb01e8dab4465f4cb1da6334c/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/f631a42bb01e8dab4465f4cb1da6334c/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:12.0.1] /Users/david.sola/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/f631a42bb01e8dab4465f4cb1da6334c/AndroidManifest.xml:24:13-58
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /Users/david.sola/Projects/SC/app/android/app/src/main/AndroidManifest.xml:1:1-42:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

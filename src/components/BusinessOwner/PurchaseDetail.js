@@ -4,16 +4,10 @@ import {
   CardItem,
   Text,
   Container,
-  Content,
-  Left,
-  Right,
-  Body,
-  Header,
-  Button as NativeButton,
-  Icon
+  Content
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import { BackgroundImage, Button } from '../common';
+import { BackgroundImage, Button, HeaderDetail } from '../common';
 
 class PurchaseDetail extends React.Component {
   render() {
@@ -21,20 +15,10 @@ class PurchaseDetail extends React.Component {
     return (
       <Container>
         <BackgroundImage />
-        <Header>
-          <Left />
-          <Body>
-            <Text>Payment Details</Text>
-          </Body>
-          <Right>
-            <NativeButton
-              transparent
-              onPress={() => Actions.lastPurchases()}
-            >
-              <Icon name="ios-arrow-dropleft" />
-            </NativeButton>
-          </Right>
-        </Header>
+        <HeaderDetail
+          title="Purchase Details"
+          onPressBack={() => Actions.lastPurchases()}
+        />
         <Content style={contentStyle}>
           <Card>
             <CardItem style={cardItemStyle}>

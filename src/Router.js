@@ -14,6 +14,7 @@ import PaymentDetail from './components/Customer/PaymentDetail';
 import MyStores from './components/Customer/MyStores';
 import MyStampCards from './components/Customer/MyStampCards';
 import StoreDetail from './components/Customer/StoreDetail';
+import ScanPurchase from './components/Customer/ScanPurchase';
 import ConfirmPurchase from './components/Customer/ConfirmPurchase';
 import PurchaseFinished from './components/Customer/PurchaseFinished';
 
@@ -79,9 +80,14 @@ class Router extends React.Component {
                 hideNavBar
               />
               <Scene
+                key="scanPurchase"
+                component={ScanPurchase}
+                hideNavBar
+              />
+              <Scene
                 key="confirmPurchase"
                 component={ConfirmPurchase}
-                initial
+                hideNavBar
               />
               <Scene
                 key="purchaseFinished"

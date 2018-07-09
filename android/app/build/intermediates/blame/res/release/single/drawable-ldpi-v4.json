@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/release/drawable-ldpi-v4/stamps_logo_background.png",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/build/generated/res/pngs/release/drawable-ldpi/stamps_logo_background.png"
+    },
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_launcher_background.png",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/build/generated/res/pngs/release/drawable-ldpi/ic_launcher_background.png"
+    }
+]

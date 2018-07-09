@@ -9,3 +9,4 @@ export * from './NavBar';
 export * from './Title';
 export * from './FormItem';
 export * from './InputWithLabel';
+export * from './HeaderDetail';

@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/release/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/Users/david.sola/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/753238dd897693e62e8a74db4e1c5a65/res/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/release/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/Users/david.sola/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/753238dd897693e62e8a74db4e1c5a65/res/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/release/drawable-ldrtl-xxxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/Users/david.sola/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/753238dd897693e62e8a74db4e1c5a65/res/drawable-ldrtl-xxxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    }
+]

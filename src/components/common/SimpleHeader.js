@@ -1,29 +1,23 @@
 import React from 'react';
-import { Header, Body, Left, Right } from 'native-base';
+import { View } from 'react-native';
 import { Logo } from '../common';
 
 const SimpleHeader = ({ style }) => {
     return (
-        <Header style={[styles.headerStyle, style]}>
-            <Left />
-            <Body style={styles.bodyStyle}>
-                <Logo />
-            </Body>
-            <Right />
-        </Header>
+        <View style={[styles.headerStyle, style]}>
+            <Logo />
+        </View>
     );
 };
 
 const styles = {
     headerStyle: {
         backgroundColor: 'transparent',
-        height: 100,
-        paddingTop: 40,
-        justifyContent: 'space-between',
-        borderBottomWidth: 0
-    },
-
-    bodyStyle: {
+        marginTop: 20,
+        marginBottom: 10,
+        height: 50,
+        borderWidth: 0,
+        width: '100%',
         alignItems: 'center'
     }
 };

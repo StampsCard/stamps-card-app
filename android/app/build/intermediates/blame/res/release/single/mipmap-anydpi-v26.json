@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/release/mipmap-anydpi-v26/stamps_logo.xml",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/src/main/res/mipmap-anydpi-v26/stamps_logo.xml"
+    },
+    {
+        "merged": "/Users/david.sola/Projects/SC/app/android/app/build/intermediates/res/merged/release/mipmap-anydpi-v26/stamps_logo_round.xml",
+        "source": "/Users/david.sola/Projects/SC/app/android/app/src/main/res/mipmap-anydpi-v26/stamps_logo_round.xml"
+    }
+]

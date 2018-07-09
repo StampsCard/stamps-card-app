@@ -5,12 +5,10 @@ import { Actions } from 'react-native-router-flux';
 class NavBar extends React.Component {
 
   openDrawer() {
-    console.log('Drawer open');
     Actions.drawerOpen();
   }
 
   returnBack() {
-    console.log('Return back');
     Actions.pop();
   }
 

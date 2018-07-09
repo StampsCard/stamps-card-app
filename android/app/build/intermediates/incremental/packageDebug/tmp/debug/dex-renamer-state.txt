@@ -1,0 +1,4 @@
+#Mon Jul 09 23:49:27 CEST 2018
+base.0=/Users/david.sola/Projects/SC/app/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.0=classes.dex
+path.0=classes.dex
