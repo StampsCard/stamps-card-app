@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Content, Form, Toast } from 'native-base';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { View, Keyboard } from 'react-native';
 import QRCode from 'react-native-qrcode';
 
 import {
@@ -40,6 +40,7 @@ class RegisterPurchase extends React.Component {
   }
 
   generatePurchase() {
+    Keyboard.dismiss();
     this.props.generatePurchase(this.props.user);
   }
 
@@ -150,7 +151,6 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  console.log(state.registerPurchase);
   return {
     amount: state.registerPurchase.amount,
     productConcept: state.registerPurchase.productConcept,

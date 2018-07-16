@@ -14,7 +14,7 @@ adb shell input keyevent 82
 cd android
 ./gradlew assembleRelease
 
-# Generate Android debug APK
+# Generate Android bundle
 react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug
 
 # another opetion to generate Android debug apk

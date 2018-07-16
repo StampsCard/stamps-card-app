@@ -19,7 +19,6 @@ import {
 class ConfirmPurchase extends React.Component {
 
   componentWillMount() {
-    console.log(this.props);
     this.props.userId = 1;
 
     this.props.fetchPurchase(this.props.purchaseId);
