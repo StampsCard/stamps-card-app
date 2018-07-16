@@ -38,7 +38,7 @@ export const purchaseGenerationFailed = (dispatch) => {
 
 export const purchaseGenerated = (dispatch, purchaseId) => {
   // Generate the Link
-  const link = `stampscard://customer/confirmPurchase/${purchaseId}`;
+  const link = `stampscard://customer/codeScanned/${purchaseId}`;
   dispatch({
     type: PURCHASE_GENERATION_SUCCESS,
     payload: { link, purchaseId }

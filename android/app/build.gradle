@@ -147,7 +147,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-camera')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:27.1.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
@@ -174,4 +173,3 @@ allprojects {
         maven { url "https://maven.google.com" }
     }
 }
-

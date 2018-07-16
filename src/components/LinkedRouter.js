@@ -24,8 +24,7 @@ export default class LinkedRouter extends React.Component {
     }
 
     handleOpenURL(event) {
-        const scheme = this.props.scheme + '://';
-        if (event.url && event.url.indexOf(scheme) === 0) {
+        if (event.url && event.url.indexOf(this.props.scheme + '://') === 0) {
             crossroads.parse(event.url.slice(this.props.scheme.length + 3));
         }
     }

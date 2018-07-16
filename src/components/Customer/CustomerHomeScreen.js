@@ -5,6 +5,7 @@ import {
 } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
+import ConfirmPurchase from './ConfirmPurchase';
 
 class CustomerHomeScreen extends React.Component {
 
@@ -29,6 +30,9 @@ class CustomerHomeScreen extends React.Component {
   }
 
   render() {
+    if (this.props.purchaseId) {
+      return (<ConfirmPurchase purchaseId={this.props.purchaseId} />);
+    }
     const { menuButton } = styles;
     return (
       <Container>
@@ -61,10 +65,7 @@ class CustomerHomeScreen extends React.Component {
               My stores
             </Button>
 
-            <Button
-              style={menuButton}
-              onPress={this.confirmPurchase.bind(this)}
-            >
+            <Button>
               Confirm Purchase
             </Button>
         </Content>

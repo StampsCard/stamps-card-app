@@ -4,7 +4,8 @@ import {
   PURCHASE_FETCH_SUCCESS,
   PURCHASE_CONFIRMED,
   PURCHASE_CANCELED,
-  USER_FETCH_SUCCESS
+  USER_FETCH_SUCCESS,
+  PURCHASE_SCANNED
 } from './types';
 import CancelPurchaseService from '../services/CancelPurchase';
 import ConfirmPurchaseService from '../services/ConfirmPurchase';
@@ -53,5 +54,15 @@ export const fetchUser = (userId) => {
       type: USER_FETCH_SUCCESS,
       payload: user
     });
+  };
+};
+
+export const purchaseScanned = (purchaseId) => {
+  return (dispatch) => {
+    dispatch({
+      type: PURCHASE_SCANNED,
+      payload: purchaseId
+    });
+    Actions.confirmPurchase({ purchaseId });
   };
 };

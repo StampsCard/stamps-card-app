@@ -1,26 +1,40 @@
 import React from 'react';
-import { Linking, Text } from 'react-native';
+import { Text } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanPurchase extends React.Component {
 
   onSuccess(e) {
-    Linking
-      .openURL(e.data)
-      .catch(err => console.error('An error occured', err));
+    this.handleURL(e.data);
+    // Linking
+    //   .openURL(e.data)
+    //   .catch(err => console.error('An error occured', err));
+  }
+
+  handleURL(scannedUrl) {
+    const scheme = 'stampscard://customer/codeScanned/';
+    if (scannedUrl.indexOf(scheme) === 0) {
+        const purchaseId = scannedUrl.slice(scheme.length);
+        console.log(purchaseId);
+        Actions.confirmPurchase({ purchaseId });
+    } else {
+      console.log('Error! This QR Code is not internal', scannedUrl);
+    }
   }
 
   render() {
-    return (
-      <QRCodeScanner
-        onRead={this.onSuccess.bind(this)}
-        topContent={
-          <Text style={styles.centerText}>
-            Use the camera to scan the QR Code from a purchase
-          </Text>
-        }
-      />
-    );
+      return (
+        <QRCodeScanner
+          showMarker
+          onRead={this.onSuccess.bind(this)}
+          topContent={
+            <Text style={styles.centerText}>
+              Use the camera to scan the QR Code from a purchase
+            </Text>
+          }
+        />
+      );
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scene, Actions, Lightbox } from 'react-native-router-flux';
+import { Scene, Actions } from 'react-native-router-flux';
 import crossroads from 'crossroads';
 
 import LinkedRouter from './components/LinkedRouter';
@@ -46,56 +46,54 @@ class Router extends React.Component {
             hideNavBar
           />
 
-          <Lightbox>
-            <Scene key="customer" hideNavBar drawer>
-              <Scene
-                key="customerHomeScreen"
-                component={CustomerHomeScreen}
-                hideNavBar
-                initial
-              />
-              <Scene
-                key="myLastPayments"
-                component={MyLastPayments}
-                hideNavBar
-              />
-              <Scene
-                key="myStores"
-                component={MyStores}
-                hideNavBar
-              />
-              <Scene
-                key="paymentDetail"
-                component={PaymentDetail}
-                hideNavBar
-              />
-              <Scene
-                key="storeDetail"
-                component={StoreDetail}
-                hideNavBar
-              />
-              <Scene
-                key="myStampCards"
-                component={MyStampCards}
-                hideNavBar
-              />
-              <Scene
-                key="scanPurchase"
-                component={ScanPurchase}
-                hideNavBar
-              />
-              <Scene
-                key="confirmPurchase"
-                component={ConfirmPurchase}
-                hideNavBar
-              />
-              <Scene
-                key="purchaseFinished"
-                component={PurchaseFinished}
-                hideNavBar
-              />
-            </Scene>
-          </Lightbox>
+          <Scene key="customer" hideNavBar drawer>
+            <Scene
+              key="customerHomeScreen"
+              component={CustomerHomeScreen}
+              hideNavBar
+              initial
+            />
+            <Scene
+              key="myLastPayments"
+              component={MyLastPayments}
+              hideNavBar
+            />
+            <Scene
+              key="myStores"
+              component={MyStores}
+              hideNavBar
+            />
+            <Scene
+              key="paymentDetail"
+              component={PaymentDetail}
+              hideNavBar
+            />
+            <Scene
+              key="storeDetail"
+              component={StoreDetail}
+              hideNavBar
+            />
+            <Scene
+              key="myStampCards"
+              component={MyStampCards}
+              hideNavBar
+            />
+            <Scene
+              key="scanPurchase"
+              component={ScanPurchase}
+              hideNavBar
+            />
+            <Scene
+              key="confirmPurchase"
+              component={ConfirmPurchase}
+              hideNavBar
+            />
+            <Scene
+              key="purchaseFinished"
+              component={PurchaseFinished}
+              hideNavBar
+            />
+          </Scene>
 
           <Scene
             key="businessOwner"
@@ -137,7 +135,7 @@ class Router extends React.Component {
       </Scene>
     );
 
-    crossroads.addRoute('customer/confirmPurchase/{purchaseId}', (purchaseId) => {
+    crossroads.addRoute('customer/codeScanned/{purchaseId}', (purchaseId) => {
       Actions.confirmPurchase({ purchaseId });
     });
 
