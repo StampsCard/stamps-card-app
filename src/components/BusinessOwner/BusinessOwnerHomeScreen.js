@@ -20,7 +20,7 @@ class BusinessOwnerHomeScreen extends React.Component {
     const { menuButton } = styles;
     return (
       <Container>
-        <NavBar />
+        <NavBar returnBack='profileSelector' />
         <BackgroundImage />
         <Content padder>
             <SimpleHeader />

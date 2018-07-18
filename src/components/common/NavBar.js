@@ -9,7 +9,11 @@ class NavBar extends React.Component {
   }
 
   returnBack() {
-    Actions.pop();
+    if (this.props.returnBack) {
+      return Actions.popTo(this.props.returnBack);
+    }
+
+    return Actions.pop();
   }
 
   render() {
