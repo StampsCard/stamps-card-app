@@ -8,13 +8,14 @@ import {
 } from 'native-base';
 import { connect } from 'react-redux';
 
-import { fetchLastPurchases } from '../../actions';
+import { fetchLastPurchases, changeBackground } from '../../actions';
 import LastPurchaseItem from './fragments/items/LastPurchaseItem';
 import { NavBar, BackgroundImage, Button } from '../common';
 
 class LastPurchases extends React.Component {
 
   componentWillMount() {
+    this.props.changeBackground();
     this.props.fetchLastPurchases(this.props.user.id);
   }
 
@@ -29,7 +30,7 @@ class LastPurchases extends React.Component {
     return (
       <Container>
         <NavBar />
-        <BackgroundImage />
+        <BackgroundImage image={this.props.background} />
         <Content padder>
           <View style={buttonView}>
             <Button onPress={this.registerPurchase.bind(this)}>
@@ -51,7 +52,10 @@ class LastPurchases extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { lastPurchases: state.businessOwner.lastPurchases };
+  return {
+    lastPurchases: state.businessOwner.lastPurchases,
+    background: state.common.background
+  };
 };
 
 const styles = {
@@ -71,4 +75,6 @@ const styles = {
     }
 };
 
-export default connect(mapStateToProps, { fetchLastPurchases })(LastPurchases);
+export default connect(
+  mapStateToProps, { fetchLastPurchases, changeBackground }
+)(LastPurchases);

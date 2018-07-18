@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image } from 'react-native';
-import GenerateImageService from '../../services/GetRandomBackgroundImage';
 
-const BackgroundImage = () => {
-  const image = GenerateImageService.random();
+const BackgroundImage = ({ image }) => {
+  const sourceImage = (image) || require('../../../resources/img/background-1-min.jpg');
+
   return (
     <Image
       style={{
@@ -16,7 +16,7 @@ const BackgroundImage = () => {
         opacity: 0.15,
         zIndex: -1
       }}
-      source={image}
+      source={sourceImage}
     />
   );
 };

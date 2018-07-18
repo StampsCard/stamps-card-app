@@ -6,12 +6,13 @@ import {
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
-import { fetchLastPayments } from '../../actions';
+import { fetchLastPayments, changeBackground } from '../../actions';
 import LastPaymentItem from './fragments/LastPaymentItem';
 
 class MyLastPayments extends React.Component {
 
   componentWillMount() {
+    this.props.changeBackground();
     this.props.fetchLastPayments(this.props.user.id);
   }
 
@@ -28,7 +29,7 @@ class MyLastPayments extends React.Component {
     return (
       <Container>
         <NavBar />
-        <BackgroundImage />
+        <BackgroundImage image={this.props.background} />
         <Content padder>
           <Title>My Last Payments</Title>
           {this.renderItems()}
@@ -39,7 +40,13 @@ class MyLastPayments extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { lastPayments: state.customer.lastPayments };
+  return {
+    lastPayments: state.customer.lastPayments,
+    background: state.common.background
+  };
 };
 
-export default connect(mapStateToProps, { fetchLastPayments })(MyLastPayments);
+export default connect(
+  mapStateToProps,
+  { fetchLastPayments, changeBackground }
+)(MyLastPayments);

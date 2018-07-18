@@ -3,11 +3,12 @@ import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Container, Content, Text } from 'native-base';
 import { BackgroundImage, SimpleHeader, NavBar, Button } from '../common';
-import { fetchStampsInfo } from '../../actions';
+import { fetchStampsInfo, changeBackground } from '../../actions';
 
 class PurchaseFinished extends React.Component {
 
   componentWillMount() {
+    this.props.changeBackground();
     this.props.fetchStampsInfo(this.props.user.id);
   }
 
@@ -16,7 +17,7 @@ class PurchaseFinished extends React.Component {
   }
 
   scanPurchase() {
-    // Actions.scanPurchase();
+    Actions.scanPurchase({ user: this.props.user });
   }
 
   render() {
@@ -26,7 +27,7 @@ class PurchaseFinished extends React.Component {
     return (
       <Container>
         <NavBar />
-        <BackgroundImage />
+        <BackgroundImage image={this.props.background} />
         <SimpleHeader />
         <Content style={contentStyle}>
           <Text style={h2Style}>
@@ -84,10 +85,11 @@ const styles = {
 
 const mapStateToProps = (state) => {
   return {
-    stampsInfo: state.purchaseFinished.stampsInfo
+    stampsInfo: state.purchaseFinished.stampsInfo,
+    background: state.common.background
   };
 };
 
 export default connect(
-  mapStateToProps, { fetchStampsInfo }
+  mapStateToProps, { fetchStampsInfo, changeBackground }
 )(PurchaseFinished);

@@ -6,6 +6,7 @@ import BusinessOwnerReducer from './BusinessOwnerReducer';
 import RegisterPurchaseReducer from './RegisterPurchaseReducer';
 import ConfirmPurchaseReducer from './ConfirmPurchaseReducer';
 import PurchaseFinishedReducer from './PurchaseFinishedReducer';
+import CommonReducer from './CommonReducer';
 
 export default combineReducers({
   auth: AuthReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   businessOwner: BusinessOwnerReducer,
   registerPurchase: RegisterPurchaseReducer,
   confirmPurchase: ConfirmPurchaseReducer,
-  purchaseFinished: PurchaseFinishedReducer
+  purchaseFinished: PurchaseFinishedReducer,
+  common: CommonReducer
 });

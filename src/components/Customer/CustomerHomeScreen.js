@@ -3,11 +3,17 @@ import {
   Container,
   Content
 } from 'native-base';
+import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
+import { changeBackground } from '../../actions';
 import ConfirmPurchase from './ConfirmPurchase';
 
 class CustomerHomeScreen extends React.Component {
+
+  componentWillMount() {
+    this.props.changeBackground();
+  }
 
   scanPurchase() {
       Actions.scanPurchase({ user: this.props.userLogged });
@@ -25,10 +31,6 @@ class CustomerHomeScreen extends React.Component {
     Actions.myStampCards({ user: this.props.userLogged });
   }
 
-  confirmPurchase() {
-    Actions.confirmPurchase({ user: this.props.userLogged });
-  }
-
   render() {
     if (this.props.purchaseId) {
       return (<ConfirmPurchase purchaseId={this.props.purchaseId} />);
@@ -37,7 +39,7 @@ class CustomerHomeScreen extends React.Component {
     return (
       <Container>
         <NavBar returnBack='profileSelector' />
-        <BackgroundImage />
+        <BackgroundImage image={this.props.background} />
         <Content padder>
             <SimpleHeader />
             <Button
@@ -64,10 +66,6 @@ class CustomerHomeScreen extends React.Component {
             >
               My stores
             </Button>
-
-            <Button>
-              Confirm Purchase
-            </Button>
         </Content>
       </Container>
     );
@@ -81,4 +79,13 @@ const styles = {
   }
 };
 
-export default CustomerHomeScreen;
+const mapStateToProps = state => {
+  return {
+    background: state.common.background
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { changeBackground }
+)(CustomerHomeScreen);

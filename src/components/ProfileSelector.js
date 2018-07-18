@@ -4,9 +4,13 @@ import { View, Text } from 'react-native';
 
 import { Container, Content, H2, Button } from 'native-base';
 import { BackgroundImage, SimpleHeader, Title } from './common';
-import { businessOwnerSelected, customerSelected } from '../actions';
+import { businessOwnerSelected, customerSelected, changeBackground } from '../actions';
 
 class ProfileSelector extends React.Component {
+  componentWillMount() {
+    this.props.changeBackground();
+  }
+
   pressBusinessOwnerButton() {
     this.props.businessOwnerSelected(this.props.userLogged);
   }
@@ -14,6 +18,7 @@ class ProfileSelector extends React.Component {
   pressCustomerButton() {
     this.props.customerSelected(this.props.userLogged);
   }
+  
   render() {
     const {
       containerButtonStyle,
@@ -24,7 +29,7 @@ class ProfileSelector extends React.Component {
 
     return (
       <Container>
-          <BackgroundImage />
+          <BackgroundImage image={this.props.background} />
           <SimpleHeader />
           <Content contentContainerStyle={styles.contentContainer}>
             <Title>Who are you?</Title>
@@ -96,7 +101,8 @@ const styles = {
 const mapStateToProps = state => {
   return {
     user: state.profile.user,
-    profile: state.profile.profile
+    profile: state.profile.profile,
+    background: state.common.background
   };
 };
 
@@ -104,6 +110,7 @@ export default connect(
   mapStateToProps,
   {
     businessOwnerSelected,
-    customerSelected
+    customerSelected,
+    changeBackground
  }
 )(ProfileSelector);

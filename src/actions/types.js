@@ -1,3 +1,6 @@
+// COMMON
+export const BACKGROUND_CHANGED = 'background_changed';
+
 // AUTH
 export const EMAIL_CHANGED = 'email_changed';
 export const PASSWORD_CHANGED = 'password_changed';

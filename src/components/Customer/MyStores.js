@@ -6,12 +6,13 @@ import {
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
-import { fetchBusinesses } from '../../actions';
+import { fetchBusinesses, changeBackground } from '../../actions';
 import MyStoreItem from './fragments/MyStoreItem';
 
 class MyStores extends React.Component {
 
   componentWillMount() {
+    this.props.changeBackground();
     this.props.fetchBusinesses(this.props.user.id);
   }
 
@@ -28,7 +29,7 @@ class MyStores extends React.Component {
     return (
       <Container>
         <NavBar />
-        <BackgroundImage />
+        <BackgroundImage image={this.props.background} />
         <Content padder>
           <Title>My Stores</Title>
           {this.renderItems()}
@@ -39,7 +40,12 @@ class MyStores extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { stores: state.customer.stores };
+  return {
+    stores: state.customer.stores,
+    background: state.common.background
+  };
 };
 
-export default connect(mapStateToProps, { fetchBusinesses })(MyStores);
+export default connect(
+  mapStateToProps, { fetchBusinesses, changeBackground }
+)(MyStores);

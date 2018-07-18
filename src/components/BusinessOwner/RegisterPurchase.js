@@ -10,7 +10,8 @@ import {
   generatePurchase,
   purchaseGenerationFailed,
   purchaseGenerated,
-  cancelPurchase
+  cancelPurchase,
+  changeBackground
 } from '../../actions';
 import {
   NavBar,
@@ -29,6 +30,10 @@ class RegisterPurchase extends React.Component {
     this.state = {
       showToast: false
     };
+  }
+
+  componentWillMount() {
+    this.props.changeBackground();
   }
 
   onProductConceptChange(text) {
@@ -127,7 +132,7 @@ class RegisterPurchase extends React.Component {
     return (
       <Container>
         <NavBar />
-        <BackgroundImage />
+        <BackgroundImage image={this.props.background} />
         <Content padder>
           <Title>Register a purchase</Title>
           { this.renderContent() }
@@ -157,7 +162,8 @@ const mapStateToProps = state => {
     error: state.registerPurchase.error,
     loading: state.registerPurchase.loading,
     link: state.registerPurchase.link,
-    purchaseId: state.registerPurchase.purchaseId
+    purchaseId: state.registerPurchase.purchaseId,
+    background: state.common.background
   };
 };
 
@@ -167,5 +173,6 @@ export default connect(mapStateToProps, {
   generatePurchase,
   purchaseGenerationFailed,
   purchaseGenerated,
-  cancelPurchase
+  cancelPurchase,
+  changeBackground
 })(RegisterPurchase);

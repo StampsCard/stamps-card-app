@@ -6,12 +6,13 @@ import {
 import { FlatList, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
-import { fetchStamps } from '../../actions';
+import { fetchStamps, changeBackground } from '../../actions';
 import MyStampCardItem from './fragments/MyStampCardItem';
 
 class MyStampCards extends React.Component {
 
   componentWillMount() {
+    this.props.changeBackground();
     this.props.fetchStamps(this.props.user.id);
   }
 
@@ -28,7 +29,7 @@ class MyStampCards extends React.Component {
     return (
       <Container>
         <NavBar />
-        <BackgroundImage />
+        <BackgroundImage image={this.props.background} />
         <Content padder>
           <Title>My Stamp Cards</Title>
           <ScrollView contentContainerStyle={styles.contentContainer}>
@@ -47,7 +48,10 @@ const styles = {
 };
 
 const mapStateToProps = (state) => {
-  return { stampCards: state.customer.stampCards };
+  return {
+    stampCards: state.customer.stampCards,
+    background: state.common.background
+  };
 };
 
-export default connect(mapStateToProps, { fetchStamps })(MyStampCards);
+export default connect(mapStateToProps, { fetchStamps, changeBackground })(MyStampCards);

@@ -5,3 +5,4 @@ export * from './BusinessOwnerActions';
 export * from './RegisterPurchaseActions';
 export * from './ConfirmPurchaseActions';
 export * from './PurchaseFinishedActions';
+export * from './CommonActions';

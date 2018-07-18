@@ -2,7 +2,7 @@ import React from 'react';
 import { Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Toast } from 'native-base';
-import { emailChanged, passwordChanged, loginUser } from '../actions';
+import { emailChanged, passwordChanged, loginUser, changeBackground } from '../actions';
 import {
   FormInput,
   Button,
@@ -19,6 +19,10 @@ class LoginForm extends React.Component {
     this.state = {
       showToast: false
     };
+  }
+
+  componentWillMount() {
+    this.props.changeBackground();
   }
 
   onEmailChange(text) {
@@ -63,7 +67,7 @@ class LoginForm extends React.Component {
       const { formStyle } = styles;
         return (
             <Container>
-                <BackgroundImage />
+                <BackgroundImage image={this.props.background} />
                 <SimpleHeader />
                 <Content>
                     <Form style={formStyle}>
@@ -104,7 +108,8 @@ const mapStateToProps = state => {
     email: state.auth.email,
     password: state.auth.password,
     error: state.auth.error,
-    loading: state.auth.loading
+    loading: state.auth.loading,
+    background: state.common.background
   };
 };
 
@@ -136,6 +141,7 @@ export default connect(
   {
     emailChanged,
     passwordChanged,
-    loginUser
+    loginUser,
+    changeBackground
  }
 )(LoginForm);
