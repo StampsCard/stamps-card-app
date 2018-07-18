@@ -4,6 +4,7 @@ module.exports.fetch = (businessId) => {
     return [
       {
         id: 1,
+        key: 1,
         amount: 30.0,
         stamps: 4,
         user: 'David Sola', //Get the user who paid
@@ -12,6 +13,7 @@ module.exports.fetch = (businessId) => {
       },
       {
         id: 2,
+        key: 2,
         amount: 45.5,
         stamps: 5,
         user: 'Ricard Bague',
@@ -20,6 +22,7 @@ module.exports.fetch = (businessId) => {
       },
       {
         id: 3,
+        key: 3,
         amount: 52.3,
         stamps: 7,
         user: 'Peter Joustra',

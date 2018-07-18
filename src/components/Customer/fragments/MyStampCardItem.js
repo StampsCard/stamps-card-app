@@ -48,7 +48,6 @@ class MyStampCardItem extends React.Component {
         <H2 style={h2Style}>{item.businessName}</H2>
         <Card
           style={cardContentStyle}
-          key={item.id}
           bordered
         >
             <ScrollView contentContainerStyle={contentContainer}>
@@ -110,7 +109,6 @@ const styles = {
       borderColor: '#80ADD3',
       borderWidth: 2,
       borderRadius: 15,
-      color: '#FFF',
       paddingLeft: 20,
       width: 350,
       height: 280,

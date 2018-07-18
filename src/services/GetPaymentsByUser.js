@@ -4,6 +4,7 @@ module.exports.fetch = (userId) => {
     return [
       {
         id: 1,
+        key: 1,
         amount: 30.0,
         stamps: 4,
         business: 'Jumbo Supermarkt', //Go to Purchase/Stamps/Business/name
@@ -12,6 +13,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 2,
+        key: 2,
         amount: 45.5,
         stamps: 5,
         business: 'Albert Heijn',
@@ -20,6 +22,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 3,
+        key: 3,
         amount: 52.3,
         stamps: 7,
         business: 'Media Markt',
@@ -28,6 +31,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 4,
+        key: 4,
         amount: 30.0,
         stamps: 4,
         business: 'Praxis',
@@ -36,6 +40,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 5,
+        key: 5,
         amount: 30.0,
         stamps: 4,
         business: 'HEMMA',
@@ -44,6 +49,7 @@ module.exports.fetch = (userId) => {
       },
       {
         id: 6,
+        key: 6,
         amount: 30.0,
         stamps: 4,
         business: 'Blokker',

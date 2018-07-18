@@ -4,6 +4,7 @@ module.exports.fetch = (customerId) => {
     return [
       {
         id: 1,
+        key: 1,
         name: 'Jumbo',
         category: {
           id: 1,
@@ -20,7 +21,8 @@ module.exports.fetch = (customerId) => {
         totalStamps: 5
       },
       {
-        id: 1,
+        id: 2,
+        key: 2,
         name: 'MediaMarkt',
         category: {
           id: 1,
@@ -37,7 +39,8 @@ module.exports.fetch = (customerId) => {
         totalStamps: 10
       },
       {
-        id: 1,
+        id: 3,
+        key: 3,
         name: 'CoolBlue',
         category: {
           id: 1,
@@ -54,7 +57,8 @@ module.exports.fetch = (customerId) => {
         totalStamps: 10
       },
       {
-        id: 1,
+        id: 4,
+        key: 4,
         name: 'Praxis',
         category: {
           id: 1,

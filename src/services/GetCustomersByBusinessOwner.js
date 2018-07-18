@@ -4,6 +4,7 @@ module.exports.fetch = (businessId) => {
     return [
       {
         id: 1,
+        key: 1,
         username: 'david.sola',
         email: 'd.sola.03@gmail.com',
         firstName: 'David',
@@ -13,6 +14,7 @@ module.exports.fetch = (businessId) => {
       },
       {
         id: 2,
+        key: 2,
         username: 'ricard.bague',
         email: 'ricard@planifan.com',
         firstName: 'Ricard',
@@ -21,7 +23,8 @@ module.exports.fetch = (businessId) => {
         spent: 156.50
       },
       {
-        id: 1,
+        id: 3,
+        key: 3,
         username: 'peter.joustra',
         email: 'peter.joustra@gmail.com',
         firstName: 'Peter',
@@ -30,7 +33,8 @@ module.exports.fetch = (businessId) => {
         spent: 156.50
       },
       {
-        id: 1,
+        id: 4,
+        key: 4,
         username: 'lillian.dampah',
         email: 'lillian.dampah@gmail.com',
         firstName: 'Lillian',
