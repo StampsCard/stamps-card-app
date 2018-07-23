@@ -10,3 +10,5 @@ export * from './Title';
 export * from './FormItem';
 export * from './InputWithLabel';
 export * from './HeaderDetail';
+export * from './Drawer';
+export * from './SideBar';

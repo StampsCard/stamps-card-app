@@ -37,37 +37,42 @@ class CustomerHomeScreen extends React.Component {
     }
     const { menuButton } = styles;
     return (
-      <Container>
-        <NavBar returnBack='profileSelector' />
-        <BackgroundImage image={this.props.background} />
-        <Content padder>
-            <SimpleHeader />
-            <Button
-              style={menuButton}
-              onPress={this.scanPurchase.bind(this)}
-            >
-              Scan a purcharse code
-            </Button>
-            <Button
-              style={menuButton}
-              onPress={this.myStampCards.bind(this)}
-            >
-              My stamps
-            </Button>
-            <Button
-              style={menuButton}
-              onPress={this.lastPayments.bind(this)}
-            >
-              My last payments
-            </Button>
-            <Button
-              style={menuButton}
-              onPress={this.myStores.bind(this)}
-            >
-              My stores
-            </Button>
-        </Content>
-      </Container>
+        <Container>
+          <NavBar
+            returnBack='profileSelector'
+            navigation={this.props.navigation}
+            user={this.props.userLogged}
+          >
+            <BackgroundImage image={this.props.background} />
+            <Content padder>
+                <SimpleHeader />
+                <Button
+                  style={menuButton}
+                  onPress={this.scanPurchase.bind(this)}
+                >
+                  Scan a purcharse code
+                </Button>
+                <Button
+                  style={menuButton}
+                  onPress={this.myStampCards.bind(this)}
+                >
+                  My stamps
+                </Button>
+                <Button
+                  style={menuButton}
+                  onPress={this.lastPayments.bind(this)}
+                >
+                  My last payments
+                </Button>
+                <Button
+                  style={menuButton}
+                  onPress={this.myStores.bind(this)}
+                >
+                  My stores
+                </Button>
+            </Content>
+          </NavBar>
+        </Container>
     );
   }
 }

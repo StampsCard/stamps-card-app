@@ -1,42 +1,31 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { View } from 'react-native';
 import { Container, Content, Text, List, ListItem } from 'native-base';
-
-const routes = ['Home'];
+import { Logo } from '.';
 
 class SideBar extends React.Component {
+  goToRoute(routekey) {
+    Actions.push(routekey, { user: this.props.user });
+  }
+
   render() {
+    console.log(this.props);
+    const { containerStyle, logoViewStyle, listItemText, listItemStyle } = styles;
     return (
-      <Container>
+      <Container style={containerStyle}>
         <Content>
-          <Image
-            source={{
-              uri: 'https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/react-navigation/img/drawer-cover.png'
-            }}
-            style={{
-              height: 120,
-              alignSelf: 'stretch',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
-            <Image
-              square
-              style={{ height: 80, width: 70 }}
-              source={{
-                uri: 'https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/react-navigation/img/logo.png'
-              }}
-            />
-          </Image>
+          <View style={logoViewStyle}><Logo /></View>
           <List
-            dataArray={routes}
+            dataArray={customerRoutes}
             renderRow={data => {
               return (
                 <ListItem
                   button
-                  onPress={() => this.props.navigation.navigate(data)}
+                  onPress={this.goToRoute.bind(this, data.key)}
+                  style={listItemStyle}
                 >
-                  <Text>{data}</Text>
+                  <Text style={listItemText}>{data.name}</Text>
                 </ListItem>
               );
             }}
@@ -47,4 +36,45 @@ class SideBar extends React.Component {
   }
 }
 
-export default SideBar;
+const customerRoutes = [
+  {
+    key: 'customerHomeScreen',
+    name: 'Home'
+  },
+  {
+    key: 'myLastPayments',
+    name: 'My last payments'
+  },
+  {
+    key: 'myStores',
+    name: 'My stores'
+  },
+  {
+    key: 'myStampCards',
+    name: 'My stamps cards'
+  },
+  {
+    key: 'scanPurchase',
+    name: 'Scan purchase'
+  }
+];
+
+const styles = {
+  containerStyle: {
+    backgroundColor: '#EA5442',
+    borderColor: '#F7C4BC',
+  },
+  logoViewStyle: {
+    alignItems: 'center',
+    marginVertical: 10
+  },
+  listItemStyle: {
+    borderColor: '#F7C4BC'
+  },
+  listItemText: {
+    color: '#fff',
+    fontWeight: 'bold'
+  }
+};
+
+export { SideBar };
