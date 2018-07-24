@@ -22,12 +22,19 @@ class NavBar extends React.Component {
   }
 
   render() {
+    console.log(this.props.profile);
     const { headerStyle, iconStyle } = styles;
     return (
       <Drawer
         ref={(ref) => { this.drawer = ref; }}
         onClose={() => this.closeDrawer()}
-        content={<SideBar navigation={this.props.navigation} user={this.props.user} />}
+        content={
+          <SideBar
+            navigation={this.props.navigation}
+            user={this.props.user}
+            profile={this.props.profile}
+          />
+        }
       >
         <Header style={headerStyle}>
           <Left>

@@ -3,7 +3,6 @@ import { Scene, Actions } from 'react-native-router-flux';
 import crossroads from 'crossroads';
 
 import LinkedRouter from './components/LinkedRouter';
-import { Drawer } from './components/common';
 
 import LoginForm from './components/LoginForm';
 import ProfileSelector from './components/ProfileSelector';

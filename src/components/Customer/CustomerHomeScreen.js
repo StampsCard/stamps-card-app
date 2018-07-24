@@ -8,6 +8,7 @@ import { Actions } from 'react-native-router-flux';
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 import { changeBackground } from '../../actions';
 import ConfirmPurchase from './ConfirmPurchase';
+import { CUSTOMER } from '../../values/Profiles';
 
 class CustomerHomeScreen extends React.Component {
 
@@ -42,6 +43,7 @@ class CustomerHomeScreen extends React.Component {
             returnBack='profileSelector'
             navigation={this.props.navigation}
             user={this.props.userLogged}
+            profile={CUSTOMER}
           >
             <BackgroundImage image={this.props.background} />
             <Content padder>

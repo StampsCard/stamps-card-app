@@ -15,6 +15,7 @@ import {
   acceptPurchaseFromConfirmation,
   cancelPurchaseFromConfirmation
 } from '../../actions';
+import { CUSTOMER } from '../../values/Profiles';
 
 class ConfirmPurchase extends React.Component {
 
@@ -86,24 +87,30 @@ class ConfirmPurchase extends React.Component {
     } = styles;
     return (
       <Container>
-        <NavBar />
-        <BackgroundImage />
-        <Content style={contentStyle}>
-          <Title>Confirm purchase</Title>
-          {this.renderCard()}
-          <Button
-            onPress={this.confirmPurchase.bind(this)}
-            style={confirmButtonStyle}
-          >
-            CONFIRM
-          </Button>
-          <Button
-            onPress={this.cancelPurchase.bind(this)}
-            style={cancelButtonStyle}
-          >
-            CANCEL
-          </Button>
-        </Content>
+        <NavBar
+          returnBack='profileSelector'
+          navigation={this.props.navigation}
+          user={this.props.user}
+          profile={CUSTOMER}
+        >
+          <BackgroundImage />
+          <Content style={contentStyle}>
+            <Title>Confirm purchase</Title>
+            {this.renderCard()}
+            <Button
+              onPress={this.confirmPurchase.bind(this)}
+              style={confirmButtonStyle}
+            >
+              CONFIRM
+            </Button>
+            <Button
+              onPress={this.cancelPurchase.bind(this)}
+              style={cancelButtonStyle}
+            >
+              CANCEL
+            </Button>
+          </Content>
+        </NavBar>
       </Container>
     );
   }

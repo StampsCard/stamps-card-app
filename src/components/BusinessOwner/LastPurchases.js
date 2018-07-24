@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { fetchLastPurchases, changeBackground } from '../../actions';
 import LastPurchaseItem from './fragments/items/LastPurchaseItem';
 import { NavBar, BackgroundImage, Button } from '../common';
+import { BUSINESS_OWNER } from '../../values/Profiles';
 
 class LastPurchases extends React.Component {
 
@@ -29,23 +30,29 @@ class LastPurchases extends React.Component {
 
     return (
       <Container>
-        <NavBar />
-        <BackgroundImage image={this.props.background} />
-        <Content padder>
-          <View style={buttonView}>
-            <Button onPress={this.registerPurchase.bind(this)}>
-              Register Purchase
-            </Button>
-          </View>
-          <View style={lastPurchasesView}>
-            <H2 style={H2Style}>Last Purchases</H2>
-            <FlatList
-              style={styles.listStyle}
-              data={this.props.lastPurchases}
-              renderItem={(purchase) => <LastPurchaseItem purchase={purchase} />}
-            />
-          </View>
-        </Content>
+        <NavBar
+          returnBack='profileSelector'
+          navigation={this.props.navigation}
+          user={this.props.user}
+          profile={BUSINESS_OWNER}
+        >
+          <BackgroundImage image={this.props.background} />
+          <Content padder>
+            <View style={buttonView}>
+              <Button onPress={this.registerPurchase.bind(this)}>
+                Register Purchase
+              </Button>
+            </View>
+            <View style={lastPurchasesView}>
+              <H2 style={H2Style}>Last Purchases</H2>
+              <FlatList
+                style={styles.listStyle}
+                data={this.props.lastPurchases}
+                renderItem={(purchase) => <LastPurchaseItem purchase={purchase} />}
+              />
+            </View>
+          </Content>
+        </NavBar>
       </Container>
     );
   }

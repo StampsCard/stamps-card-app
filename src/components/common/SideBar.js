@@ -1,28 +1,23 @@
 import React from 'react';
-import { Actions } from 'react-native-router-flux';
 import { View } from 'react-native';
 import { Container, Content, Text, List, ListItem } from 'native-base';
 import { Logo } from '.';
+import GetRoutesForSideBar from '../../services/GetRoutesForSideBar';
 
 class SideBar extends React.Component {
-  goToRoute(routekey) {
-    Actions.push(routekey, { user: this.props.user });
-  }
-
   render() {
-    console.log(this.props);
     const { containerStyle, logoViewStyle, listItemText, listItemStyle } = styles;
     return (
       <Container style={containerStyle}>
         <Content>
           <View style={logoViewStyle}><Logo /></View>
           <List
-            dataArray={customerRoutes}
+            dataArray={GetRoutesForSideBar.getByProfile(this.props.profile)}
             renderRow={data => {
               return (
                 <ListItem
                   button
-                  onPress={this.goToRoute.bind(this, data.key)}
+                  onPress={() => data.onPress(this.props.user)}
                   style={listItemStyle}
                 >
                   <Text style={listItemText}>{data.name}</Text>
@@ -35,29 +30,6 @@ class SideBar extends React.Component {
     );
   }
 }
-
-const customerRoutes = [
-  {
-    key: 'customerHomeScreen',
-    name: 'Home'
-  },
-  {
-    key: 'myLastPayments',
-    name: 'My last payments'
-  },
-  {
-    key: 'myStores',
-    name: 'My stores'
-  },
-  {
-    key: 'myStampCards',
-    name: 'My stamps cards'
-  },
-  {
-    key: 'scanPurchase',
-    name: 'Scan purchase'
-  }
-];
 
 const styles = {
   containerStyle: {

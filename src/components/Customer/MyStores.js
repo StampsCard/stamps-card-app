@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
 import { fetchBusinesses, changeBackground } from '../../actions';
 import MyStoreItem from './fragments/MyStoreItem';
+import { CUSTOMER } from '../../values/Profiles';
 
 class MyStores extends React.Component {
 
@@ -28,12 +29,18 @@ class MyStores extends React.Component {
   render() {
     return (
       <Container>
-        <NavBar />
-        <BackgroundImage image={this.props.background} />
-        <Content padder>
-          <Title>My Stores</Title>
-          {this.renderItems()}
-        </Content>
+        <NavBar
+          returnBack='profileSelector'
+          navigation={this.props.navigation}
+          user={this.props.user}
+          profile={CUSTOMER}
+        >
+          <BackgroundImage image={this.props.background} />
+          <Content padder>
+            <Title>My Stores</Title>
+            {this.renderItems()}
+          </Content>
+        </NavBar>
       </Container>
     );
   }

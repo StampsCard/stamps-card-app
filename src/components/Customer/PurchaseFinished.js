@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Container, Content, Text } from 'native-base';
 import { BackgroundImage, SimpleHeader, NavBar, Button } from '../common';
 import { fetchStampsInfo, changeBackground } from '../../actions';
+import { CUSTOMER } from '../../values/Profiles';
 
 class PurchaseFinished extends React.Component {
 
@@ -26,31 +27,37 @@ class PurchaseFinished extends React.Component {
     const stamps = stampsInfo ? (stampsInfo.totalStamps - stampsInfo.stamps) : 0;
     return (
       <Container>
-        <NavBar />
-        <BackgroundImage image={this.props.background} />
-        <SimpleHeader />
-        <Content style={contentStyle}>
-          <Text style={h2Style}>
-            The payment has been completed with success!
-          </Text>
-          <Text style={h3Style}>
-            You need <Text style={boldStyle}>
-                {stamps}
-              </Text> stamps
-            more to get: <Text style={boldStyle}>
-                  {stampsInfo ? stampsInfo.discount : ''}
-              </Text>
-          </Text>
+        <NavBar
+          returnBack='profileSelector'
+          navigation={this.props.navigation}
+          user={this.props.user}
+          profile={CUSTOMER}
+        >
+          <BackgroundImage image={this.props.background} />
+          <SimpleHeader />
+          <Content style={contentStyle}>
+            <Text style={h2Style}>
+              The payment has been completed with success!
+            </Text>
+            <Text style={h3Style}>
+              You need <Text style={boldStyle}>
+                  {stamps}
+                </Text> stamps
+              more to get: <Text style={boldStyle}>
+                    {stampsInfo ? stampsInfo.discount : ''}
+                </Text>
+            </Text>
 
-          <Button style={buttonStyle} onPress={this.myStampCards.bind(this)}>
-            Go to My stamps
-          </Button>
+            <Button style={buttonStyle} onPress={this.myStampCards.bind(this)}>
+              Go to My stamps
+            </Button>
 
-          <Button style={buttonStyle} onPress={this.scanPurchase.bind(this)}>
-            Scan another purchase
-          </Button>
+            <Button style={buttonStyle} onPress={this.scanPurchase.bind(this)}>
+              Scan another purchase
+            </Button>
 
-        </Content>
+          </Content>
+        </NavBar>
       </Container>
     );
   }

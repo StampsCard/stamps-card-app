@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
 import { fetchStamps, changeBackground } from '../../actions';
 import MyStampCardItem from './fragments/MyStampCardItem';
+import { CUSTOMER } from '../../values/Profiles';
 
 class MyStampCards extends React.Component {
 
@@ -28,14 +29,20 @@ class MyStampCards extends React.Component {
   render() {
     return (
       <Container>
-        <NavBar />
-        <BackgroundImage image={this.props.background} />
-        <Content padder>
-          <Title>My Stamp Cards</Title>
-          <ScrollView contentContainerStyle={styles.contentContainer}>
-            {this.renderItems()}
-          </ScrollView>
-        </Content>
+        <NavBar
+          returnBack='profileSelector'
+          navigation={this.props.navigation}
+          user={this.props.user}
+          profile={CUSTOMER}
+        >
+          <BackgroundImage image={this.props.background} />
+          <Content padder>
+            <Title>My Stamp Cards</Title>
+            <ScrollView contentContainerStyle={styles.contentContainer}>
+              {this.renderItems()}
+            </ScrollView>
+          </Content>
+        </NavBar>
       </Container>
     );
   }

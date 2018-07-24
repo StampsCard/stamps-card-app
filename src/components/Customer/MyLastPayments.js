@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
 import { fetchLastPayments, changeBackground } from '../../actions';
 import LastPaymentItem from './fragments/LastPaymentItem';
+import { CUSTOMER } from '../../values/Profiles';
 
 class MyLastPayments extends React.Component {
 
@@ -28,12 +29,18 @@ class MyLastPayments extends React.Component {
   render() {
     return (
       <Container>
-        <NavBar />
-        <BackgroundImage image={this.props.background} />
-        <Content padder>
-          <Title>My Last Payments</Title>
-          {this.renderItems()}
-        </Content>
+        <NavBar
+          returnBack='profileSelector'
+          navigation={this.props.navigation}
+          user={this.props.user}
+          profile={CUSTOMER}
+        >
+          <BackgroundImage image={this.props.background} />
+          <Content padder>
+            <Title>My Last Payments</Title>
+            {this.renderItems()}
+          </Content>
+        </NavBar>
       </Container>
     );
   }

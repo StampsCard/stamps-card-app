@@ -3,6 +3,7 @@ import { Container, Content, Form, Toast } from 'native-base';
 import { connect } from 'react-redux';
 import { View, Keyboard } from 'react-native';
 import QRCode from 'react-native-qrcode';
+import { BUSINESS_OWNER } from '../../values/Profiles';
 
 import {
   productConceptChanged,
@@ -131,12 +132,18 @@ class RegisterPurchase extends React.Component {
   render() {
     return (
       <Container>
-        <NavBar />
-        <BackgroundImage image={this.props.background} />
-        <Content padder>
-          <Title>Register a purchase</Title>
-          { this.renderContent() }
-        </Content>
+        <NavBar
+          returnBack='profileSelector'
+          navigation={this.props.navigation}
+          user={this.props.user}
+          profile={BUSINESS_OWNER}
+        >
+          <BackgroundImage image={this.props.background} />
+          <Content padder>
+            <Title>Register a purchase</Title>
+            { this.renderContent() }
+          </Content>
+        </NavBar>
       </Container>
     );
   }

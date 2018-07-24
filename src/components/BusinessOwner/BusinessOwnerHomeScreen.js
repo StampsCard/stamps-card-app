@@ -7,6 +7,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 import { changeBackground } from '../../actions';
+import { BUSINESS_OWNER } from '../../values/Profiles';
 
 class BusinessOwnerHomeScreen extends React.Component {
 
@@ -26,17 +27,23 @@ class BusinessOwnerHomeScreen extends React.Component {
     const { menuButton } = styles;
     return (
       <Container>
-        <NavBar returnBack='profileSelector' />
-        <BackgroundImage image={this.props.background} />
-        <Content padder>
-            <SimpleHeader />
-            <Button style={menuButton} onPress={this.lastPurchases.bind(this)}>
-              Register a purchase
-            </Button>
-            <Button style={menuButton} onPress={this.myCustomers.bind(this)}>
-              My Customers
-            </Button>
-        </Content>
+        <NavBar
+          returnBack='profileSelector'
+          navigation={this.props.navigation}
+          user={this.props.userLogged}
+          profile={BUSINESS_OWNER}
+        >
+          <BackgroundImage image={this.props.background} />
+          <Content padder>
+              <SimpleHeader />
+              <Button style={menuButton} onPress={this.lastPurchases.bind(this)}>
+                Register a purchase
+              </Button>
+              <Button style={menuButton} onPress={this.myCustomers.bind(this)}>
+                My Customers
+              </Button>
+          </Content>
+        </NavBar>
       </Container>
     );
   }
