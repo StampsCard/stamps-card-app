@@ -30,18 +30,17 @@ class LastPurchaseItem extends React.Component {
 }
 
 const styles = {
-    cardContentStyle: {
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      borderBottomWidth: 2,
-      borderColor: '#80ADD3',
-      backgroundColor: '#fff',
-      paddingLeft: 10,
-      width: '100%'
-    },
+  cardContentStyle: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderBottomWidth: 2,
+    borderColor: '#80ADD3',
+    backgroundColor: '#fff',
+    paddingLeft: 10
+  },
     nameTextStyle: {
-      width: 100
+      width: 90
     },
     amountTextStyle: {
       width: 50

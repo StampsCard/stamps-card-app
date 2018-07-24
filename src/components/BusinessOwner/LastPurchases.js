@@ -1,16 +1,15 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {
   Container,
   Content,
-  H2
 } from 'native-base';
 import { connect } from 'react-redux';
 
 import { fetchLastPurchases, changeBackground } from '../../actions';
 import LastPurchaseItem from './fragments/items/LastPurchaseItem';
-import { NavBar, BackgroundImage, Button } from '../common';
+import { NavBar, BackgroundImage, Title } from '../common';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
 class LastPurchases extends React.Component {
@@ -26,8 +25,6 @@ class LastPurchases extends React.Component {
 
 
   render() {
-    const { buttonView, lastPurchasesView, H2Style } = styles;
-
     return (
       <Container>
         <NavBar
@@ -38,19 +35,11 @@ class LastPurchases extends React.Component {
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
-            <View style={buttonView}>
-              <Button onPress={this.registerPurchase.bind(this)}>
-                Register Purchase
-              </Button>
-            </View>
-            <View style={lastPurchasesView}>
-              <H2 style={H2Style}>Last Purchases</H2>
-              <FlatList
-                style={styles.listStyle}
-                data={this.props.lastPurchases}
-                renderItem={(purchase) => <LastPurchaseItem purchase={purchase} />}
-              />
-            </View>
+            <Title>Last Purchases</Title>
+            <FlatList
+              data={this.props.lastPurchases}
+              renderItem={(purchase) => <LastPurchaseItem purchase={purchase} />}
+            />
           </Content>
         </NavBar>
       </Container>
@@ -63,23 +52,6 @@ const mapStateToProps = (state) => {
     lastPurchases: state.businessOwner.lastPurchases,
     background: state.common.background
   };
-};
-
-const styles = {
-    buttonView: {
-      marginTop: 20,
-      marginBottom: 20
-    },
-
-    lastPurchasesView: {
-      alignItems: 'center',
-      width: '100%'
-    },
-
-    H2Style: {
-      color: '#5C9CCB',
-      marginBottom: 10
-    }
 };
 
 export default connect(
