@@ -7,8 +7,8 @@ import {
   LOGIN_USER_STARTS
 } from './types';
 
-import AuthenticationService from '../services/AuthenticationService';
-
+import { loginQuery } from './queries/AuthQueries';
+import Client from '../Client';
 
 export const emailChanged = (text) => ({
   type: EMAIL_CHANGED,
@@ -24,13 +24,12 @@ export const loginUser = ({ email, password }) => {
   return (dispatch) => {
     dispatch({ type: LOGIN_USER_STARTS });
 
-    const user = AuthenticationService.logIn(email, password);
-
-    if (user) {
-        loginUserSuccess(dispatch, user);
-    } else {
-      loginUserFail(dispatch);
-    }
+    Client.query({
+			query: loginQuery,
+			variables: { email, password }
+		}).then((resp) => {
+      return loginUserSuccess(dispatch, resp.data.login);
+		}).catch(loginUserFail(dispatch));
   };
 };
 
