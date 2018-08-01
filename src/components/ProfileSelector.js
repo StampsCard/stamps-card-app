@@ -16,9 +16,12 @@ class ProfileSelector extends React.Component {
   }
 
   pressCustomerButton() {
-    this.props.customerSelected(this.props.userLogged);
+    this.props.customerSelected({
+      userLogged: this.props.userLogged,
+      hasBusiness: true
+    });
   }
-  
+
   render() {
     const {
       containerButtonStyle,

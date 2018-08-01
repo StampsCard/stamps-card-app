@@ -22,7 +22,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    console.log(this.props.profile);
     const { headerStyle, iconStyle } = styles;
     return (
       <Drawer

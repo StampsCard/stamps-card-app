@@ -22,7 +22,7 @@ export const businessOwnerSelected = (user) => {
   };
 };
 
-export const customerSelected = (user) => {
+export const customerSelected = (user, hasBusiness) => {
   return (dispatch) => {
     dispatch({
       type: CUSTOMER_SELECTED,
@@ -34,7 +34,7 @@ export const customerSelected = (user) => {
       text: 'Customer'
     };
 
-    Actions.welcome({ userLogged: user, profile });
+    Actions.welcome({ userLogged: user, profile, hasBusiness });
   };
 };
 

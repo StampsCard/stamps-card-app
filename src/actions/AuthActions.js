@@ -9,6 +9,7 @@ import {
 
 import { loginQuery } from './queries/AuthQueries';
 import Client from '../Client';
+import { CUSTOMER } from '../values/Profiles';
 
 export const emailChanged = (text) => ({
   type: EMAIL_CHANGED,
@@ -37,10 +38,23 @@ const loginUserFail = (dispatch) => {
   dispatch({ type: LOGIN_USER_FAIL });
 };
 
-const loginUserSuccess = (dispatch, user) => {
+const loginUserSuccess = (dispatch, authData) => {
+  const user = authData.user;
+
+  console.log(authData);
+
   dispatch({
     type: LOGIN_USER_SUCCESS,
     payload: user
   });
-  Actions.profileSelector({ userLogged: user });
+
+  if (CUSTOMER === authData.userRole) {
+    const profile = {
+      id: CUSTOMER,
+      text: 'Customer'
+    };
+
+    return Actions.welcome({ userLogged: user, profile, hasBusiness: false });
+  }
+  return Actions.profileSelector({ userLogged: user });
 };

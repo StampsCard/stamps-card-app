@@ -13,7 +13,15 @@ import { CUSTOMER } from '../../values/Profiles';
 class CustomerHomeScreen extends React.Component {
 
   componentWillMount() {
+    this.returnBack = this.defineReturnBackRoute();
     this.props.changeBackground();
+  }
+
+  defineReturnBackRoute() {
+    if (this.props.hasBusiness) {
+      return 'profileSelector';
+    }
+    return 'customerHomeScreen';
   }
 
   scanPurchase() {
@@ -40,7 +48,7 @@ class CustomerHomeScreen extends React.Component {
     return (
         <Container>
           <NavBar
-            returnBack='profileSelector'
+            returnBack={this.returnBack}
             navigation={this.props.navigation}
             user={this.props.userLogged}
             profile={CUSTOMER}
