@@ -23,7 +23,7 @@ class PaymentDetail extends React.Component {
           <Card>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Business:</Text>
-              <Text>{this.props.payment.business}</Text>
+              <Text>{this.props.payment.stampCard.business.name}</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Amount:</Text>

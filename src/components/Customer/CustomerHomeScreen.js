@@ -13,7 +13,6 @@ import { CUSTOMER } from '../../values/Profiles';
 class CustomerHomeScreen extends React.Component {
 
   componentWillMount() {
-    console.log(this.props);
     this.returnBack = this.defineReturnBackRoute();
     this.props.changeBackground();
   }

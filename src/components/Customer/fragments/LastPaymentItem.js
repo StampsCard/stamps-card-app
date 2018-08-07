@@ -18,7 +18,7 @@ class LastPaymentItem extends React.Component {
         bordered
       >
           <Icon active name="card" />
-          <Text style={nameTextStyle}>{item.business}</Text>
+          <Text style={nameTextStyle}>{item.stampCard.business.name}</Text>
           <Text style={amountTextStyle}>{item.amount}$</Text>
           <Right>
               <Icon name="arrow-forward" />

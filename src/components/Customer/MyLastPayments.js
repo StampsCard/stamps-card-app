@@ -14,7 +14,7 @@ class MyLastPayments extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
-    this.props.fetchLastPayments(this.props.user);
+    this.props.fetchLastPayments(this.props.user.id);
   }
 
   renderItems() {
