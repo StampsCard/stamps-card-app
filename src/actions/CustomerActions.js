@@ -3,10 +3,10 @@ import {
   MY_STORES_FETCH_SUCCESS,
   STAMPS_CARDS_FETCH_SUCCESS
 } from './types';
-import GetStampsCardsByUserService from '../services/GetStampsCardsByUser';
 import {
-  getStoresByUserQuery,
-  getLastPaymentsQuery
+  getStoresQuery,
+  getLastPaymentsQuery,
+  getStampsCardsQuery
 } from './queries/CustomerQueries';
 import Client from '../Client';
 
@@ -27,10 +27,9 @@ export const fetchLastPayments = (userId) => {
 export const fetchBusinesses = (userId) => {
   return (dispatch) => {
     Client.query({
-			query: getStoresByUserQuery,
+			query: getStoresQuery,
 			variables: { userId }
 		}).then((resp) => {
-      console.log(resp.data.businessesByCustomer);
       return dispatch({
         type: MY_STORES_FETCH_SUCCESS,
         payload: { stores: resp.data.businessesByCustomer }
@@ -39,12 +38,16 @@ export const fetchBusinesses = (userId) => {
   };
 };
 
-export const fetchStamps = (user) => {
+export const fetchStamps = (userId) => {
   return (dispatch) => {
-    const stampCards = GetStampsCardsByUserService.fetch(user.id);
-    dispatch({
-      type: STAMPS_CARDS_FETCH_SUCCESS,
-      payload: { stampCards }
-    });
+    Client.query({
+			query: getStampsCardsQuery,
+			variables: { userId }
+		}).then((resp) => {
+      dispatch({
+        type: STAMPS_CARDS_FETCH_SUCCESS,
+        payload: { stampCards: resp.data.stampCardsByUser }
+      });
+		});
   };
 };

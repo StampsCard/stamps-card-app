@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const getStoresByUserQuery = gql`
+export const getStoresQuery = gql`
   query getStoresByUserQuery($userId: ID!){
     businessesByCustomer(userId: $userId) {
       id
@@ -33,5 +33,18 @@ export const getStoresByUserQuery = gql`
         }
         concept
         confirmedAt
+      }
+    }`;
+
+    export const getStampsCardsQuery = gql`
+    query getStampsCardByUser($userId: ID!){
+      stampCardsByUser(userId: $userId) {
+        id
+        business {
+          name
+        }
+        stamp_price
+        total
+        discount
       }
     }`;
