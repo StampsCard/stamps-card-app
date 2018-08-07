@@ -4,7 +4,8 @@ import {
   PASSWORD_CHANGED,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  LOGIN_USER_STARTS
+  LOGIN_USER_STARTS,
+  CUSTOMER_SELECTED
 } from './types';
 
 import { loginQuery } from './queries/AuthQueries';
@@ -30,7 +31,10 @@ export const loginUser = ({ email, password }) => {
 			variables: { email, password }
 		}).then((resp) => {
       return loginUserSuccess(dispatch, resp.data.login);
-		}).catch(loginUserFail(dispatch));
+		}).catch((err) => {
+      console.log(err);
+      loginUserFail(dispatch);
+    });
   };
 };
 
@@ -39,22 +43,19 @@ const loginUserFail = (dispatch) => {
 };
 
 const loginUserSuccess = (dispatch, authData) => {
-  const user = authData.user;
+    const user = authData.user;
 
-  console.log(authData);
+    dispatch({
+      type: LOGIN_USER_SUCCESS,
+      payload: user
+    });
 
-  dispatch({
-    type: LOGIN_USER_SUCCESS,
-    payload: user
-  });
-
-  if (CUSTOMER === authData.userRole) {
-    const profile = {
-      id: CUSTOMER,
-      text: 'Customer'
-    };
-
-    return Actions.welcome({ userLogged: user, profile, hasBusiness: false });
-  }
-  return Actions.profileSelector({ userLogged: user });
+    if (CUSTOMER === authData.userRole) {
+      dispatch({
+        type: CUSTOMER_SELECTED,
+        payload: user
+      });
+      return Actions.welcome({ hasBusiness: false });
+    }
+    return Actions.profileSelector();
 };

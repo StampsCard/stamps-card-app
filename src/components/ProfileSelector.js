@@ -103,8 +103,8 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
-    user: state.profile.user,
-    profile: state.profile.profile,
+    user: state.auth.user,
+    profile: state.auth.profile,
     background: state.common.background
   };
 };

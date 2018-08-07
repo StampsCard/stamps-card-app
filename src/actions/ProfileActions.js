@@ -6,35 +6,25 @@ import {
 } from './types';
 import { BUSINESS_OWNER, CUSTOMER } from '../values/Profiles';
 
-export const businessOwnerSelected = (user) => {
+export const businessOwnerSelected = (userLogged) => {
   return (dispatch) => {
     dispatch({
       type: BUSINESS_OWNER_SELECTED,
-      payload: user
+      payload: userLogged
     });
 
-    const profile = {
-      id: BUSINESS_OWNER,
-      text: 'Business Owner'
-    };
-
-    Actions.welcome({ userLogged: user, profile });
+    Actions.welcome();
   };
 };
 
-export const customerSelected = (user, hasBusiness) => {
+export const customerSelected = (userLogged, hasBusiness) => {
   return (dispatch) => {
     dispatch({
       type: CUSTOMER_SELECTED,
-      payload: user
+      payload: userLogged
     });
 
-    const profile = {
-      id: CUSTOMER,
-      text: 'Customer'
-    };
-
-    Actions.welcome({ userLogged: user, profile, hasBusiness });
+    Actions.welcome({ hasBusiness });
   };
 };
 

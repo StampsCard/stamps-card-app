@@ -14,7 +14,7 @@ class MyLastPayments extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
-    this.props.fetchLastPayments(this.props.user.id);
+    this.props.fetchLastPayments(this.props.user);
   }
 
   renderItems() {
@@ -30,9 +30,7 @@ class MyLastPayments extends React.Component {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={CUSTOMER}
         >
           <BackgroundImage image={this.props.background} />
@@ -49,7 +47,8 @@ class MyLastPayments extends React.Component {
 const mapStateToProps = (state) => {
   return {
     lastPayments: state.customer.lastPayments,
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 

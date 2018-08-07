@@ -13,6 +13,7 @@ import { CUSTOMER } from '../../values/Profiles';
 class CustomerHomeScreen extends React.Component {
 
   componentWillMount() {
+    console.log(this.props);
     this.returnBack = this.defineReturnBackRoute();
     this.props.changeBackground();
   }
@@ -21,23 +22,7 @@ class CustomerHomeScreen extends React.Component {
     if (this.props.hasBusiness) {
       return 'profileSelector';
     }
-    return 'customerHomeScreen';
-  }
-
-  scanPurchase() {
-      Actions.scanPurchase({ user: this.props.userLogged });
-  }
-
-  lastPayments() {
-    Actions.myLastPayments({ user: this.props.userLogged });
-  }
-
-  myStores() {
-    Actions.myStores({ user: this.props.userLogged });
-  }
-
-  myStampCards() {
-    Actions.myStampCards({ user: this.props.userLogged });
+    return 'login';
   }
 
   render() {
@@ -50,7 +35,6 @@ class CustomerHomeScreen extends React.Component {
           <NavBar
             returnBack={this.returnBack}
             navigation={this.props.navigation}
-            user={this.props.userLogged}
             profile={CUSTOMER}
           >
             <BackgroundImage image={this.props.background} />
@@ -58,25 +42,25 @@ class CustomerHomeScreen extends React.Component {
                 <SimpleHeader />
                 <Button
                   style={menuButton}
-                  onPress={this.scanPurchase.bind(this)}
+                  onPress={() => { Actions.scanPurchase(); }}
                 >
                   Scan a purcharse code
                 </Button>
                 <Button
                   style={menuButton}
-                  onPress={this.myStampCards.bind(this)}
+                  onPress={() => { Actions.myStampCards(); }}
                 >
                   My stamps
                 </Button>
                 <Button
                   style={menuButton}
-                  onPress={this.lastPayments.bind(this)}
+                  onPress={() => { Actions.myLastPayments(); }}
                 >
                   My last payments
                 </Button>
                 <Button
                   style={menuButton}
-                  onPress={this.myStores.bind(this)}
+                  onPress={() => { Actions.myStores(); }}
                 >
                   My stores
                 </Button>
@@ -96,7 +80,8 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 

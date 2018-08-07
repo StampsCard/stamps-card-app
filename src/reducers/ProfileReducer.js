@@ -5,18 +5,18 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  userLogged: null,
-  profile: ''
+  id: '',
+  name: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CUSTOMER_SELECTED:
-      return { ...state, userLogged: action.payload, profile: 'CUSTOMER' };
+      return { ...state, id: 'CUSTOMER', text: 'Customer' };
     case BUSINESS_OWNER_SELECTED:
-      return { ...state, userLogged: action.payload, profile: 'BUSINESS_OWNER' };
+      return { ...state, id: 'BUSINESS_OWNER', text: 'Business Owner' };
     case MAIN_PAGE:
-    return { ...state, userLogged: action.payload };
+    return { ...state };
 
     default:
       return state;

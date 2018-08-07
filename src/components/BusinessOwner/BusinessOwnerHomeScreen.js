@@ -12,19 +12,8 @@ import { BUSINESS_OWNER } from '../../values/Profiles';
 class BusinessOwnerHomeScreen extends React.Component {
 
   componentWillMount() {
+    console.log(this.props);
     this.props.changeBackground();
-  }
-
-  myCustomers() {
-    Actions.myCustomers({ user: this.props.userLogged });
-  }
-
-  lastPurchases() {
-    Actions.lastPurchases({ user: this.props.userLogged });
-  }
-
-  registerPurchase() {
-    Actions.registerPurchase({ user: this.props.userLogged });
   }
 
   render() {
@@ -34,19 +23,19 @@ class BusinessOwnerHomeScreen extends React.Component {
         <NavBar
           returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.userLogged}
+          user={this.props.user}
           profile={BUSINESS_OWNER}
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
               <SimpleHeader />
-              <Button style={menuButton} onPress={this.registerPurchase.bind(this)}>
+              <Button style={menuButton} onPress={() => { Actions.registerPurchase(); }}>
                 Register a purchase
               </Button>
-              <Button style={menuButton} onPress={this.myCustomers.bind(this)}>
+              <Button style={menuButton} onPress={() => { Actions.myCustomers(); }}>
                 My Customers
               </Button>
-              <Button style={menuButton} onPress={this.lastPurchases.bind(this)}>
+              <Button style={menuButton} onPress={() => { Actions.lastPurchases(); }}>
                 Last Purchases
               </Button>
           </Content>
@@ -65,7 +54,8 @@ const styles = {
 
 const mapStateToProps = state => {
   return {
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 

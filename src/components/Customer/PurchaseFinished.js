@@ -13,14 +13,6 @@ class PurchaseFinished extends React.Component {
     this.props.fetchStampsInfo(this.props.user.id);
   }
 
-  myStampCards() {
-    Actions.myStampCards({ user: this.props.user });
-  }
-
-  scanPurchase() {
-    Actions.scanPurchase({ user: this.props.user });
-  }
-
   render() {
     const { contentStyle, h2Style, h3Style, boldStyle, buttonStyle } = styles;
     const stampsInfo = this.props.stampsInfo;
@@ -28,9 +20,7 @@ class PurchaseFinished extends React.Component {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={CUSTOMER}
         >
           <BackgroundImage image={this.props.background} />
@@ -48,11 +38,11 @@ class PurchaseFinished extends React.Component {
                 </Text>
             </Text>
 
-            <Button style={buttonStyle} onPress={this.myStampCards.bind(this)}>
+            <Button style={buttonStyle} onPress={() => { Actions.myStampCards(); }}>
               Go to My stamps
             </Button>
 
-            <Button style={buttonStyle} onPress={this.scanPurchase.bind(this)}>
+            <Button style={buttonStyle} onPress={() => { Actions.scanPurchase(); }}>
               Scan another purchase
             </Button>
 
@@ -93,7 +83,8 @@ const styles = {
 const mapStateToProps = (state) => {
   return {
     stampsInfo: state.purchaseFinished.stampsInfo,
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 

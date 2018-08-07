@@ -47,7 +47,8 @@ const styles = {
 
 const mapValueToProps = state => {
   return {
-    user: state.profile.user
+    user: state.auth.user,
+    profile: state.profile
   };
 };
 

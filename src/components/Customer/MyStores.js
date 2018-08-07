@@ -30,9 +30,7 @@ class MyStores extends React.Component {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={CUSTOMER}
         >
           <BackgroundImage image={this.props.background} />
@@ -49,7 +47,8 @@ class MyStores extends React.Component {
 const mapStateToProps = (state) => {
   return {
     stores: state.customer.stores,
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 

@@ -88,9 +88,7 @@ class ConfirmPurchase extends React.Component {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={CUSTOMER}
         >
           <BackgroundImage />

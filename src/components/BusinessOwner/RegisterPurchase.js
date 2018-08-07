@@ -133,9 +133,7 @@ class RegisterPurchase extends React.Component {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={BUSINESS_OWNER}
         >
           <BackgroundImage image={this.props.background} />
@@ -170,7 +168,8 @@ const mapStateToProps = state => {
     loading: state.registerPurchase.loading,
     link: state.registerPurchase.link,
     purchaseId: state.registerPurchase.purchaseId,
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 

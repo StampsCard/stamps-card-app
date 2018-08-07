@@ -4,43 +4,32 @@ import { BUSINESS_OWNER, CUSTOMER } from '../values/Profiles';
 module.exports.getByProfile = (profile) => {
   'use strict';
 
-    console.log(profile, CUSTOMER, BUSINESS_OWNER);
     if (CUSTOMER === profile) {
       return [
         {
           key: 'customerHomeScreen',
           name: 'Home',
-          onPress: (user) => {
-            Actions.customerHomeScreen({ user });
-          }
+          onPress: () => { Actions.customerHomeScreen(); }
         },
         {
           key: 'myLastPayments',
           name: 'My last payments',
-          onPress: (user) => {
-            Actions.myLastPayments({ user });
-          }
+          onPress: () => { Actions.myLastPayments(); }
         },
         {
           key: 'myStores',
           name: 'My stores',
-          onPress: (user) => {
-            Actions.myStores({ user });
-          }
+          onPress: () => { Actions.myStores(); }
         },
         {
           key: 'myStampCards',
           name: 'My stamps cards',
-          onPress: (user) => {
-            Actions.myStampCards({ user });
-          }
+          onPress: () => { Actions.myStampCards(); }
         },
         {
           key: 'scanPurchase',
           name: 'Scan purchase',
-          onPress: (user) => {
-            Actions.scanPurchase({ user });
-          }
+          onPress: () => { Actions.scanPurchase(); }
         },
       ];
     }
@@ -50,30 +39,22 @@ module.exports.getByProfile = (profile) => {
         {
           key: 'businessOwnerHomeScreen',
           name: 'Home',
-          onPress: (user) => {
-            Actions.businessOwnerHomeScreen({ user });
-          }
+          onPress: () => { Actions.businessOwnerHomeScreen(); }
         },
         {
           key: 'myCustomers',
           name: 'My customers',
-          onPress: (user) => {
-            Actions.myCustomers({ user });
-          }
+          onPress: () => { Actions.myCustomers(); }
         },
         {
           key: 'registerPurchase',
           name: 'Register purchase',
-          onPress: (user) => {
-            Actions.registerPurchase({ user });
-          }
+          onPress: () => { Actions.registerPurchase(); }
         },
         {
           key: 'lastPurchases',
           name: 'Last purchases',
-          onPress: (user) => {
-            Actions.lastPurchases({ user });
-          }
+          onPress: () => { Actions.lastPurchases(); }
         },
 
       ];

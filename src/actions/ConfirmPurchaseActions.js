@@ -28,11 +28,11 @@ export const acceptPurchaseFromConfirmation = (purchaseId, user) => {
     // Notify the business owner with a PUSH notification
     dispatch({ type: PURCHASE_CONFIRMED, payload: purchase });
     // Redirect to purchase finished
-    Actions.purchaseFinished({ user });
+    Actions.purchaseFinished();
   };
 };
 
-export const cancelPurchaseFromConfirmation = (purchaseId, user) => {
+export const cancelPurchaseFromConfirmation = (purchaseId) => {
   return (dispatch) => {
     CancelPurchaseService.exec(purchaseId);
     // Notify the business owner with a PUSH notification
@@ -43,7 +43,7 @@ export const cancelPurchaseFromConfirmation = (purchaseId, user) => {
       }
     );
     // Redirect to home screen
-    Actions.customerHomeScreen({ userLogged: user });
+    Actions.customerHomeScreen();
   };
 };
 

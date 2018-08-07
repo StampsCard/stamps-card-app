@@ -30,9 +30,7 @@ class MyCustomers extends React.Component {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={BUSINESS_OWNER}
         >
           <BackgroundImage image={this.props.background} />
@@ -49,7 +47,8 @@ class MyCustomers extends React.Component {
 const mapStateToProps = (state) => {
   return {
     myCustomers: state.businessOwner.myCustomers,
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 

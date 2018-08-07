@@ -16,7 +16,6 @@ class ScanPurchase extends React.Component {
     const scheme = 'stampscard://customer/codeScanned/';
     if (scannedUrl.indexOf(scheme) === 0) {
         const purchaseId = scannedUrl.slice(scheme.length);
-        console.log(purchaseId);
         Actions.confirmPurchase({ purchaseId });
     } else {
       console.log('Error! This QR Code is not internal', scannedUrl);

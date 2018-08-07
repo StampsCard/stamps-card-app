@@ -23,8 +23,7 @@ export default (state = INITIAL_STATE, action) => {
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
-        user: action.payload,
-        ...INITIAL_STATE
+        user: action.payload
       };
     case LOGIN_USER_FAIL:
       return { ...state, error: 'Authentication failed.', loading: false, showToast: true };

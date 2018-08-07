@@ -1,6 +1,5 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import {
   Container,
   Content,
@@ -19,18 +18,11 @@ class LastPurchases extends React.Component {
     this.props.fetchLastPurchases(this.props.user.id);
   }
 
-  registerPurchase() {
-    Actions.registerPurchase({ user: this.props.user });
-  }
-
-
   render() {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={BUSINESS_OWNER}
         >
           <BackgroundImage image={this.props.background} />
@@ -50,7 +42,8 @@ class LastPurchases extends React.Component {
 const mapStateToProps = (state) => {
   return {
     lastPurchases: state.businessOwner.lastPurchases,
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 

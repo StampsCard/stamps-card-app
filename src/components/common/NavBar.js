@@ -6,11 +6,15 @@ import { SideBar } from '.';
 class NavBar extends React.Component {
 
   closeDrawer = () => {
-    this.drawer._root.close();
+    if (this.drawer) {
+      this.drawer._root.close();
+    }
   }
 
   openDrawer = () => {
-    this.drawer._root.open();
+    if (this.drawer) {
+      this.drawer._root.open();
+    }
   }
 
   returnBack() {
@@ -30,7 +34,6 @@ class NavBar extends React.Component {
         content={
           <SideBar
             navigation={this.props.navigation}
-            user={this.props.user}
             profile={this.props.profile}
           />
         }

@@ -17,7 +17,7 @@ class SideBar extends React.Component {
               return (
                 <ListItem
                   button
-                  onPress={() => data.onPress(this.props.user)}
+                  onPress={() => data.onPress()}
                   style={listItemStyle}
                 >
                   <Text style={listItemText}>{data.name}</Text>

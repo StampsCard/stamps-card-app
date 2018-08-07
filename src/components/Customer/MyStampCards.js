@@ -30,9 +30,7 @@ class MyStampCards extends React.Component {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={CUSTOMER}
         >
           <BackgroundImage image={this.props.background} />
@@ -57,7 +55,8 @@ const styles = {
 const mapStateToProps = (state) => {
   return {
     stampCards: state.customer.stampCards,
-    background: state.common.background
+    background: state.common.background,
+    user: state.auth.user
   };
 };
 
