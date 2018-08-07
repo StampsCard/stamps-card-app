@@ -8,6 +8,7 @@ import { BUSINESS_OWNER, CUSTOMER } from '../values/Profiles';
 
 export const businessOwnerSelected = (userLogged) => {
   return (dispatch) => {
+    // Get business by Owner ID
     dispatch({
       type: BUSINESS_OWNER_SELECTED,
       payload: userLogged
@@ -35,10 +36,10 @@ export const goToMainPage = (user, profileId) => {
         payload: user
       });
       if (BUSINESS_OWNER === profileId) {
-        return Actions.businessOwnerHomeScreen({ userLogged: user });
+        return Actions.businessOwnerHomeScreen();
       }
       if (CUSTOMER === profileId) {
-        return Actions.customerHomeScreen({ userLogged: user });
+        return Actions.customerHomeScreen();
       }
       return Actions.login({ error: 'The profile selected is incorrect.' });
    };
