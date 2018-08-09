@@ -20,7 +20,7 @@ class MyStoreItem extends React.Component {
       >
           <Icon active name="basket" />
           <Text style={nameTextStyle}>{business.name}</Text>
-          <Text style={amountTextStyle}>{item.totalStamps} Stamps</Text>
+          <Text style={amountTextStyle}>{item.totalOfStamps} Stamps</Text>
           <Right>
               <Icon name="arrow-forward" />
           </Right>

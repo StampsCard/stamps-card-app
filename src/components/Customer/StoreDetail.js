@@ -13,7 +13,7 @@ class StoreDetail extends React.Component {
   render() {
     const { cardItemStyle, boldText, contentStyle } = styles;
     const business = this.props.store.business;
-    
+
     return (
       <Container>
         <BackgroundImage />
@@ -29,7 +29,7 @@ class StoreDetail extends React.Component {
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Amount of Stamps:</Text>
-              <Text> {this.props.store.totalStamps} $</Text>
+              <Text> {this.props.store.totalOfStamps}</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Category:</Text>

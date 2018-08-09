@@ -32,7 +32,7 @@ export const fetchBusinesses = (userId) => {
 		}).then((resp) => {
       return dispatch({
         type: MY_STORES_FETCH_SUCCESS,
-        payload: { stores: resp.data.businessesByCustomer }
+        payload: { stores: resp.data.storesByCustomer }
       });
 		});
   };
