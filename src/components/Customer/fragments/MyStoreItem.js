@@ -9,16 +9,17 @@ class MyStoreItem extends React.Component {
 
   render() {
     const item = this.props.store.item;
+    const business = item.business;
     const { cardContentStyle, nameTextStyle, amountTextStyle } = styles;
     return (
       <ListItem
         style={cardContentStyle}
-        key={item.id}
+        key={business.id}
         onPress={this.openDetail.bind(this)}
         bordered
       >
           <Icon active name="basket" />
-          <Text style={nameTextStyle}>{item.name}</Text>
+          <Text style={nameTextStyle}>{business.name}</Text>
           <Text style={amountTextStyle}>{item.totalStamps} Stamps</Text>
           <Right>
               <Icon name="arrow-forward" />

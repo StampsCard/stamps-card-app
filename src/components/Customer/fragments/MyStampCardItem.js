@@ -7,8 +7,8 @@ class MyStampCardItem extends React.Component {
   renderStamp() {
     let i = 0;
     const item = this.props.stampCard.item;
-    const stampsAmount = item.stampsAmount || 0;
-    const totalStamps = item.total || 0;
+    const stampsAmount = item.amount || 0;
+    const totalStamps = item.stampCard.total || 0;
 
     const stamps = [];
     const { filledStampStyle, emptyStampStyle } = styles;
@@ -45,7 +45,7 @@ class MyStampCardItem extends React.Component {
 
     return (
       <View style={contentStyle}>
-        <H2 style={h2Style}>{item.business.name}</H2>
+        <H2 style={h2Style}>{item.stampCard.business.name}</H2>
         <Card
           style={cardContentStyle}
           bordered
@@ -63,10 +63,10 @@ class MyStampCardItem extends React.Component {
           </Left>
           <Right>
             <Text style={boldText}>
-              {item.stampsAmount}/{item.total} stamps
+              {item.amount}/{item.stampCard.total} stamps
             </Text>
             <Text style={boldText}>{item.spent} €</Text>
-            <Text style={boldText}>{item.discount}</Text>
+            <Text style={boldText}>{item.stampCard.discount}</Text>
           </Right>
         </Card>
       </View>

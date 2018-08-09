@@ -12,6 +12,8 @@ import { BackgroundImage, Button, HeaderDetail } from '../common';
 class StoreDetail extends React.Component {
   render() {
     const { cardItemStyle, boldText, contentStyle } = styles;
+    const business = this.props.store.business;
+    
     return (
       <Container>
         <BackgroundImage />
@@ -23,7 +25,7 @@ class StoreDetail extends React.Component {
           <Card>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Name:</Text>
-              <Text>{this.props.store.name}</Text>
+              <Text>{business.name}</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Amount of Stamps:</Text>
@@ -31,11 +33,11 @@ class StoreDetail extends React.Component {
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Category:</Text>
-              <Text>{this.props.store.category.name}</Text>
+              <Text>{business.category.name}</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Owner:</Text>
-              <Text>{this.props.store.owner.firstName} {this.props.store.owner.lastName}</Text>
+              <Text>{business.owner.firstName} {business.owner.lastName}</Text>
             </CardItem>
           </Card>
 
