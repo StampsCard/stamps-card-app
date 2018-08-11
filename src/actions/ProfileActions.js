@@ -5,25 +5,35 @@ import {
   MAIN_PAGE
 } from './types';
 import { BUSINESS_OWNER, CUSTOMER } from '../values/Profiles';
+import { getBusinessIdsQuery } from './queries/BusinessOwnerQueries';
+import Client from '../Client';
 
-export const businessOwnerSelected = (userLogged) => {
+export const businessOwnerSelected = (userId) => {
   return (dispatch) => {
-    // Get business by Owner ID
-    dispatch({
-      type: BUSINESS_OWNER_SELECTED,
-      payload: userLogged
-    });
+    Client.query({
+			query: getBusinessIdsQuery,
+			variables: { userId }
+		}).then((resp) => {
+      const response = resp.data.businessesByOwner;
+      if (!Array.isArray(response) || !response.length) {
+        Actions.login();
+      }
 
-    Actions.welcome();
+      dispatch({
+        type: BUSINESS_OWNER_SELECTED,
+        payload: { businessId: response[0].id }
+      });
+
+      Actions.welcome();
+		}).catch((err) => {
+      console.log(err);
+    });
   };
 };
 
-export const customerSelected = (userLogged, hasBusiness) => {
+export const customerSelected = (hasBusiness) => {
   return (dispatch) => {
-    dispatch({
-      type: CUSTOMER_SELECTED,
-      payload: userLogged
-    });
+    dispatch({ type: CUSTOMER_SELECTED });
 
     Actions.welcome({ hasBusiness });
   };

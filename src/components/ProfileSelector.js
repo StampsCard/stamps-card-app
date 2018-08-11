@@ -12,14 +12,11 @@ class ProfileSelector extends React.Component {
   }
 
   pressBusinessOwnerButton() {
-    this.props.businessOwnerSelected(this.props.userLogged);
+    this.props.businessOwnerSelected(this.props.user.id);
   }
 
   pressCustomerButton() {
-    this.props.customerSelected({
-      userLogged: this.props.userLogged,
-      hasBusiness: true
-    });
+    this.props.customerSelected(true);
   }
 
   render() {

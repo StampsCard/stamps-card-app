@@ -14,7 +14,12 @@ export default (state = INITIAL_STATE, action) => {
     case CUSTOMER_SELECTED:
       return { ...state, id: 'CUSTOMER', text: 'Customer' };
     case BUSINESS_OWNER_SELECTED:
-      return { ...state, id: 'BUSINESS_OWNER', text: 'Business Owner' };
+      return {
+        ...state,
+        id: 'BUSINESS_OWNER',
+        text: 'Business Owner',
+        businessId: action.payload.businessId
+      };
     case MAIN_PAGE:
     return { ...state };
 
