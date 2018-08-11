@@ -12,6 +12,7 @@ import { BackgroundImage, Button, HeaderDetail } from '../common';
 class PurchaseDetail extends React.Component {
   render() {
     const { cardItemStyle, boldText, contentStyle } = styles;
+    const user = this.props.purchase.user;
     return (
       <Container>
         <BackgroundImage />
@@ -23,7 +24,7 @@ class PurchaseDetail extends React.Component {
           <Card>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>User:</Text>
-              <Text>{this.props.purchase.user}</Text>
+              <Text>{user.firstName} {user.lastName}</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Amount:</Text>

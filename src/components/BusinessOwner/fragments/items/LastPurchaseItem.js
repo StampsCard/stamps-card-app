@@ -18,7 +18,7 @@ class LastPurchaseItem extends React.Component {
         bordered
       >
           <Icon active name="card" />
-          <Text style={nameTextStyle}>{item.user}</Text>
+          <Text style={nameTextStyle}>{item.user.firstName} {item.user.lastName}</Text>
           <Text>{item.stamps} Stamps</Text>
           <Text style={amountTextStyle}>{item.amount}$</Text>
           <Right>

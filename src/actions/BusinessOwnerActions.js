@@ -3,11 +3,10 @@ import {
   LAST_PURCHASES_FETCH_SUCCESS
 } from './types';
 import {
-  getCustomersQuery
+  getCustomersQuery,
+  getLastPurchasesQuery
 } from './queries/BusinessOwnerQueries';
 import Client from '../Client';
-
-import GetPurchasesByBusinessService from '../services/GetPurchasesByBusiness';
 
 export const fetchMyCustomers = (businessId) => {
   return (dispatch) => {
@@ -25,11 +24,15 @@ export const fetchMyCustomers = (businessId) => {
 
 export const fetchLastPurchases = (businessId) => {
   return (dispatch) => {
-    const lastPurchases = GetPurchasesByBusinessService.fetch(businessId);
-
-    dispatch({
-      type: LAST_PURCHASES_FETCH_SUCCESS,
-      payload: { lastPurchases }
-    });
+    Client.query({
+			query: getLastPurchasesQuery,
+			variables: { businessId }
+		}).then((resp) => {
+      console.log(resp);
+      return dispatch({
+        type: LAST_PURCHASES_FETCH_SUCCESS,
+        payload: { lastPurchases: resp.data.purchasesByBusiness }
+      });
+		});
   };
 };

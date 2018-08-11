@@ -15,7 +15,7 @@ class LastPurchases extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
-    this.props.fetchLastPurchases(this.props.user.id);
+    this.props.fetchLastPurchases(this.props.businessId);
   }
 
   render() {
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
   return {
     lastPurchases: state.businessOwner.lastPurchases,
     background: state.common.background,
-    user: state.auth.user
+    businessId: state.profile.businessId
   };
 };
 
