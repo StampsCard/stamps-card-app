@@ -14,7 +14,7 @@ class MyCustomers extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
-    this.props.fetchMyCustomers(this.props.user.id);
+    this.props.fetchMyCustomers(this.props.businessId);
   }
 
   renderItems() {
@@ -48,7 +48,7 @@ const mapStateToProps = (state) => {
   return {
     myCustomers: state.businessOwner.myCustomers,
     background: state.common.background,
-    user: state.auth.user
+    businessId: state.profile.businessId
   };
 };
 

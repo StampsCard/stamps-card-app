@@ -8,7 +8,7 @@ class MyCustomerItem extends React.Component {
   }
 
   render() {
-    const item = this.props.customer.item;
+    const item = this.props.customer.item.user;
     const { cardContentStyle, nameTextStyle, emailTextStyle } = styles;
     return (
       <ListItem
