@@ -47,7 +47,11 @@ class RegisterPurchase extends React.Component {
 
   generatePurchase() {
     Keyboard.dismiss();
-    this.props.generatePurchase(this.props.user);
+    this.props.generatePurchase(
+      this.props.businessId,
+      this.props.productConcept,
+      this.props.amount
+    );
   }
 
   cancelPurchase() {
@@ -169,7 +173,8 @@ const mapStateToProps = state => {
     link: state.registerPurchase.link,
     purchaseId: state.registerPurchase.purchaseId,
     background: state.common.background,
-    user: state.auth.user
+    user: state.auth.user,
+    businessId: state.profile.businessId
   };
 };
 
