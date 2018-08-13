@@ -7,11 +7,11 @@ import {
   PURCHASE_GENERATION_STARTS,
   PURCHASE_CANCELED
 } from './types';
-import { getStampCardsQuery } from './queries/RegisterPurchaseQueries';
+import { getStampCardsQuery } from './queries/PurchaseQueries';
 import {
   registerPurchaseMutation,
   cancelPurchaseMutation
-} from './mutations/RegisterPurchaseMutations';
+} from './mutations/PurchaseMutations';
 import Client from '../Client';
 
 export const productConceptChanged = (text) => ({
@@ -33,17 +33,17 @@ export const generatePurchase = ({ businessId, concept, amount }) => {
 			variables: { businessId }
 		}).then((stampsResponse) => {
         // Get the first stampCard
-        const stampCards = stampsResponse.getStampsCardFromBusiness.data;
+        const stampCards = stampsResponse.data.business.stampCards;
         if (!stampCards.length) {
           console.log('You need to create a stamp card before!');
           Actions.businessOwnerHomeScreen();
         }
 
-        Client.query({
-          query: registerPurchaseMutation,
+        Client.mutate({
+          mutation: registerPurchaseMutation,
           variables: { concept, amount, stampId: stampCards[0].id }
         }).then((purchaseResponse) => {
-            const data = purchaseResponse.createPurchase.data;
+            const data = purchaseResponse.data.createPurchase;
             if (data) {
               return purchaseGenerated(dispatch, data.id);
             }
@@ -71,11 +71,11 @@ export const purchaseGenerated = (dispatch, purchaseId) => {
 
 export const cancelPurchase = (purchaseId) => {
   return (dispatch) => {
-    Client.query({
-      query: cancelPurchaseMutation,
+    Client.mutate({
+      mutation: cancelPurchaseMutation,
       variables: { id: purchaseId }
-    }).then((purchaseResponse) => {
-        if (purchaseResponse.data.id) {
+    }).then((response) => {
+        if (response.data.cancelPurchase.id) {
           return dispatch({ type: PURCHASE_CANCELED });
         }
         console.log('The purchase has been cancelled.');

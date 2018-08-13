@@ -20,23 +20,20 @@ import { CUSTOMER } from '../../values/Profiles';
 class ConfirmPurchase extends React.Component {
 
   componentWillMount() {
-    this.props.userId = 1;
-
     this.props.fetchPurchase(this.props.purchaseId);
-    this.props.fetchUser(this.props.userId);
   }
 
   confirmPurchase() {
     this.props.acceptPurchaseFromConfirmation(
       this.props.purchaseId,
-      this.props.user
+      this.props.user.id
     );
   }
 
   cancelPurchase() {
     this.props.cancelPurchaseFromConfirmation(
       this.props.purchaseId,
-      this.props.user
+      this.props.user.id
     );
   }
 
@@ -53,7 +50,7 @@ class ConfirmPurchase extends React.Component {
         <CardItem style={cardItemStyle}>
           <Text style={boldText}>Business:</Text>
           <Text>
-            {purchase ? purchase.business : ''}
+            {purchase ? purchase.stampCard.business.name : ''}
           </Text>
         </CardItem>
 
@@ -117,7 +114,7 @@ class ConfirmPurchase extends React.Component {
 const mapStateToProps = (state) => {
   return {
     purchase: state.confirmPurchase.purchase,
-    user: state.confirmPurchase.user
+    user: state.auth.user
   };
 };
 

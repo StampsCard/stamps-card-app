@@ -12,7 +12,6 @@ import { BUSINESS_OWNER } from '../../values/Profiles';
 class BusinessOwnerHomeScreen extends React.Component {
 
   componentWillMount() {
-    console.log(this.props);
     this.props.changeBackground();
   }
 

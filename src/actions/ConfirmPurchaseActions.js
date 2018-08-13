@@ -4,57 +4,75 @@ import {
   PURCHASE_FETCH_SUCCESS,
   PURCHASE_CONFIRMED,
   PURCHASE_CANCELED,
-  USER_FETCH_SUCCESS,
   PURCHASE_SCANNED
 } from './types';
-import CancelPurchaseService from '../services/CancelPurchase';
-import ConfirmPurchaseService from '../services/ConfirmPurchase';
-import GetPurchaseByIdService from '../services/GetPurchaseById';
-import GetUserById from '../services/GetUserById';
+import {
+  confirmPurchaseMutation,
+  cancelPurchaseMutation
+} from './mutations/PurchaseMutations';
+import {
+  getPurchaseQuery
+} from './queries/PurchaseQueries';
+import Client from '../Client';
 
 export const fetchPurchase = (purchaseId) => {
   return (dispatch) => {
-    const purchase = GetPurchaseByIdService.exec(purchaseId);
-    dispatch({
-      type: PURCHASE_FETCH_SUCCESS,
-      payload: purchase
+    Client.query({
+      query: getPurchaseQuery,
+      variables: { id: purchaseId }
+    }).then((response) => {
+      if (response.data.purchase) {
+        dispatch({
+          type: PURCHASE_FETCH_SUCCESS,
+          payload: response.data.purchase
+        });
+      } else {
+        console.log('The purchase has been cancelled or confirmed before.');
+        Actions.customerHomeScreen();
+      }
     });
   };
 };
 
-export const acceptPurchaseFromConfirmation = (purchaseId, user) => {
+export const acceptPurchaseFromConfirmation = (purchaseId, userId) => {
   return (dispatch) => {
-    const purchase = ConfirmPurchaseService.exec(purchaseId, user.id);
-    // Notify the business owner with a PUSH notification
-    dispatch({ type: PURCHASE_CONFIRMED, payload: purchase });
-    // Redirect to purchase finished
-    Actions.purchaseFinished();
+    Client.mutate({
+      mutation: confirmPurchaseMutation,
+      variables: { id: purchaseId, userId }
+    }).then((response) => {
+      const purchase = response.data.confirmPurchase;
+        if (purchase.id) {
+          // Notify the business owner with a PUSH notification
+          dispatch({ type: PURCHASE_CONFIRMED });
+          // Redirect to purchase finished
+          return Actions.purchaseFinished();
+        }
+        console.log('The purchase is still PENDING to confirm.');
+        // Redirect to home screen
+        return Actions.customerHomeScreen();
+    }).catch((err) => {
+      console.log(err);
+      return Actions.customerHomeScreen();
+    });
   };
 };
 
 export const cancelPurchaseFromConfirmation = (purchaseId) => {
   return (dispatch) => {
-    CancelPurchaseService.exec(purchaseId);
-    // Notify the business owner with a PUSH notification
-    dispatch(
-      {
-        type: PURCHASE_CANCELED,
-        payload: { message: 'The purchase has been canceled.' }
-      }
-    );
-    // Redirect to home screen
-    Actions.customerHomeScreen();
-  };
-};
-
-export const fetchUser = (userId) => {
-  return (dispatch) => {
-    const user = GetUserById.exec(userId);
-    dispatch({
-      type: USER_FETCH_SUCCESS,
-      payload: user
-    });
-  };
+      Client.mutate({
+        mutation: cancelPurchaseMutation,
+        variables: { id: purchaseId }
+      }).then((response) => {
+          if (response.data.cancelPurchase.id) {
+            dispatch({ type: PURCHASE_CANCELED });
+          }
+          console.log('The purchase has been cancelled.');
+          // Redirect to home screen
+          return Actions.customerHomeScreen();
+      }).catch((err) => {
+        console.log(err);
+      });
+    };
 };
 
 export const purchaseScanned = (purchaseId) => {
