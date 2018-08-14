@@ -37,3 +37,15 @@ query getUser($id: ID!) {
     lastName
   }
 }`;
+
+export const getStampCardInfo = gql`
+query getStampCardInfo($purchaseId: ID!) {
+  stampCardByPurchase(purchaseId: $purchaseId) {
+    stampCard {
+      id
+      discount
+    }
+    spent
+    amount
+  }
+}`;

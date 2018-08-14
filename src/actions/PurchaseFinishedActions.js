@@ -1,14 +1,20 @@
 import {
   STAMPS_INFO_FETCH_SUCCESS
 } from './types';
-import GetStampsInfoByUser from '../services/GetStampsInfoByUser';
 
-export const fetchStampsInfo = (userId) => {
+import { getStampCardInfo } from './queries/PurchaseQueries';
+import Client from '../Client';
+
+export const fetchStampsInfo = (purchaseId) => {
   return (dispatch) => {
-    const stampsInfo = GetStampsInfoByUser.exec(userId);
-    dispatch({
-      type: STAMPS_INFO_FETCH_SUCCESS,
-      payload: stampsInfo
-    });
+    Client.query({
+			query: getStampCardInfo,
+			variables: { purchaseId }
+		}).then((response) => {
+      dispatch({
+        type: STAMPS_INFO_FETCH_SUCCESS,
+        payload: response.data.stampCardByPurchase
+      });
+		});
   };
 };

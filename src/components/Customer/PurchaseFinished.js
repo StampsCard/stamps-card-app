@@ -10,10 +10,11 @@ class PurchaseFinished extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
-    this.props.fetchStampsInfo(this.props.user.id);
+    this.props.fetchStampsInfo(this.props.purchase.id);
   }
 
   render() {
+    console.log(this.props);
     const { contentStyle, h2Style, h3Style, boldStyle, buttonStyle } = styles;
     const stampsInfo = this.props.stampsInfo;
     const stamps = stampsInfo ? (stampsInfo.totalStamps - stampsInfo.stamps) : 0;
@@ -34,7 +35,7 @@ class PurchaseFinished extends React.Component {
                   {stamps}
                 </Text> stamps
               more to get: <Text style={boldStyle}>
-                    {stampsInfo ? stampsInfo.discount : ''}
+                    {stampsInfo ? stampsInfo.stampCard.discount : ''}
                 </Text>
             </Text>
 
@@ -84,7 +85,8 @@ const mapStateToProps = (state) => {
   return {
     stampsInfo: state.purchaseFinished.stampsInfo,
     background: state.common.background,
-    user: state.auth.user
+    user: state.auth.user,
+    purchase: state.confirmPurchase.purchase
   };
 };
 
