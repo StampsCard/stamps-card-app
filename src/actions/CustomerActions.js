@@ -16,6 +16,7 @@ export const fetchLastPayments = (userId) => {
 			query: getLastPaymentsQuery,
 			variables: { userId }
 		}).then((resp) => {
+      console.log(resp);
       return dispatch({
         type: LAST_PAYMENTS_FETCH_SUCCESS,
         payload: { lastPayments: resp.data.purchasesByUser }

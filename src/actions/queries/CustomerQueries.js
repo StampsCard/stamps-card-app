@@ -36,6 +36,7 @@ export const getLastPaymentsQuery = gql`
       }
       concept
       confirmedAt
+      cancelledAt
     }
   }`;
 

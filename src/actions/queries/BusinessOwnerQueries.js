@@ -35,5 +35,6 @@ query getLastPurchases($businessId: ID!){
     }
     concept
     confirmedAt
+    cancelledAt
   }
 }`;
