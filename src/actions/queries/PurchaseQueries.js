@@ -44,6 +44,7 @@ query getStampCardInfo($purchaseId: ID!) {
     stampCard {
       id
       discount
+      total
     }
     spent
     amount
