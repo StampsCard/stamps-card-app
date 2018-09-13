@@ -124,7 +124,8 @@ const styles = {
     contentContainer: {
       flex: 1,
       flexDirection: 'row',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      height: 350
     },
 
     emptyStampStyle: {

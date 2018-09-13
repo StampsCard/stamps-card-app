@@ -21,6 +21,7 @@ export const STAMPS_CARDS_FETCH_SUCCESS = 'stamps_cards_fetch_success';
 //BUSINESS OWNER
 export const MY_CUSTOMERS_FETCH_SUCCESS = 'my_customers_fetch_success';
 export const LAST_PURCHASES_FETCH_SUCCESS = 'last_purchases_fetch_success';
+export const BUSINESS_STAMPS_CARDS_FETCH_SUCCESS = 'business_stamp_cards_fetch_success';
 
 // REGISTER PURCHASE
 export const PRODUCT_CONCEPT_CHANGED = 'product_concept_changed';

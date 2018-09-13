@@ -3,18 +3,18 @@ import {
   Container,
   Content
 } from 'native-base';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
-import { fetchStamps, changeBackground } from '../../actions';
-import MyStampCardItem from './fragments/MyStampCardItem';
-import { CUSTOMER } from '../../values/Profiles';
+import { fetchStampCards, changeBackground } from '../../actions';
+import MyStampCardItem from './fragments/items/MyStampCardItem';
+import { BUSINESS_OWNER } from '../../values/Profiles';
 
 class MyStampCards extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
-    this.props.fetchStamps(this.props.user.id);
+    this.props.fetchStampCards(this.props.businessId);
   }
 
   renderItems() {
@@ -28,17 +28,15 @@ class MyStampCards extends React.Component {
 
   render() {
     return (
-      <Container contentContainerStyle={styles.contentContainer}>
+      <Container>
         <NavBar
           navigation={this.props.navigation}
-          profile={CUSTOMER}
+          profile={BUSINESS_OWNER}
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
-            <Title>My Stamp Cards</Title>
-            <ScrollView>
-              {this.renderItems()}
-            </ScrollView>
+            <Title>My StampCards</Title>
+            {this.renderItems()}
           </Content>
         </NavBar>
       </Container>
@@ -46,18 +44,14 @@ class MyStampCards extends React.Component {
   }
 }
 
-const styles = {
-  contentContainer: {
-    height: 500
-  }
-};
-
 const mapStateToProps = (state) => {
   return {
-    stampCards: state.customer.stampCards,
+    stampCards: state.businessOwner.stampCards,
     background: state.common.background,
-    user: state.auth.user
+    businessId: state.profile.businessId
   };
 };
 
-export default connect(mapStateToProps, { fetchStamps, changeBackground })(MyStampCards);
+export default connect(
+  mapStateToProps, { fetchStampCards, changeBackground }
+)(MyStampCards);

@@ -38,3 +38,22 @@ query getLastPurchases($businessId: ID!){
     cancelledAt
   }
 }`;
+
+export const getStampCardsQuery = gql`
+query getStampCardsByBusiness($businessId: ID!){
+  business(id: $businessId) {
+    stampCards {
+      id
+      stamp_price
+      total
+      purchases {
+        id
+        user {
+          email
+        }
+        confirmedAt
+      }
+      discount
+    }
+  }
+}`;

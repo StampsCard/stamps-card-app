@@ -19,3 +19,6 @@ react-native bundle --dev false --platform android --entry-file index.js --bundl
 
 # another opetion to generate Android debug apk
 ./gradlew assembleDebug
+
+# Reset watcher
+watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && yarn start -- --reset-cache
