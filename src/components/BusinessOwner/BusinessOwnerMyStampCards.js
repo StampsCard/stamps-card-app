@@ -10,7 +10,7 @@ import { fetchStampCards, changeBackground } from '../../actions';
 import MyStampCardItem from './fragments/items/MyStampCardItem';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
-class MyStampCards extends React.Component {
+class BusinessOwnerMyStampCards extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
@@ -54,4 +54,4 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps, { fetchStampCards, changeBackground }
-)(MyStampCards);
+)(BusinessOwnerMyStampCards);

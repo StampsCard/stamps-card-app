@@ -1,3 +1,4 @@
+import { Actions } from 'react-native-router-flux';
 import {
   MY_CUSTOMERS_FETCH_SUCCESS,
   LAST_PURCHASES_FETCH_SUCCESS,
@@ -8,6 +9,9 @@ import {
   getLastPurchasesQuery,
   getStampCardsQuery
 } from './queries/BusinessOwnerQueries';
+import {
+  createStampCardMutation
+} from './mutations/BusinessOwnerMutations';
 import Client from '../Client';
 
 export const fetchMyCustomers = (businessId) => {
@@ -44,11 +48,29 @@ export const fetchStampCards = (businessId) => {
       query: getStampCardsQuery,
       variables: { businessId }
     }).then((resp) => {
-      console.log(resp);
       return dispatch({
         type: BUSINESS_STAMPS_CARDS_FETCH_SUCCESS,
         payload: { stampCards: resp.data.business.stampCards }
       });
 		});
+  };
+};
+
+export const createStampCard = (businessId, stampPrice, total, discount) => {
+  return (dispatch) => {
+    Client.mutate({
+      mutation: createStampCardMutation,
+      variables: {
+        businessId,
+        stampPrice,
+        total,
+        discount
+      }
+    }).then((response) => {
+        // Redirect to home screen
+        return Actions.myStampsForBusiness();
+    }).catch((err) => {
+      console.log(err);
+    });
   };
 };
