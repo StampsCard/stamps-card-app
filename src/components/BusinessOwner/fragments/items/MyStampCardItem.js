@@ -19,7 +19,7 @@ class MyStampCardItem extends React.Component {
         <Card style={cardInfoStyle}>
           <Left>
             <Text>Price of stamp</Text>
-            <Text>Total stamps for discount</Text>
+            <Text>Stamps for discount</Text>
           </Left>
           <Right>
             <Text style={boldText}>{item.stamp_price} €</Text>

@@ -56,7 +56,11 @@ module.exports.getByProfile = (profile) => {
           name: 'Last purchases',
           onPress: () => { Actions.lastPurchases(); }
         },
-
+        {
+          key: 'myStampCards',
+          name: 'My stamp cards',
+          onPress: () => { Actions.businessOwnerMyStampCards(); }
+        }
       ];
     }
 };
