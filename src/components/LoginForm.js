@@ -82,7 +82,7 @@ class LoginForm extends React.Component {
 
                         <FormItem>
                             <FormInput
-                                secureTextEnty
+                                secureTextEntry
                                 label="Password"
                                 placeholder="password"
                                 onChangeText={this.onPasswordChange.bind(this)}

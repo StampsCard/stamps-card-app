@@ -25,6 +25,7 @@ import LastPurchases from './components/BusinessOwner/LastPurchases';
 import PurchaseDetail from './components/BusinessOwner/PurchaseDetail';
 import RegisterPurchase from './components/BusinessOwner/RegisterPurchase';
 import BusinessOwnerMyStampCards from './components/BusinessOwner/MyStampCards';
+import CreateStampCard from './components/BusinessOwner/CreateStampCard';
 
 class Router extends React.Component {
   render() {
@@ -139,6 +140,11 @@ class Router extends React.Component {
             <Scene
               key="businessOwnerMyStampCards"
               component={BusinessOwnerMyStampCards}
+              hideNavBar
+            />
+            <Scene
+              key="createStampCard"
+              component={CreateStampCard}
               hideNavBar
             />
           </Scene>

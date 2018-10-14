@@ -60,6 +60,11 @@ module.exports.getByProfile = (profile) => {
           key: 'myStampCards',
           name: 'My stamp cards',
           onPress: () => { Actions.businessOwnerMyStampCards(); }
+        },
+        {
+          key: 'createStampCard',
+          name: 'Create stamp card',
+          onPress: () => { Actions.createStampCard(); }
         }
       ];
     }

@@ -70,6 +70,11 @@ const styles = {
 
     h2Style: {
       color: '#5C9CCB'
+    },
+    // TODO: Pending to add a border between first text left and right text left
+    leftContainer: {
+      borderBotttomWidth: 2,
+      borderColor: '#5C9CCB'
     }
 };
 

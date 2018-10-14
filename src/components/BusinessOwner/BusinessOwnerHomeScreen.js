@@ -40,6 +40,9 @@ class BusinessOwnerHomeScreen extends React.Component {
               <Button style={menuButton} onPress={() => { Actions.businessOwnerMyStampCards(); }}>
                 My Stamp Cards
               </Button>
+              <Button style={menuButton} onPress={() => { Actions.createStampCard(); }}>
+                Create Stamp Card
+              </Button>
           </Content>
         </NavBar>
       </Container>
