@@ -5,7 +5,7 @@ import {
 } from 'native-base';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { NavBar, BackgroundImage, Title } from '../common';
+import { NavBar, BackgroundImage } from '../common';
 import { fetchStamps, changeBackground } from '../../actions';
 import MyStampCardItem from './fragments/MyStampCardItem';
 import { CUSTOMER } from '../../values/Profiles';
@@ -34,10 +34,10 @@ class MyStampCards extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={CUSTOMER}
+          title="My Stamp Cards"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder style={styles.contentStyle}>
-            <Title>My Stamp Cards</Title>
             {this.renderItems()}
           </Content>
         </NavBar>

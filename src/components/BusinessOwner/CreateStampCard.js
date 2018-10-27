@@ -5,7 +5,6 @@ import { Container, Content, Form, Toast } from 'native-base';
 import {
   NavBar,
   BackgroundImage,
-  Title,
   InputWithLabel,
   Button,
   Spinner,
@@ -82,10 +81,10 @@ class CreateStampCard extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={BUSINESS_OWNER}
+          title="Create Stamp Card"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
-            <Title>Create Stamp Card</Title>
             <Form>
                   <InputWithLabel
                       label="Stamp price (€)"

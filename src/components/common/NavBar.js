@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { Header, Left, Body, Right, Button, Icon, Drawer } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import SideBar from './SideBar';
@@ -26,7 +27,7 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { headerStyle, iconStyle } = styles;
+    const { headerStyle, iconStyle, titleStyle, bodyStyle } = styles;
     return (
       <Drawer
         ref={(ref) => { this.drawer = ref; }}
@@ -47,7 +48,9 @@ class NavBar extends React.Component {
               <Icon name="menu" style={iconStyle} />
             </Button>
           </Left>
-          <Body />
+          <Body style={bodyStyle}>
+            <Text style={titleStyle}>{this.props.title}</Text>
+          </Body>
           <Right>
             <Button
               transparent
@@ -71,6 +74,15 @@ const styles = {
   },
   iconStyle: {
     color: '#fff'
+  },
+  titleStyle: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+  bodyStyle: {
+    alignItems: 'center',
+    width: '100%'
   }
 };
 

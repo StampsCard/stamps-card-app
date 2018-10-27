@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 import { fetchLastPurchases, changeBackground } from '../../actions';
 import LastPurchaseItem from './fragments/items/LastPurchaseItem';
-import { NavBar, BackgroundImage, Title } from '../common';
+import { NavBar, BackgroundImage } from '../common';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
 class LastPurchases extends React.Component {
@@ -24,10 +24,10 @@ class LastPurchases extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={BUSINESS_OWNER}
+          title="Last purchases"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
-            <Title>Last Purchases</Title>
             <FlatList
               data={this.props.lastPurchases}
               renderItem={(purchase) => <LastPurchaseItem purchase={purchase} />}

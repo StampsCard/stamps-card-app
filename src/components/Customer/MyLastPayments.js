@@ -5,7 +5,7 @@ import {
 } from 'native-base';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { NavBar, BackgroundImage, Title } from '../common';
+import { NavBar, BackgroundImage } from '../common';
 import { fetchLastPayments, changeBackground } from '../../actions';
 import LastPaymentItem from './fragments/LastPaymentItem';
 import { CUSTOMER } from '../../values/Profiles';
@@ -32,10 +32,10 @@ class MyLastPayments extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={CUSTOMER}
+          title="My last payments"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
-            <Title>My Last Payments</Title>
             {this.renderItems()}
           </Content>
         </NavBar>

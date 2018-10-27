@@ -20,8 +20,7 @@ import {
   InputWithLabel,
   FormItem,
   Spinner,
-  Button,
-  Title
+  Button
 } from '../common';
 
 class RegisterPurchase extends React.Component {
@@ -139,10 +138,10 @@ class RegisterPurchase extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={BUSINESS_OWNER}
+          title="Register a purchase"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
-            <Title>Register a purchase</Title>
             { this.renderContent() }
           </Content>
         </NavBar>

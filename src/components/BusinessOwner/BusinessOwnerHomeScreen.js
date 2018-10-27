@@ -24,6 +24,7 @@ class BusinessOwnerHomeScreen extends React.Component {
           navigation={this.props.navigation}
           user={this.props.user}
           profile={BUSINESS_OWNER}
+          title="Business owner menu"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>

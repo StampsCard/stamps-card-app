@@ -8,7 +8,7 @@ import {
 } from 'native-base';
 import { Text } from 'react-native';
 
-import { Title, Button, BackgroundImage, NavBar } from '../common';
+import { Button, BackgroundImage, NavBar } from '../common';
 import {
   fetchPurchase,
   fetchUser,
@@ -87,10 +87,10 @@ class ConfirmPurchase extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={CUSTOMER}
+          title="Confirm purchase"
         >
           <BackgroundImage />
           <Content style={contentStyle}>
-            <Title>Confirm purchase</Title>
             {this.renderCard()}
             <Button
               onPress={this.confirmPurchase.bind(this)}
