@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Left, Body, Right, Button, Icon, Drawer } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import { SideBar } from '.';
+import SideBar from './SideBar';
 
 class NavBar extends React.Component {
 

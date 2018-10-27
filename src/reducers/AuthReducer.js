@@ -3,7 +3,8 @@ import {
   PASSWORD_CHANGED,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  LOGIN_USER_STARTS
+  LOGIN_USER_STARTS,
+  LOGOUT
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -35,6 +36,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, error: 'Authentication failed.', loading: false, showToast: true };
     case LOGIN_USER_STARTS:
       return { ...state, loading: true };
+    case LOGOUT:
+      return { INITIAL_STATE };
     default:
       return state;
   }

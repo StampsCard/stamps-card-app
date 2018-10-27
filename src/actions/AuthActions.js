@@ -5,7 +5,8 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   LOGIN_USER_STARTS,
-  CUSTOMER_SELECTED
+  CUSTOMER_SELECTED,
+  LOGOUT
 } from './types';
 
 import { loginQuery } from './queries/AuthQueries';
@@ -58,4 +59,14 @@ const loginUserSuccess = (dispatch, authData) => {
       return Actions.welcome({ hasBusiness: false });
     }
     return Actions.profileSelector();
+};
+
+export const logout = () => {
+  return (dispatch) => {
+    dispatch({
+      type: LOGOUT
+    });
+
+    return Actions.login();
+  };
 };

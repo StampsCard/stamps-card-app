@@ -1,12 +1,20 @@
 import React from 'react';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
 import { Container, Content, Text, List, ListItem } from 'native-base';
-import { Logo } from '.';
+import { Logo, ButtonSecondary } from '.';
+import { logout } from '../../actions';
 import GetRoutesForSideBar from '../../services/GetRoutesForSideBar';
 
 class SideBar extends React.Component {
   render() {
-    const { containerStyle, logoViewStyle, listItemText, listItemStyle } = styles;
+    const {
+      containerStyle,
+      logoViewStyle,
+      listItemText,
+      listItemStyle,
+      buttonStyle
+    } = styles;
     return (
       <Container style={containerStyle}>
         <Content>
@@ -25,6 +33,9 @@ class SideBar extends React.Component {
               );
             }}
           />
+          <ButtonSecondary style={buttonStyle} onPress={() => this.props.logout()}>
+            Logout
+          </ButtonSecondary>
         </Content>
       </Container>
     );
@@ -34,7 +45,7 @@ class SideBar extends React.Component {
 const styles = {
   containerStyle: {
     backgroundColor: '#EA5442',
-    borderColor: '#F7C4BC',
+    borderColor: '#F7C4BC'
   },
   logoViewStyle: {
     alignItems: 'center',
@@ -46,7 +57,18 @@ const styles = {
   listItemText: {
     color: '#fff',
     fontWeight: 'bold'
+  },
+
+  buttonStyle: {
+    margin: 5,
+    marginTop: 30
   }
 };
 
-export { SideBar };
+const mapStateToProps = (state) => {
+  return {
+    profile: state.profile.id
+  };
+};
+
+export default connect(mapStateToProps, { logout })(SideBar);

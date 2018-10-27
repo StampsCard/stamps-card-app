@@ -90,15 +90,15 @@ class TouchableStampCard extends React.Component {
   render() {
     const {
       cardContentStyle,
-      h2ContentStyle,
-      h2Style
+      headerContentStyle,
+      headerTextStyle
     } = styles;
 
     const isCollapsed = this.isCollapsed();
     return (
       <TouchableOpacity onPress={this.toggleExpanded.bind(this)}>
-        <View style={h2ContentStyle}>
-          <Text style={h2Style}>{this.props.businessName}</Text>
+        <View style={headerContentStyle}>
+          <Text style={headerTextStyle}>{this.props.businessName}</Text>
         </View>
         <Collapsible collapsed={isCollapsed} align="center">
           <View style={cardContentStyle}>
@@ -168,12 +168,12 @@ const styles = {
     height: 60
   },
 
-  h2Style: {
+  headerTextStyle: {
     color: '#5C9CCB',
     fontSize: 18
   },
 
-  h2ContentStyle: {
+  headerContentStyle: {
     paddingVertical: 8,
     alignItems: 'center',
     flex: 1,
