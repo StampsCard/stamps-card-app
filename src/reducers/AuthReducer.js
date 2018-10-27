@@ -26,7 +26,10 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         user: action.payload,
         error: '',
-        showToast: false
+        showToast: false,
+        email: '',
+        password: '',
+        loading: false
       };
     case LOGIN_USER_FAIL:
       return { ...state, error: 'Authentication failed.', loading: false, showToast: true };
