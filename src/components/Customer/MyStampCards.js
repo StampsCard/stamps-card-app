@@ -3,7 +3,7 @@ import {
   Container,
   Content
 } from 'native-base';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage, Title } from '../common';
 import { fetchStamps, changeBackground } from '../../actions';
@@ -21,6 +21,8 @@ class MyStampCards extends React.Component {
     return (
       <FlatList
         data={this.props.stampCards}
+        style={styles.listStyle}
+        keyExtractor={(item) => item.stampCard.id}
         renderItem={(stampCard) => <MyStampCardItem stampCard={stampCard} />}
       />
     );
@@ -28,17 +30,15 @@ class MyStampCards extends React.Component {
 
   render() {
     return (
-      <Container contentContainerStyle={styles.contentContainer}>
+      <Container contentContainerStyle={styles.contentContainerStyle}>
         <NavBar
           navigation={this.props.navigation}
           profile={CUSTOMER}
         >
           <BackgroundImage image={this.props.background} />
-          <Content padder>
+          <Content padder style={styles.contentStyle}>
             <Title>My Stamp Cards</Title>
-            <ScrollView>
-              {this.renderItems()}
-            </ScrollView>
+            {this.renderItems()}
           </Content>
         </NavBar>
       </Container>
@@ -47,8 +47,14 @@ class MyStampCards extends React.Component {
 }
 
 const styles = {
-  contentContainer: {
-    height: 500
+  contentContainerStyle: {
+    flex: 1
+  },
+  contentStyle: {
+    flex: 1
+  },
+  listStyle: {
+    flex: 1
   }
 };
 

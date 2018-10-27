@@ -1,7 +1,8 @@
 import {
   LAST_PAYMENTS_FETCH_SUCCESS,
   MY_STORES_FETCH_SUCCESS,
-  STAMPS_CARDS_FETCH_SUCCESS
+  STAMPS_CARDS_FETCH_SUCCESS,
+  CARD_EXPANDED
 } from './types';
 import {
   getStoresQuery,
@@ -50,5 +51,23 @@ export const fetchStamps = (userId) => {
         payload: { stampCards: resp.data.stampCardsByUser }
       });
 		});
+  };
+};
+
+export const expandCard = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: CARD_EXPANDED,
+      payload: id
+    });
+  };
+};
+
+export const collapseCard = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CARD_EXPANDED,
+      payload: null
+    });
   };
 };

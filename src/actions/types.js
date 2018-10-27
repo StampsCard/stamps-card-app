@@ -17,6 +17,7 @@ export const MAIN_PAGE = 'main_page';
 export const LAST_PAYMENTS_FETCH_SUCCESS = 'last_payments_fetch_success';
 export const MY_STORES_FETCH_SUCCESS = 'my_stores_fetch_success';
 export const STAMPS_CARDS_FETCH_SUCCESS = 'stamps_cards_fetch_success';
+export const CARD_EXPANDED = 'card_expanded';
 
 //BUSINESS OWNER
 export const MY_CUSTOMERS_FETCH_SUCCESS = 'my_customers_fetch_success';
