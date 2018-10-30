@@ -71,6 +71,7 @@ const styles = {
   headerStyle: {
     backgroundColor: '#EA5442',
     borderColor: '#F7C4BC',
+    marginBottom: 15
   },
   iconStyle: {
     color: '#fff'
@@ -78,7 +79,9 @@ const styles = {
   titleStyle: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    width: '100%'
+
   },
   bodyStyle: {
     alignItems: 'center',
