@@ -5,7 +5,8 @@ import {
   PURCHASE_GENERATION_SUCCESS,
   PURCHASE_GENERATION_FAILED,
   PURCHASE_GENERATION_STARTS,
-  PURCHASE_CANCELED
+  PURCHASE_CANCELED,
+  GENERATE_ANOTHER_PURCHASE
 } from './types';
 import { getStampCardsQuery } from './queries/PurchaseQueries';
 import {
@@ -35,7 +36,10 @@ export const generatePurchase = ({ businessId, concept, amount }) => {
         // Get the first stampCard
         const stampCards = stampsResponse.data.business.stampCards;
         if (!stampCards.length) {
-          console.log('You need to create a stamp card before!');
+          dispatch({ type: PURCHASE_GENERATION_FAILED });
+          console.log(
+            `WARNING: You need to create a stamp card before for business ${businessId}!`
+          );
           Actions.businessOwnerHomeScreen();
         }
 
@@ -50,14 +54,16 @@ export const generatePurchase = ({ businessId, concept, amount }) => {
             return purchaseGenerationFailed(dispatch);
         }).catch((err) => {
           console.log(err);
-          purchaseGenerationFailed(dispatch);
+          return purchaseGenerationFailed(dispatch);
         });
       });
   };
 };
 
-export const purchaseGenerationFailed = (dispatch) => {
-  dispatch({ type: PURCHASE_GENERATION_FAILED });
+export const purchaseGenerationFailed = () => {
+  return (dispatch) => {
+    dispatch({ type: PURCHASE_GENERATION_FAILED });
+  };
 };
 
 export const purchaseGenerated = (dispatch, purchaseId) => {
@@ -69,6 +75,14 @@ export const purchaseGenerated = (dispatch, purchaseId) => {
   });
 };
 
+export const generateAnotherPurchase = () => {
+  return (dispatch) => {
+      dispatch({
+        type: GENERATE_ANOTHER_PURCHASE
+      });
+  };
+};
+
 export const cancelPurchase = (purchaseId) => {
   return (dispatch) => {
     Client.mutate({
@@ -78,9 +92,10 @@ export const cancelPurchase = (purchaseId) => {
         if (response.data.cancelPurchase.id) {
           return dispatch({ type: PURCHASE_CANCELED });
         }
-        console.log('The purchase has been cancelled.');
+        console.info(`INFO: The purchase ${purchaseId} has been cancelled.`);
     }).catch((err) => {
       console.log(err);
+      return purchaseGenerationFailed(dispatch);
     });
   };
 };

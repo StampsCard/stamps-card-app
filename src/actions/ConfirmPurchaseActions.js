@@ -4,7 +4,10 @@ import {
   PURCHASE_FETCH_SUCCESS,
   PURCHASE_CONFIRMED,
   PURCHASE_CANCELED,
-  PURCHASE_SCANNED
+  PURCHASE_SCANNED,
+  PURCHASE_CANCELATION_ERROR,
+  PURCHASE_CONFIRMATION_ERROR,
+  PURCHASE_FETCH_ERROR
 } from './types';
 import {
   confirmPurchaseMutation,
@@ -22,14 +25,19 @@ export const fetchPurchase = (purchaseId) => {
       variables: { id: purchaseId }
     }).then((response) => {
       if (response.data.purchase) {
-        dispatch({
+        return dispatch({
           type: PURCHASE_FETCH_SUCCESS,
           payload: response.data.purchase
         });
-      } else {
-        console.log('The purchase has been cancelled or confirmed before.');
-        Actions.customerHomeScreen();
       }
+
+      dispatch({ type: PURCHASE_FETCH_ERROR });
+      console.log(`ERROR: The purchase ${purchaseId} does not exist.`);
+      Actions.customerHomeScreen();
+    }).catch((err) => {
+      console.log(err);
+      dispatch({ type: PURCHASE_FETCH_ERROR });
+      return Actions.customerHomeScreen();
     });
   };
 };
@@ -47,11 +55,13 @@ export const acceptPurchaseFromConfirmation = (purchaseId, userId) => {
           // Redirect to purchase finished
           return Actions.purchaseFinished();
         }
-        console.log('The purchase is still PENDING to confirm.');
+        console.log('ERROR: The purchase is still PENDING to confirm.');
+        dispatch({ type: PURCHASE_CONFIRMATION_ERROR });
         // Redirect to home screen
         return Actions.customerHomeScreen();
     }).catch((err) => {
       console.log(err);
+      dispatch({ type: PURCHASE_CONFIRMATION_ERROR });
       return Actions.customerHomeScreen();
     });
   };
@@ -64,13 +74,20 @@ export const cancelPurchaseFromConfirmation = (purchaseId) => {
         variables: { id: purchaseId }
       }).then((response) => {
           if (response.data.cancelPurchase.id) {
+            console.log(`INFO: The purchase ${purchaseId} has been cancelled.`);
             dispatch({ type: PURCHASE_CANCELED });
+          } else {
+            dispatch({ type: PURCHASE_CANCELATION_ERROR });
+            console.log(
+              `WARNING: The body response is incorrect in the cancelation process of ${purchaseId}.`
+            );
           }
-          console.log('The purchase has been cancelled.');
-          // Redirect to home screen
+
           return Actions.customerHomeScreen();
       }).catch((err) => {
         console.log(err);
+        dispatch({ type: PURCHASE_CANCELATION_ERROR });
+        return Actions.customerHomeScreen();
       });
     };
 };

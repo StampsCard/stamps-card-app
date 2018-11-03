@@ -39,11 +39,15 @@ export const PURCHASE_GENERATION_SUCCESS = 'purchase_generation_success';
 export const PURCHASE_GENERATION_FAILED = 'purchase_generation_failed';
 export const PURCHASE_GENERATION_STARTS = 'purchase_generation_starts';
 export const PURCHASE_CANCELED = 'purchase_canceled';
+export const GENERATE_ANOTHER_PURCHASE = 'generate_another_purchase';
 
 //CONFIRM PURCHASE
 export const PURCHASE_CONFIRMED = 'purchase_confirmed';
 export const PURCHASE_FETCH_SUCCESS = 'purchase_fetch_success';
 export const PURCHASE_SCANNED = 'purchase_scanned';
+export const PURCHASE_CANCELATION_ERROR = 'purchase_cancelation_error';
+export const PURCHASE_CONFIRMATION_ERROR = 'purchase_confirmation_error';
+export const PURCHASE_FETCH_ERROR = 'purchase_fetch_error';
 
 //PURCHASE FINISHED
 export const STAMPS_INFO_FETCH_SUCCESS = 'stamps_info_fetch_success';

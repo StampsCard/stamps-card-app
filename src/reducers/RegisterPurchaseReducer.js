@@ -4,7 +4,8 @@ import {
   PURCHASE_GENERATION_STARTS,
   PURCHASE_GENERATION_SUCCESS,
   PURCHASE_GENERATION_FAILED,
-  PURCHASE_CANCELED
+  PURCHASE_CANCELED,
+  GENERATE_ANOTHER_PURCHASE
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -13,7 +14,8 @@ const INITIAL_STATE = {
   error: '',
   loading: false,
   purchaseId: null,
-  link: null
+  link: null,
+  info: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -26,7 +28,8 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: action.payload,
-        ...INITIAL_STATE
+        loading: true,
+        error: ''
       };
     case PURCHASE_GENERATION_FAILED:
       return {
@@ -39,10 +42,19 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         link: action.payload.link,
-        loading: true,
-        purchaseId: action.payload.purchaseId
+        loading: false,
+        purchaseId: action.payload.purchaseId,
+        error: ''
       };
     case PURCHASE_CANCELED:
+      return {
+        ...state,
+        info: 'The purchase has been cancelled.',
+        error: '',
+        loading: false,
+        link: null
+      };
+    case GENERATE_ANOTHER_PURCHASE:
       return INITIAL_STATE;
     default:
       return state;

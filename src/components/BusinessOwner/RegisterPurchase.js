@@ -12,7 +12,8 @@ import {
   purchaseGenerationFailed,
   purchaseGenerated,
   cancelPurchase,
-  changeBackground
+  changeBackground,
+  generateAnotherPurchase
 } from '../../actions';
 import {
   NavBar,
@@ -59,8 +60,17 @@ class RegisterPurchase extends React.Component {
 
   renderToast() {
     if (this.props.error) {
-      Toast.show({
+      return Toast.show({
         text: this.props.error,
+        buttonText: 'Okay',
+        position: 'bottom',
+        duration: 5000
+      });
+    }
+
+    if (this.props.info) {
+      Toast.show({
+        text: this.props.info,
         buttonText: 'Okay',
         position: 'bottom',
         duration: 5000
@@ -104,6 +114,10 @@ class RegisterPurchase extends React.Component {
     );
   }
 
+  generateAnotherPurchase() {
+    this.props.generateAnotherPurchase();
+  }
+
   renderQrCode() {
     return (
       <View style={styles.qrCodeContent}>
@@ -113,6 +127,12 @@ class RegisterPurchase extends React.Component {
             bgColor='black'
             fgColor='white'
         />
+        <Button
+          onPress={this.generateAnotherPurchase.bind(this)}
+          style={styles.cancelPurchaseButton}
+        >
+          Generate another purchase
+        </Button>
         <Button
           onPress={this.cancelPurchase.bind(this)}
           style={styles.cancelPurchaseButton}
@@ -125,7 +145,7 @@ class RegisterPurchase extends React.Component {
   }
 
   renderContent() {
-    if (this.props.link) {
+    if (this.props.link !== null && this.props.error === '') {
       return this.renderQrCode();
     }
 
@@ -173,7 +193,8 @@ const mapStateToProps = state => {
     purchaseId: state.registerPurchase.purchaseId,
     background: state.common.background,
     user: state.auth.user,
-    businessId: state.profile.businessId
+    businessId: state.profile.businessId,
+    info: state.registerPurchase.info
   };
 };
 
@@ -184,5 +205,6 @@ export default connect(mapStateToProps, {
   purchaseGenerationFailed,
   purchaseGenerated,
   cancelPurchase,
-  changeBackground
+  changeBackground,
+  generateAnotherPurchase
 })(RegisterPurchase);

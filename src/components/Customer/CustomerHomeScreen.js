@@ -1,11 +1,17 @@
 import React from 'react';
 import {
   Container,
-  Content
+  Content,
+  Toast
 } from 'native-base';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
+import {
+  SimpleHeader,
+  Button,
+  NavBar,
+  BackgroundImage
+} from '../common';
 import { changeBackground } from '../../actions';
 import ConfirmPurchase from './ConfirmPurchase';
 import { CUSTOMER } from '../../values/Profiles';
@@ -22,6 +28,26 @@ class CustomerHomeScreen extends React.Component {
       return 'profileSelector';
     }
     return 'login';
+  }
+
+  renderToast() {
+    if (this.props.purchaseConfirmationError) {
+      return Toast.show({
+        text: this.props.purchaseConfirmationError,
+        buttonText: 'Okay',
+        position: 'bottom',
+        duration: 5000
+      });
+    }
+
+    if (this.props.purchaseConfirmationMessage) {
+      Toast.show({
+        text: this.props.purchaseConfirmationMessage,
+        buttonText: 'Okay',
+        position: 'bottom',
+        duration: 5000
+      });
+    }
   }
 
   render() {
@@ -66,6 +92,8 @@ class CustomerHomeScreen extends React.Component {
                 </Button>
             </Content>
           </NavBar>
+
+          { this.renderToast() }
         </Container>
     );
   }
@@ -81,7 +109,9 @@ const styles = {
 const mapStateToProps = state => {
   return {
     background: state.common.background,
-    user: state.auth.user
+    user: state.auth.user,
+    purchaseConfirmationError: state.confirmPurchase.error,
+    purchaseConfirmationMessage: state.confirmPurchase.message
   };
 };
 
