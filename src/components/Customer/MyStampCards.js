@@ -35,6 +35,7 @@ class MyStampCards extends React.Component {
           navigation={this.props.navigation}
           profile={CUSTOMER}
           title="My Stamp Cards"
+          user={this.props.user}
         >
           <BackgroundImage image={this.props.background} />
           <Content padder style={styles.contentStyle}>

@@ -159,6 +159,7 @@ class RegisterPurchase extends React.Component {
           navigation={this.props.navigation}
           profile={BUSINESS_OWNER}
           title="Register a purchase"
+          user={this.props.user}
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>

@@ -88,6 +88,7 @@ class ConfirmPurchase extends React.Component {
           navigation={this.props.navigation}
           profile={CUSTOMER}
           title="Confirm purchase"
+          user={this.props.user}
         >
           <BackgroundImage />
           <Content style={contentStyle}>

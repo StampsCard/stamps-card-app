@@ -33,6 +33,7 @@ class MyLastPayments extends React.Component {
           navigation={this.props.navigation}
           profile={CUSTOMER}
           title="My last payments"
+          user={this.props.user}
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>

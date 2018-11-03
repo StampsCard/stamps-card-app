@@ -62,6 +62,7 @@ class CustomerHomeScreen extends React.Component {
             navigation={this.props.navigation}
             profile={CUSTOMER}
             title="Customer Menu"
+            user={this.props.user}
           >
             <BackgroundImage image={this.props.background} />
             <Content padder>

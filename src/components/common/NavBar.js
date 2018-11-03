@@ -36,6 +36,7 @@ class NavBar extends React.Component {
           <SideBar
             navigation={this.props.navigation}
             profile={this.props.profile}
+            userId={this.props.user.id}
           />
         }
       >

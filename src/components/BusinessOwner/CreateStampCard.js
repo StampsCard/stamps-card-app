@@ -82,6 +82,7 @@ class CreateStampCard extends React.Component {
           navigation={this.props.navigation}
           profile={BUSINESS_OWNER}
           title="Create Stamp Card"
+          user={this.props.user}
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
