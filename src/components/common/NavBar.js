@@ -21,20 +21,24 @@ class NavBar extends React.Component {
 
   returnBack() {
     if (this.props.returnBack) {
-      if (this.props.returnBack === LOGIN) {
-        return Alert.alert(
-          'Logout',
-          'Are you sure do you want to logout?',
-          [
-            { text: 'Cancel', style: 'cancel' },
-            { text: 'OK', onPress: () => Actions.popTo(this.props.returnBack) },
-          ]
-        );
-      }
-      return Actions.popTo(this.props.returnBack);
+      return this.returnToLogin();
     }
 
     return Actions.pop();
+  }
+
+  returnToLogin() {
+    if (this.props.returnBack === LOGIN) {
+      return Alert.alert(
+        'Logout',
+        'Are you sure do you want to logout?',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          { text: 'OK', onPress: () => Actions.popTo(this.props.returnBack) },
+        ]
+      );
+    }
+    return Actions.popTo(this.props.returnBack);
   }
 
   render() {

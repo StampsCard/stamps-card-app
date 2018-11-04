@@ -1,14 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { View, Text, BackHandler, Alert } from 'react-native';
 
 import { Container, Content, H2, Button } from 'native-base';
 import { BackgroundImage, SimpleHeader, Title } from './common';
 import { businessOwnerSelected, customerSelected, changeBackground } from '../actions';
+import { LOGIN } from '../values/RouteActions';
 
 class ProfileSelector extends React.Component {
-  componentWillMount() {
+
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     this.props.changeBackground();
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+  handleBackPress() {
+    return Alert.alert(
+      'Logout',
+      'Are you sure do you want to logout?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'OK', onPress: () => Actions.popTo(LOGIN) },
+      ]
+    );
   }
 
   pressBusinessOwnerButton() {

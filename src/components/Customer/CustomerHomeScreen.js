@@ -1,4 +1,5 @@
 import React from 'react';
+import { BackHandler, Alert } from 'react-native';
 import {
   Container,
   Content,
@@ -15,6 +16,7 @@ import {
 import { changeBackground } from '../../actions';
 import ConfirmPurchase from './ConfirmPurchase';
 import { CUSTOMER } from '../../values/Profiles';
+import { LOGIN, PROFILE_SELECTOR } from '../../values/RouteActions';
 
 class CustomerHomeScreen extends React.Component {
 
@@ -23,11 +25,37 @@ class CustomerHomeScreen extends React.Component {
     this.props.changeBackground();
   }
 
+  componentDidMount() {
+    BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress.bind(this));
+  }
+
+  handleBackPress() {
+    if (this.defineReturnBackRoute() === LOGIN) {
+      return Alert.alert(
+        'Logout',
+        'Are you sure do you want to logout?',
+       [
+         { text: 'Cancel', style: 'cancel' },
+         { text: 'OK', onPress: () => Actions.popTo(LOGIN) },
+       ]
+     );
+    }
+
+    return Actions.popTo(PROFILE_SELECTOR);
+  }
+
   defineReturnBackRoute() {
     if (this.props.isBusinessOwner) {
-      return 'profileSelector';
+      return PROFILE_SELECTOR;
     }
-    return 'login';
+    return LOGIN;
   }
 
   renderToast() {

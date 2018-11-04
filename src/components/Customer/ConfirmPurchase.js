@@ -6,7 +6,7 @@ import {
   Card,
   CardItem
 } from 'native-base';
-import { Text } from 'react-native';
+import { Text, Alert } from 'react-native';
 
 import { Button, BackgroundImage, NavBar } from '../common';
 import {
@@ -31,9 +31,19 @@ class ConfirmPurchase extends React.Component {
   }
 
   cancelPurchase() {
-    this.props.cancelPurchaseFromConfirmation(
-      this.props.purchaseId,
-      this.props.user.id
+    return Alert.alert(
+      'Cancel purchase',
+      'Are you sure do you want to cancel this purchase?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'OK',
+          onPress: () => this.props.cancelPurchaseFromConfirmation(
+            this.props.purchaseId,
+            this.props.user.id
+          ),
+        }
+      ]
     );
   }
 

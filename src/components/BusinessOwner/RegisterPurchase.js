@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Content, Form, Toast } from 'native-base';
 import { connect } from 'react-redux';
-import { View, Keyboard } from 'react-native';
+import { View, Keyboard, Alert } from 'react-native';
 import QRCode from 'react-native-qrcode';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
@@ -55,27 +55,18 @@ class RegisterPurchase extends React.Component {
   }
 
   cancelPurchase() {
-    this.props.cancelPurchase(this.props.purchaseId);
+    return Alert.alert(
+      'Cancel purchase',
+      'Are you sure do you want to cancel this purchase?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'OK', onPress: () => this.props.cancelPurchase(this.props.purchaseId) },
+      ]
+    );
   }
 
-  renderToast() {
-    if (this.props.error) {
-      return Toast.show({
-        text: this.props.error,
-        buttonText: 'Okay',
-        position: 'bottom',
-        duration: 5000
-      });
-    }
-
-    if (this.props.info) {
-      Toast.show({
-        text: this.props.info,
-        buttonText: 'Okay',
-        position: 'bottom',
-        duration: 5000
-      });
-    }
+  generateAnotherPurchase() {
+    this.props.generateAnotherPurchase();
   }
 
   renderButton() {
@@ -114,8 +105,24 @@ class RegisterPurchase extends React.Component {
     );
   }
 
-  generateAnotherPurchase() {
-    this.props.generateAnotherPurchase();
+  renderToast() {
+    if (this.props.error) {
+      return Toast.show({
+        text: this.props.error,
+        buttonText: 'Okay',
+        position: 'bottom',
+        duration: 5000
+      });
+    }
+
+    if (this.props.info) {
+      Toast.show({
+        text: this.props.info,
+        buttonText: 'Okay',
+        position: 'bottom',
+        duration: 5000
+      });
+    }
   }
 
   renderQrCode() {

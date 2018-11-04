@@ -8,6 +8,7 @@ import { Actions } from 'react-native-router-flux';
 import { SimpleHeader, Button, NavBar, BackgroundImage } from '../common';
 import { changeBackground } from '../../actions';
 import { BUSINESS_OWNER } from '../../values/Profiles';
+import { PROFILE_SELECTOR } from '../../values/RouteActions';
 
 class BusinessOwnerHomeScreen extends React.Component {
 
@@ -20,7 +21,7 @@ class BusinessOwnerHomeScreen extends React.Component {
     return (
       <Container>
         <NavBar
-          returnBack='profileSelector'
+          returnBack={PROFILE_SELECTOR}
           navigation={this.props.navigation}
           profile={BUSINESS_OWNER}
           title="Business owner menu"
