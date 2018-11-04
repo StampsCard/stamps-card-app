@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, Alert } from 'react-native';
 import { Header, Left, Body, Right, Button, Icon, Drawer } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import SideBar from './SideBar';
+import { LOGIN } from '../../values/RouteActions';
 
 class NavBar extends React.Component {
 
@@ -20,6 +21,16 @@ class NavBar extends React.Component {
 
   returnBack() {
     if (this.props.returnBack) {
+      if (this.props.returnBack === LOGIN) {
+        return Alert.alert(
+          'Logout',
+          'Are you sure do you want to logout?',
+          [
+            { text: 'Cancel', style: 'cancel' },
+            { text: 'OK', onPress: () => Actions.popTo(this.props.returnBack) },
+          ]
+        );
+      }
       return Actions.popTo(this.props.returnBack);
     }
 

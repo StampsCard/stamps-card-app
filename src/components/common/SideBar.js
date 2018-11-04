@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Content, Text, List, ListItem } from 'native-base';
 import { Logo, ButtonSecondary } from '.';
@@ -14,6 +14,17 @@ class SideBar extends React.Component {
 
   pressCustomerButton() {
     this.props.customerSelected(true);
+  }
+
+  pressLogout() {
+    Alert.alert(
+      'Logout',
+      'Are you sure do you want to logout?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'OK', onPress: () => this.props.logout() },
+      ]
+    );
   }
 
   renderProfileSwitcher() {
@@ -79,7 +90,7 @@ class SideBar extends React.Component {
 
         {this.renderProfileSwitcher()}
 
-        <ButtonSecondary style={logoutButtonStyle} onPress={() => this.props.logout()}>
+        <ButtonSecondary style={logoutButtonStyle} onPress={() => this.pressLogout()}>
           Logout
         </ButtonSecondary>
 
