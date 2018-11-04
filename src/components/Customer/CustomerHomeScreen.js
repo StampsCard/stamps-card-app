@@ -24,7 +24,7 @@ class CustomerHomeScreen extends React.Component {
   }
 
   defineReturnBackRoute() {
-    if (this.props.hasBusiness) {
+    if (this.props.isBusinessOwner) {
       return 'profileSelector';
     }
     return 'login';
@@ -62,7 +62,6 @@ class CustomerHomeScreen extends React.Component {
             navigation={this.props.navigation}
             profile={CUSTOMER}
             title="Customer Menu"
-            user={this.props.user}
           >
             <BackgroundImage image={this.props.background} />
             <Content padder>
@@ -112,7 +111,8 @@ const mapStateToProps = state => {
     background: state.common.background,
     user: state.auth.user,
     purchaseConfirmationError: state.confirmPurchase.error,
-    purchaseConfirmationMessage: state.confirmPurchase.message
+    purchaseConfirmationMessage: state.confirmPurchase.message,
+    isBusinessOwner: state.auth.isBusinessOwner
   };
 };
 

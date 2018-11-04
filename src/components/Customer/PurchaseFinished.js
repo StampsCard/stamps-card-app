@@ -22,7 +22,6 @@ class PurchaseFinished extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={CUSTOMER}
-          user={this.props.user}
         >
           <BackgroundImage image={this.props.background} />
           <SimpleHeader />

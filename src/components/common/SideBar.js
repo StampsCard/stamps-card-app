@@ -9,11 +9,43 @@ import GetRoutesForSideBar from '../../services/GetRoutesForSideBar';
 class SideBar extends React.Component {
 
   pressBusinessOwnerButton() {
-    this.props.businessOwnerSelected(this.props.userId);
+    this.props.businessOwnerSelected(this.props.user.id);
   }
 
   pressCustomerButton() {
     this.props.customerSelected(true);
+  }
+
+  renderProfileSwitcher() {
+    if (this.props.isBusinessOwner) {
+      const {
+        listItemText,
+        profileSelectionStyle,
+        profileSelectionButtonStyle,
+        profileTextButtonStyle,
+        profileContainerButtonsStyle
+      } = styles;
+
+      return (
+        <View style={profileSelectionStyle}>
+            <Text style={listItemText}>Switch your profile</Text>
+            <View style={profileContainerButtonsStyle}>
+              <ButtonSecondary
+                onPress={this.pressCustomerButton.bind(this)}
+                style={profileSelectionButtonStyle}
+              >
+                  <Text style={profileTextButtonStyle}>C</Text>
+              </ButtonSecondary>
+              <ButtonSecondary
+                onPress={this.pressBusinessOwnerButton.bind(this)}
+                style={profileSelectionButtonStyle}
+              >
+                  <Text style={profileTextButtonStyle}>B</Text>
+              </ButtonSecondary>
+            </View>
+        </View>
+      );
+    }
   }
 
   render() {
@@ -23,11 +55,7 @@ class SideBar extends React.Component {
       logoViewStyle,
       listItemText,
       listItemStyle,
-      logoutButtonStyle,
-      profileSelectionStyle,
-      profileSelectionButtonStyle,
-      profileTextButtonStyle,
-      profileContainerButtonsStyle
+      logoutButtonStyle
     } = styles;
     return (
       <Container style={containerStyle}>
@@ -49,23 +77,7 @@ class SideBar extends React.Component {
           />
         </Content>
 
-        <View style={profileSelectionStyle}>
-            <Text style={listItemText}>Switch your profile</Text>
-            <View style={profileContainerButtonsStyle}>
-              <ButtonSecondary
-                onPress={this.pressCustomerButton.bind(this)}
-                style={profileSelectionButtonStyle}
-              >
-                  <Text style={profileTextButtonStyle}>C</Text>
-              </ButtonSecondary>
-              <ButtonSecondary
-                onPress={this.pressBusinessOwnerButton.bind(this)}
-                style={profileSelectionButtonStyle}
-              >
-                  <Text style={profileTextButtonStyle}>B</Text>
-              </ButtonSecondary>
-            </View>
-        </View>
+        {this.renderProfileSwitcher()}
 
         <ButtonSecondary style={logoutButtonStyle} onPress={() => this.props.logout()}>
           Logout
@@ -139,7 +151,9 @@ const styles = {
 
 const mapStateToProps = (state) => {
   return {
-    profile: state.profile.id
+    profile: state.profile.id,
+    user: state.auth.user,
+    isBusinessOwner: state.auth.isBusinessOwner
   };
 };
 

@@ -6,6 +6,7 @@ import {
   LOGIN_USER_FAIL,
   LOGIN_USER_STARTS,
   CUSTOMER_SELECTED,
+  IS_BUSINESS_OWNER,
   LOGOUT
 } from './types';
 
@@ -56,8 +57,9 @@ const loginUserSuccess = (dispatch, authData) => {
         type: CUSTOMER_SELECTED,
         payload: user
       });
-      return Actions.welcome({ hasBusiness: false });
+      return Actions.welcome();
     }
+    dispatch({ type: IS_BUSINESS_OWNER });
     return Actions.profileSelector();
 };
 

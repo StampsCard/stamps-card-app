@@ -4,6 +4,7 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   LOGIN_USER_STARTS,
+  IS_BUSINESS_OWNER,
   LOGOUT
 } from '../actions/types';
 
@@ -13,7 +14,8 @@ const INITIAL_STATE = {
   user: null,
   error: '',
   loading: false,
-  showToast: false
+  showToast: false,
+  isBusinessOwner: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -36,6 +38,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, error: 'Authentication failed.', loading: false, showToast: true };
     case LOGIN_USER_STARTS:
       return { ...state, loading: true };
+    case IS_BUSINESS_OWNER:
+      return { ...state, isBusinessOwner: true };
     case LOGOUT:
       return { INITIAL_STATE };
     default:

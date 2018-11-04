@@ -33,11 +33,7 @@ class NavBar extends React.Component {
         ref={(ref) => { this.drawer = ref; }}
         onClose={() => this.closeDrawer()}
         content={
-          <SideBar
-            navigation={this.props.navigation}
-            profile={this.props.profile}
-            userId={this.props.user.id}
-          />
+          <SideBar navigation={this.props.navigation} />
         }
       >
         <Header style={headerStyle}>

@@ -31,11 +31,11 @@ export const businessOwnerSelected = (userId) => {
   };
 };
 
-export const customerSelected = (hasBusiness) => {
+export const customerSelected = () => {
   return (dispatch) => {
     dispatch({ type: CUSTOMER_SELECTED });
 
-    Actions.welcome({ hasBusiness });
+    Actions.welcome();
   };
 };
 

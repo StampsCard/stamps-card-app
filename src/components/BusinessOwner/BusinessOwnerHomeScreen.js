@@ -22,7 +22,6 @@ class BusinessOwnerHomeScreen extends React.Component {
         <NavBar
           returnBack='profileSelector'
           navigation={this.props.navigation}
-          user={this.props.user}
           profile={BUSINESS_OWNER}
           title="Business owner menu"
         >

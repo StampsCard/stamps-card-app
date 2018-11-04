@@ -7,6 +7,7 @@ export const PASSWORD_CHANGED = 'password_changed';
 export const LOGIN_USER_SUCCESS = 'login_user_success';
 export const LOGIN_USER_FAIL = 'login_user_fail';
 export const LOGIN_USER_STARTS = 'login_user_starts';
+export const IS_BUSINESS_OWNER = 'is_business_owner';
 export const LOGOUT = 'logout';
 
 //PROFILE
