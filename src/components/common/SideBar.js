@@ -23,10 +23,11 @@ class SideBar extends React.Component {
       logoViewStyle,
       listItemText,
       listItemStyle,
-      loginButtonStyle,
+      logoutButtonStyle,
       profileSelectionStyle,
       profileSelectionButtonStyle,
-      profileTextButtonStyle
+      profileTextButtonStyle,
+      profileContainerButtonsStyle
     } = styles;
     return (
       <Container style={containerStyle}>
@@ -49,21 +50,24 @@ class SideBar extends React.Component {
         </Content>
 
         <View style={profileSelectionStyle}>
-            <ButtonSecondary
-              onPress={this.pressCustomerButton.bind(this)}
-              style={profileSelectionButtonStyle}
-            >
-                <Text style={profileTextButtonStyle}>C</Text>
-            </ButtonSecondary>
-            <ButtonSecondary
-              onPress={this.pressBusinessOwnerButton.bind(this)}
-              style={profileSelectionButtonStyle}
-            >
-                <Text style={profileTextButtonStyle}>B</Text>
-            </ButtonSecondary>
+            <Text style={listItemText}>Switch your profile</Text>
+            <View style={profileContainerButtonsStyle}>
+              <ButtonSecondary
+                onPress={this.pressCustomerButton.bind(this)}
+                style={profileSelectionButtonStyle}
+              >
+                  <Text style={profileTextButtonStyle}>C</Text>
+              </ButtonSecondary>
+              <ButtonSecondary
+                onPress={this.pressBusinessOwnerButton.bind(this)}
+                style={profileSelectionButtonStyle}
+              >
+                  <Text style={profileTextButtonStyle}>B</Text>
+              </ButtonSecondary>
+            </View>
         </View>
 
-        <ButtonSecondary style={loginButtonStyle} onPress={() => this.props.logout()}>
+        <ButtonSecondary style={logoutButtonStyle} onPress={() => this.props.logout()}>
           Logout
         </ButtonSecondary>
 
@@ -85,6 +89,7 @@ const styles = {
     alignItems: 'center',
     marginVertical: 10
   },
+  //list
   listItemStyle: {
     borderColor: '#F7C4BC'
   },
@@ -92,36 +97,44 @@ const styles = {
     color: '#fff',
     fontWeight: 'bold'
   },
- profileSelectionStyle: {
+  //profile
+  profileSelectionStyle: {
    position: 'absolute',
    left: '2.5%',
-   top: '75%',
-   width: '95%',
-   flexDirection: 'row',
-   alignItems: 'center'
+   top: '70%',
+   alignItems: 'center',
+   width: '95%'
  },
+  profileContainerButtonsStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '95%',
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderColor: '#fff',
+    paddingVertical: 15
+  },
+
  profileSelectionButtonStyle: {
    borderWidth: 2,
    borderRadius: 25,
-   height: 40,
-   width: 40,
    marginHorizontal: '5%',
    justifyContent: 'center',
    alignItems: 'center',
    flex: 1
  },
+  profileTextButtonStyle: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#FFF'
+  },
 
-  loginButtonStyle: {
+  logoutButtonStyle: {
     position: 'absolute',
     left: '2.5%',
     top: '90%',
     width: '95%'
   },
-  profileTextButtonStyle: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#FFF'
-  }
 };
 
 const mapStateToProps = (state) => {
