@@ -92,7 +92,8 @@ const styles = {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
-    width: '100%'
+    width: '100%',
+    textAlign: 'center'
 
   },
   bodyStyle: {
