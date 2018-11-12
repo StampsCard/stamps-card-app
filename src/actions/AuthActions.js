@@ -1,4 +1,5 @@
 import { Actions } from 'react-native-router-flux';
+import { AsyncStorage } from 'react-native';
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
@@ -41,12 +42,13 @@ export const loginUser = ({ email, password }) => {
 };
 
 const loginUserFail = (dispatch) => {
+  AsyncStorage.setItem('@userJwt', '');
   dispatch({ type: LOGIN_USER_FAIL });
 };
 
 const loginUserSuccess = (dispatch, authData) => {
     const user = authData.user;
-
+    AsyncStorage.setItem('@userJwt', authData.token);
     dispatch({
       type: LOGIN_USER_SUCCESS,
       payload: user
@@ -68,6 +70,7 @@ export const logout = () => {
     dispatch({
       type: LOGOUT
     });
+    AsyncStorage.setItem('@userJwt', '');
 
     return Actions.login();
   };

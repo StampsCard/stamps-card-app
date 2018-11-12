@@ -10,15 +10,5 @@ adb shell am start -a android.intent.action.VIEW -d "stampscard://customer/codeS
 # Open remote debugger android
 adb shell input keyevent 82
 
-# Generate Android signed apk
-cd android
-./gradlew assembleRelease
-
-# Generate Android bundle
-react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug
-
-# another opetion to generate Android debug apk
-./gradlew assembleDebug
-
 # Reset watcher
 watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && yarn start -- --reset-cache
