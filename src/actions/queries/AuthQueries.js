@@ -11,5 +11,6 @@ export const loginQuery = gql`
         lastName
       }
       userRole
+      token
     }
   }`;
