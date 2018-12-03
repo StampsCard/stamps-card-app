@@ -3,19 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
     "babel-preset-react-native-stage-0": "^1.0.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "eslint-config-rallycoding": "^3.2.0",
+    "graphql-tools": "^4.0.3",
+    "jest": "^23.6.0",
     "jest-react-native": "^18.0.0",
-    "react-test-renderer": "16.2.0"
+    "jest-transform-graphql": "^2.1.0",
+    "react-test-renderer": "16.2.0",
+    "regenerator-runtime": "^0.13.1"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|@shoutem/theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
+    ],
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "transform": {
+      "\\.(gpl|graphql)$": "jest-transform-graphql",
+      ".*": "babel-jest"
+    }
   },
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "node node_modules/jest/bin/jest.js"
-  },
-  "jest": {
-    "preset": "react-native"
+    "test": "jest"
   },
   "dependencies": {
     "apollo-cache-inmemory": "^1.3.0-beta.6",
