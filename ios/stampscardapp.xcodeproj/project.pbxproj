@@ -44,6 +44,7 @@
 		935F0FEA0386441EA651884D /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ACE5E476AA6455280115FC9 /* rubicon-icon-font.ttf */; };
 		94B7DD9F020D4010B8511F04 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A47D9DC041A4A0C9F5B1263 /* Zocial.ttf */; };
 		A2A8EB9920F10E850056F03C /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A8EB9620F10E530056F03C /* libRCTLinking.a */; };
+		A2FA2C8421B5CDB400CBAA82 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2FA2C8321B5CDB400CBAA82 /* Images-2.xcassets */; };
 		A59A4430E4104772A96C0590 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B21799501FE4F14B0BB9CEF /* FontAwesome.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		BA937D217549428DA9976322 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AF08ED9816D4E10BD92BD92 /* Octicons.ttf */; };
@@ -399,6 +400,8 @@
 		9A47D9DC041A4A0C9F5B1263 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		A23A493DD1FF4447A4544568 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		A2A8EB9020F10E530056F03C /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		A2FA2C8321B5CDB400CBAA82 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "stampscardapp/Images-2.xcassets"; sourceTree = "<group>"; };
+		A2FA2C8721B5DD4500CBAA82 /* stampscardapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = stampscardapp.entitlements; path = stampscardapp/stampscardapp.entitlements; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		C64823516B7F4784A5879777 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 		CCFD1AB002CD44DF8A4C5433 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
@@ -543,6 +546,7 @@
 		13B07FAE1A68108700A75B9A /* stampscardapp */ = {
 			isa = PBXGroup;
 			children = (
+				A2FA2C8721B5DD4500CBAA82 /* stampscardapp.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -550,6 +554,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				A2FA2C8321B5CDB400CBAA82 /* Images-2.xcassets */,
 			);
 			name = stampscardapp;
 			sourceTree = "<group>";
@@ -810,6 +815,14 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 4LLCJKL59Z;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1210,6 +1223,7 @@
 				13B07FBF1A68108700A75B9A /* stamps_card_logo.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				41C5C3923BCB464186FD9748 /* Entypo.ttf in Resources */,
+				A2FA2C8421B5CDB400CBAA82 /* Images-2.xcassets in Resources */,
 				D2EFAA77086E42A8A623EA2A /* EvilIcons.ttf in Resources */,
 				A59A4430E4104772A96C0590 /* FontAwesome.ttf in Resources */,
 				3F37E0455C1A479AACECE611 /* Foundation.ttf in Resources */,
@@ -1395,9 +1409,10 @@
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 4LLCJKL59Z;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
@@ -1418,8 +1433,9 @@
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4LLCJKL59Z;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
