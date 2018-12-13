@@ -9,7 +9,7 @@ describe('sample test 101', () => {
   });
 
   it('makes a list of dog names', () => {
-    const dogs = ['snikers', 'hugo'];
+    const dogs = ['snickers', 'hugo'];
     expect(dogs).toEqual(dogs);
     expect(dogs).toContain('snickers');
   });

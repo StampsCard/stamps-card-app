@@ -1,20 +1,20 @@
 Arguments: 
-  /Users/david.sola/.nvm/versions/node/v11.2.0/bin/node /usr/local/Cellar/yarn/1.7.0/libexec/bin/yarn.js add react-test-renderer --dev
+  /usr/local/Cellar/node/10.6.0/bin/node /usr/local/Cellar/yarn/1.7.0/libexec/bin/yarn.js add babel-transform-regenerator --dev
 
 PATH: 
-  /Users/david.sola/.nvm/versions/node/v11.2.0/bin:/Users/david.sola/.composer/vendor/bin:/Users/david.sola/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/david.sola/.composer/vendor/bin:/Users/david.sola/bin
+  /Users/david.sola/.composer/vendor/bin:/Users/david.sola/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/david.sola/.composer/vendor/bin:/Users/david.sola/bin
 
 Yarn version: 
   1.7.0
 
 Node version: 
-  11.2.0
+  10.6.0
 
 Platform: 
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/react-test-rendercer: Not found
+  Error: https://registry.yarnpkg.com/babel-transform-regenerator: Not found
       at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:65656:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:134675:22)
       at Request.emit (events.js:182:13)
@@ -23,8 +23,8 @@ Trace:
       at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:135578:12)
       at Object.onceWrapper (events.js:273:13)
       at IncomingMessage.emit (events.js:187:15)
-      at endReadableNT (_stream_readable.js:1098:12)
-      at process.internalTickCallback (internal/process/next_tick.js:72:19)
+      at endReadableNT (_stream_readable.js:1081:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
 
 npm manifest: 
   {
@@ -42,7 +42,7 @@ npm manifest:
       "jest": "^23.6.0",
       "jest-react-native": "^18.0.0",
       "jest-transform-graphql": "^2.1.0",
-      "react-test-rendercer": "16.2.0",
+      "react-test-renderer": "16.2.0",
       "regenerator-runtime": "^0.13.1"
     },
     "jest": {
