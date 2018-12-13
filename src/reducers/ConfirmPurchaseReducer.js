@@ -20,10 +20,10 @@ export default (state = INITIAL_STATE, action) => {
     case PURCHASE_FETCH_SUCCESS:
       return { ...state, purchase: action.payload };
     case PURCHASE_CONFIRMED:
-      return { ...INITIAL_STATE, info: 'The purchase has been confirmed.' };
+      return { ...state, error: '', info: 'The purchase has been confirmed.' };
     case PURCHASE_CANCELED:
       return { ...INITIAL_STATE, info: 'The purchase has been cancelled.' };
-    case PURCHASE_FETCH_ERROR:
+    case PURCHASE_FETCH_ERROR: 
       return {
         ...INITIAL_STATE,
         error: 'An error occurs during the purchase fetch.'

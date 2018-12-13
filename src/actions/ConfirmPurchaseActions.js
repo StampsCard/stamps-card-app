@@ -48,8 +48,7 @@ export const acceptPurchaseFromConfirmation = (purchaseId, userId) => {
       mutation: confirmPurchaseMutation,
       variables: { id: purchaseId, userId }
     }).then((response) => {
-      const purchase = response.data.confirmPurchase;
-        if (purchase.id) {
+        if (response.data) {
           // Notify the business owner with a PUSH notification
           dispatch({ type: PURCHASE_CONFIRMED });
           // Redirect to purchase finished
