@@ -16,7 +16,11 @@ class PurchaseFinished extends React.Component {
   render() {
     const { contentStyle, h2Style, h3Style, boldStyle, buttonStyle } = styles;
     const stampsInfo = this.props.stampsInfo;
-    const stamps = stampsInfo ? (stampsInfo.stampCard.total - stampsInfo.amount) : 0;
+    let stamps = stampsInfo ? (stampsInfo.stampCard.total - stampsInfo.amount) : 0;
+    if (stamps < 0) {
+      stamps = 0;
+    }
+    
     return (
       <Container>
         <NavBar
