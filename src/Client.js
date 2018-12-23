@@ -4,15 +4,15 @@ import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 
-const NETWORK_INTERFACE_URL = 'https://stamps-card-api-rvudqeezcz.now.sh/';
+const NETWORK_INTERFACE_URL = 'https://stampscard.app';
 
 const httpLink = createHttpLink({
   uri: NETWORK_INTERFACE_URL
 });
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext(async(_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = AsyncStorage.getItem('@userJwt');
+  const token = await AsyncStorage.getItem('userJwt');
   // return the headers to the context so httpLink can read them
   return {
     headers: {

@@ -41,14 +41,14 @@ export const loginUser = ({ email, password }) => {
   };
 };
 
-const loginUserFail = (dispatch) => {
-  AsyncStorage.setItem('@userJwt', '');
+const loginUserFail = async(dispatch) => {
+  await AsyncStorage.setItem('userJwt', '');
   dispatch({ type: LOGIN_USER_FAIL });
 };
 
-const loginUserSuccess = (dispatch, authData) => {
+const loginUserSuccess = async(dispatch, authData) => {
     const user = authData.user;
-    AsyncStorage.setItem('@userJwt', authData.token);
+    await AsyncStorage.setItem('userJwt', authData.token);
     dispatch({
       type: LOGIN_USER_SUCCESS,
       payload: user
