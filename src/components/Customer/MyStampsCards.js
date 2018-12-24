@@ -7,10 +7,10 @@ import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage } from '../common';
 import { fetchStamps, changeBackground } from '../../actions';
-import MyStampCardItem from './fragments/MyStampCardItem';
+import MyStampsCardItem from './fragments/MyStampsCardItem';
 import { CUSTOMER } from '../../values/Profiles';
 
-class MyStampCards extends React.Component {
+class MyStampsCards extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
@@ -23,7 +23,7 @@ class MyStampCards extends React.Component {
         data={this.props.stampCards}
         style={styles.listStyle}
         keyExtractor={(item) => item.stampCard.id}
-        renderItem={(stampCard) => <MyStampCardItem stampCard={stampCard} />}
+        renderItem={(stampCard) => <MyStampsCardItem stampCard={stampCard} />}
       />
     );
   }
@@ -34,7 +34,7 @@ class MyStampCards extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={CUSTOMER}
-          title="My Stamp Cards"
+          title="My Stamps Cards"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder style={styles.contentStyle}>
@@ -66,4 +66,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchStamps, changeBackground })(MyStampCards);
+export default connect(mapStateToProps, { fetchStamps, changeBackground })(MyStampsCards);

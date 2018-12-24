@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Card, H2, Text, Left, Right } from 'native-base';
 
-class MyStampCardItem extends React.Component {
+class MyStampsCardItem extends React.Component {
 
   render() {
     const item = this.props.stampCard.item;
@@ -78,4 +78,4 @@ const styles = {
     }
 };
 
-export default MyStampCardItem;
+export default MyStampsCardItem;

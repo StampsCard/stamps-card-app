@@ -96,7 +96,7 @@ const stampCardCreated = (dispatch, data) => {
       payload: stampCard
     });
 
-    return Actions.businessOwnerMyStampCards();
+    return Actions.businessOwnerMyStampsCards();
 };
 
 export const stampPriceChanged = (value) => ({

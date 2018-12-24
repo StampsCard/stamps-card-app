@@ -12,7 +12,7 @@ import CustomerHomeScreen from './components/Customer/CustomerHomeScreen';
 import MyLastPayments from './components/Customer/MyLastPayments';
 import PaymentDetail from './components/Customer/PaymentDetail';
 import MyStores from './components/Customer/MyStores';
-import MyStampCards from './components/Customer/MyStampCards';
+import MyStampsCards from './components/Customer/MyStampsCards';
 import StoreDetail from './components/Customer/StoreDetail';
 import ScanPurchase from './components/Customer/ScanPurchase';
 import ConfirmPurchase from './components/Customer/ConfirmPurchase';
@@ -24,8 +24,8 @@ import CustomerDetail from './components/BusinessOwner/CustomerDetail';
 import LastPurchases from './components/BusinessOwner/LastPurchases';
 import PurchaseDetail from './components/BusinessOwner/PurchaseDetail';
 import RegisterPurchase from './components/BusinessOwner/RegisterPurchase';
-import BusinessOwnerMyStampCards from './components/BusinessOwner/MyStampCards';
-import CreateStampCard from './components/BusinessOwner/CreateStampCard';
+import BusinessOwnerMyStampsCards from './components/BusinessOwner/MyStampsCards';
+import CreateStampsCard from './components/BusinessOwner/CreateStampsCard';
 
 class Router extends React.Component {
   render() {
@@ -76,8 +76,8 @@ class Router extends React.Component {
               hideNavBar
             />
             <Scene
-              key="myStampCards"
-              component={MyStampCards}
+              key="myStampsCards"
+              component={MyStampsCards}
               hideNavBar
             />
             <Scene
@@ -138,13 +138,13 @@ class Router extends React.Component {
               hideNavBar
             />
             <Scene
-              key="businessOwnerMyStampCards"
-              component={BusinessOwnerMyStampCards}
+              key="businessOwnerMyStampsCards"
+              component={BusinessOwnerMyStampsCards}
               hideNavBar
             />
             <Scene
-              key="createStampCard"
-              component={CreateStampCard}
+              key="createStampsCard"
+              component={CreateStampsCard}
               hideNavBar
             />
           </Scene>

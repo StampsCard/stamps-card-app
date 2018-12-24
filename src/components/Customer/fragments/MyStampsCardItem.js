@@ -2,11 +2,11 @@ import React from 'react';
 import { View } from 'react-native';
 import { Card, Text, Left, Right } from 'native-base';
 import { STAMP_TYPE, EMPTY_TYPE } from '../../../values/StampCardTypes';
-import TouchableStampCard from './TouchableStampCard';
+import TouchableStampCard from './TouchableStampsCard';
 
-class MyStampCardItem extends React.Component {
+class MyStampsCardItem extends React.Component {
 
-  renderStampCard() {
+  renderStampsCard() {
     let i = 0;
     const item = this.props.stampCard.item;
     const stampsAmount = item.amount || 0;
@@ -38,7 +38,7 @@ class MyStampCardItem extends React.Component {
 
     return (
       <View style={contentStyle}>
-        {this.renderStampCard()}
+        {this.renderStampsCard()}
         <Card style={cardInfoStyle}>
           <Left>
             <Text>You got</Text>
@@ -93,4 +93,4 @@ const styles = {
     }
 };
 
-export default MyStampCardItem;
+export default MyStampsCardItem;

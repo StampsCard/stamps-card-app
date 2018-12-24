@@ -18,7 +18,7 @@ import {
 } from '../../actions';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
-class CreateStampCard extends React.Component {
+class CreateStampsCard extends React.Component {
 
   constructor(props) {
     super(props);
@@ -140,4 +140,4 @@ export default connect(mapStateToProps, {
   stampPriceChanged,
   totalStampsChanged,
   discountChanged
-})(CreateStampCard);
+})(CreateStampsCard);

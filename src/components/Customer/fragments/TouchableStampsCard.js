@@ -8,7 +8,7 @@ import { STAMP_TYPE, EMPTY_TYPE } from '../../../values/StampCardTypes';
 import { ITEMS_PER_ROW, ROW_HEIGHT } from '../../../values/StampCardConfig';
 import { expandCard, collapseCard } from '../../../actions';
 
-class TouchableStampCard extends React.Component {
+class TouchableStampsCard extends React.Component {
 
   toggleExpanded() {
     if (this.isCollapsed()) {
@@ -199,4 +199,4 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   { expandCard, collapseCard }
-)(TouchableStampCard);
+)(TouchableStampsCard);

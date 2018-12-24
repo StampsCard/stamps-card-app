@@ -102,9 +102,9 @@ class CustomerHomeScreen extends React.Component {
                 </Button>
                 <Button
                   style={menuButton}
-                  onPress={() => { Actions.myStampCards(); }}
+                  onPress={() => { Actions.myStampsCards(); }}
                 >
-                  My stamps
+                  My stamps cards
                 </Button>
                 <Button
                   style={menuButton}

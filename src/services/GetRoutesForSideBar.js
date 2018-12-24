@@ -24,7 +24,7 @@ module.exports.getByProfile = (profile) => {
         {
           key: 'myStampCards',
           name: 'My stamps cards',
-          onPress: () => { Actions.myStampCards(); }
+          onPress: () => { Actions.myStampsCards(); }
         },
         {
           key: 'scanPurchase',
@@ -59,12 +59,12 @@ module.exports.getByProfile = (profile) => {
         {
           key: 'myStampCards',
           name: 'My stamp cards',
-          onPress: () => { Actions.businessOwnerMyStampCards(); }
+          onPress: () => { Actions.businessOwnerMyStampsCards(); }
         },
         {
           key: 'createStampCard',
           name: 'Create stamp card',
-          onPress: () => { Actions.createStampCard(); }
+          onPress: () => { Actions.createStampsCard(); }
         }
       ];
     }
