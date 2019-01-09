@@ -6,9 +6,9 @@ import {
   STAMP_PRICE_CHANGED,
   DISCOUNT_CHANGED,
   TOTAL_STAMPS_CHANGED,
-  STAMP_CARD_CREATION_STARTS,
-  STAMP_CARD_CREATION_FAIL,
-  STAMP_CARD_CREATION_SUCCESS
+  STAMPS_CARD_CREATION_STARTS,
+  STAMPS_CARD_CREATION_FAIL,
+  STAMPS_CARD_CREATION_SUCCESS
 } from './types';
 import {
   getCustomersQuery,
@@ -16,7 +16,7 @@ import {
   getStampCardsQuery
 } from './queries/BusinessOwnerQueries';
 import {
-  createStampCardMutation
+  createStampsCardMutation
 } from './mutations/BusinessOwnerMutations';
 import Client from '../Client';
 
@@ -62,38 +62,36 @@ export const fetchStampCards = (businessId) => {
   };
 };
 
-export const createStampCard = (businessId, stampPrice, total, discount) => {
-  console.log(businessId);
+export const createStampsCard = (businessId, stampPrice, total, discount) => {
   return (dispatch) => {
-    dispatch({ type: STAMP_CARD_CREATION_STARTS });
+    dispatch({ type: STAMPS_CARD_CREATION_STARTS });
     Client.mutate({
-      mutation: createStampCardMutation,
+      mutation: createStampsCardMutation,
       variables: {
+        stampPrice: parseFloat(stampPrice),
         businessId,
-        stampPrice,
-        total,
+        total: parseInt(total, 10),
         discount
       }
     }).then((response) => {
-      console.log(response);
-        stampCardCreated(dispatch, response.data.createStampCard);
+        stampsCardCreated(dispatch, response.data.createStampsCard);
     }).catch((err) => {
-      console.log(err);
-      errorCreatingStampCard(dispatch);
+      console.log(err.graphQLErrors, err.networkError, err.response, err.operation);
+      errorCreatingStampsCard(dispatch);
     });
   };
 };
 
-const errorCreatingStampCard = (dispatch) => {
-  dispatch({ type: STAMP_CARD_CREATION_FAIL });
+const errorCreatingStampsCard = (dispatch) => {
+  dispatch({ type: STAMPS_CARD_CREATION_FAIL });
 };
 
-const stampCardCreated = (dispatch, data) => {
-    const stampCard = data.stampCard;
+const stampsCardCreated = (dispatch, data) => {
+    const stampsCard = data.stampCard;
 
     dispatch({
-      type: STAMP_CARD_CREATION_SUCCESS,
-      payload: stampCard
+      type: STAMPS_CARD_CREATION_SUCCESS,
+      payload: stampsCard
     });
 
     return Actions.businessOwnerMyStampsCards();

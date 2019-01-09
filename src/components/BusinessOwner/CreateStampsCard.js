@@ -11,7 +11,7 @@ import {
   FormItem
 } from '../common';
 import {
-  createStampCard,
+  createStampsCard,
   stampPriceChanged,
   totalStampsChanged,
   discountChanged
@@ -38,7 +38,7 @@ class CreateStampsCard extends React.Component {
   onButtonPress() {
     const { businessId, stampPrice, totalStamps, discount } = this.props;
     Keyboard.dismiss();
-    this.props.createStampCard(
+    this.props.createStampsCard(
       businessId,
       stampPrice,
       totalStamps,
@@ -81,7 +81,7 @@ class CreateStampsCard extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={BUSINESS_OWNER}
-          title="Create Stamp Card"
+          title="Create Stamps Card"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
@@ -136,7 +136,7 @@ const styles = {
 };
 
 export default connect(mapStateToProps, {
-  createStampCard,
+  createStampsCard,
   stampPriceChanged,
   totalStampsChanged,
   discountChanged

@@ -5,15 +5,15 @@ import {
   STAMP_PRICE_CHANGED,
   TOTAL_STAMPS_CHANGED,
   DISCOUNT_CHANGED,
-  STAMP_CARD_CREATION_FAIL,
-  STAMP_CARD_CREATION_SUCCESS,
-  STAMP_CARD_CREATION_STARTS
+  STAMPS_CARD_CREATION_FAIL,
+  STAMPS_CARD_CREATION_SUCCESS,
+  STAMPS_CARD_CREATION_STARTS
 } from '../actions/types';
 
 const INITIAL_STATE = {
   error: '',
   loading: false,
-  stampCard: null,
+  stampsCard: null,
   stampPrice: '',
   totalStamps: '',
   discount: '',
@@ -29,19 +29,47 @@ export default(state = INITIAL_STATE, action) => {
       case BUSINESS_STAMPS_CARDS_FETCH_SUCCESS:
         return { stampCards: action.payload.stampCards };
       case STAMP_PRICE_CHANGED:
-        return { ...state, stampPrice: action.payload };
-      case TOTAL_STAMPS_CHANGED:
-        return { ...state, totalStamps: action.payload };
-      case DISCOUNT_CHANGED:
-        return { ...state, discount: action.payload };
-      case STAMP_CARD_CREATION_STARTS:
-        return { ...state, loading: true };
-      case STAMP_CARD_CREATION_FAIL:
-        return { ...state, error: 'Authentication failed.', loading: false, showToast: true };
-      case STAMP_CARD_CREATION_SUCCESS:
         return {
           ...state,
-          stampCard: action.payload,
+          loading: true,
+          error: '',
+          showToast: false,
+          stampPrice: action.payload 
+        };
+      case TOTAL_STAMPS_CHANGED:
+        return { 
+          ...state, 
+          loading: true,
+          error: '',
+          showToast: false,
+          totalStamps: action.payload 
+        };
+      case DISCOUNT_CHANGED:
+        return { 
+          ...state,
+          loading: true,
+          error: '',
+          showToast: false, 
+          discount: action.payload 
+        };
+      case STAMPS_CARD_CREATION_STARTS:
+        return { 
+          ...state,
+          loading: true,
+          error: '',
+          showToast: false
+        };
+      case STAMPS_CARD_CREATION_FAIL:
+        return { 
+          ...state,
+          error: 'The stamps card could not be created.',
+          loading: false,
+          showToast: true
+        };
+      case STAMPS_CARD_CREATION_SUCCESS:
+        return {
+          ...state,
+          stampsCard: action.payload,
           loading: false,
           error: '',
           showToast: false

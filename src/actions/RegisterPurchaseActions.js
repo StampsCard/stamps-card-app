@@ -45,7 +45,7 @@ export const generatePurchase = ({ businessId, concept, amount }) => {
 
         Client.mutate({
           mutation: registerPurchaseMutation,
-          variables: { concept, amount, stampId: stampCards[0].id }
+          variables: { concept, amount: parseFloat(amount), stampId: stampCards[0].id }
         }).then((purchaseResponse) => {
             const data = purchaseResponse.data.createPurchase;
             if (data) {

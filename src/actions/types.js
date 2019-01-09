@@ -26,12 +26,12 @@ export const MY_CUSTOMERS_FETCH_SUCCESS = 'my_customers_fetch_success';
 export const LAST_PURCHASES_FETCH_SUCCESS = 'last_purchases_fetch_success';
 export const BUSINESS_STAMPS_CARDS_FETCH_SUCCESS = 'business_stamp_cards_fetch_success';
 //// Create Stamp Card
-export const STAMP_CARD_CREATION_STARTS = 'stamp_card_creation_starts';
+export const STAMPS_CARD_CREATION_STARTS = 'stamp_card_creation_starts';
 export const STAMP_PRICE_CHANGED = 'stamp_price_changed';
 export const TOTAL_STAMPS_CHANGED = 'total_stamps_changed';
 export const DISCOUNT_CHANGED = 'discount_changed';
-export const STAMP_CARD_CREATION_FAIL = 'stamp_card_creation_fail';
-export const STAMP_CARD_CREATION_SUCCESS = 'stamp_card_creation_success';
+export const STAMPS_CARD_CREATION_FAIL = 'stamp_card_creation_fail';
+export const STAMPS_CARD_CREATION_SUCCESS = 'stamp_card_creation_success';
 
 // REGISTER PURCHASE
 export const PRODUCT_CONCEPT_CHANGED = 'product_concept_changed';
