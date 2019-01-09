@@ -27,7 +27,7 @@ export default(state = INITIAL_STATE, action) => {
       case LAST_PURCHASES_FETCH_SUCCESS:
         return { lastPurchases: action.payload.lastPurchases };
       case BUSINESS_STAMPS_CARDS_FETCH_SUCCESS:
-        return { stampCards: action.payload.stampCards };
+        return { stampsCards: action.payload.stampsCards };
       case STAMP_PRICE_CHANGED:
         return {
           ...state,

@@ -5,7 +5,7 @@ import { Card, H2, Text, Left, Right } from 'native-base';
 class MyStampsCardItem extends React.Component {
 
   render() {
-    const item = this.props.stampCard.item;
+    const item = this.props.stampsCard.item;
     const {
       h2Style,
       boldText,

@@ -39,8 +39,8 @@ query getLastPurchases($businessId: ID!){
   }
 }`;
 
-export const getStampCardsQuery = gql`
-query getStampCardsByBusiness($businessId: ID!){
+export const getStampsCardsQuery = gql`
+query getStampsCardsByBusiness($businessId: ID!){
   business(id: $businessId) {
     stampCards {
       id

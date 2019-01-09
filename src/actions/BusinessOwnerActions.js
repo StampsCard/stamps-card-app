@@ -13,7 +13,7 @@ import {
 import {
   getCustomersQuery,
   getLastPurchasesQuery,
-  getStampCardsQuery
+  getStampsCardsQuery
 } from './queries/BusinessOwnerQueries';
 import {
   createStampsCardMutation
@@ -51,12 +51,12 @@ export const fetchLastPurchases = (businessId) => {
 export const fetchStampCards = (businessId) => {
   return (dispatch) => {
     Client.query({
-      query: getStampCardsQuery,
+      query: getStampsCardsQuery,
       variables: { businessId }
     }).then((resp) => {
       return dispatch({
         type: BUSINESS_STAMPS_CARDS_FETCH_SUCCESS,
-        payload: { stampCards: resp.data.business.stampCards }
+        payload: { stampsCards: resp.data.business.stampCards }
       });
 		});
   };
