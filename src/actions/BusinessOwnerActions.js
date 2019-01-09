@@ -76,7 +76,7 @@ export const createStampsCard = (businessId, stampPrice, total, discount) => {
     }).then((response) => {
         stampsCardCreated(dispatch, response.data.createStampsCard);
     }).catch((err) => {
-      console.log(err.graphQLErrors, err.networkError, err.response, err.operation);
+      console.log(err);
       errorCreatingStampsCard(dispatch);
     });
   };

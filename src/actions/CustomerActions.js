@@ -47,9 +47,11 @@ export const fetchStamps = (userId) => {
 		}).then((resp) => {
       dispatch({
         type: STAMPS_CARDS_FETCH_SUCCESS,
-        payload: { stampCards: resp.data.stampCardsByUser }
+        payload: { stampsCards: resp.data.stampsCardsByUser }
       });
-		});
+		}).catch((err) => {
+      console.log(err);
+    });
   };
 };
 

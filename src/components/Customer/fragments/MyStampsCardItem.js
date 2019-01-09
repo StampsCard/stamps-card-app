@@ -2,15 +2,15 @@ import React from 'react';
 import { View } from 'react-native';
 import { Card, Text, Left, Right } from 'native-base';
 import { STAMP_TYPE, EMPTY_TYPE } from '../../../values/StampCardTypes';
-import TouchableStampCard from './TouchableStampsCard';
+import TouchableStampsCard from './TouchableStampsCard';
 
 class MyStampsCardItem extends React.Component {
 
   renderStampsCard() {
     let i = 0;
-    const item = this.props.stampCard.item;
+    const item = this.props.stampsCard.item;
     const stampsAmount = item.amount || 0;
-    const totalStamps = item.stampCard.total || 0;
+    const totalStamps = item.stampsCard.total || 0;
     const {
       contentStyle
     } = styles;
@@ -19,17 +19,17 @@ class MyStampsCardItem extends React.Component {
     for (i = 0; i < totalStamps - stampsAmount; ++i) stampTypes.push(EMPTY_TYPE);
     return (
       <View style={contentStyle}>
-        <TouchableStampCard
+        <TouchableStampsCard
           stampTypes={stampTypes}
-          businessName={item.stampCard.business.name}
-          stampId={item.stampCard.id}
+          businessName={item.stampsCard.business.name}
+          stampId={item.stampsCard.id}
         />
       </View>
     );
   }
 
   render() {
-    const item = this.props.stampCard.item;
+    const item = this.props.stampsCard.item;
     const {
       boldText,
       contentStyle,
@@ -47,10 +47,10 @@ class MyStampsCardItem extends React.Component {
           </Left>
           <Right>
             <Text style={boldText}>
-              {item.amount}/{item.stampCard.total} stamps
+              {item.amount}/{item.stampsCard.total} stamps
             </Text>
             <Text style={boldText}>{item.spent} €</Text>
-            <Text style={boldText}>{item.stampCard.discount}</Text>
+            <Text style={boldText}>{item.stampsCard.discount}</Text>
           </Right>
         </Card>
       </View>

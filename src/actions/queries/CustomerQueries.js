@@ -42,8 +42,8 @@ export const getLastPaymentsQuery = gql`
 
 export const getStampsCardsQuery = gql`
   query getStampsCardByUser($userId: ID!){
-    stampCardsByUser(userId: $userId) {
-      stampCard {
+    stampsCardsByUser(userId: $userId) {
+      stampsCard {
         id
         business {
           name

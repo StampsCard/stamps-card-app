@@ -20,10 +20,10 @@ class MyStampsCards extends React.Component {
   renderItems() {
     return (
       <FlatList
-        data={this.props.stampCards}
+        data={this.props.stampsCards}
         style={styles.listStyle}
-        keyExtractor={(item) => item.stampCard.id}
-        renderItem={(stampCard) => <MyStampsCardItem stampCard={stampCard} />}
+        keyExtractor={(item) => item.stampsCard.id}
+        renderItem={(stampsCard) => <MyStampsCardItem stampsCard={stampsCard} />}
       />
     );
   }
@@ -60,7 +60,7 @@ const styles = {
 
 const mapStateToProps = (state) => {
   return {
-    stampCards: state.customer.stampCards,
+    stampsCards: state.customer.stampsCards,
     background: state.common.background,
     user: state.auth.user
   };

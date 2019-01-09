@@ -14,7 +14,7 @@ export default(state = INITIAL_STATE, action) => {
     case MY_STORES_FETCH_SUCCESS:
       return { stores: action.payload.stores };
     case STAMPS_CARDS_FETCH_SUCCESS:
-      return { stampCards: action.payload.stampCards };
+      return { stampsCards: action.payload.stampsCards };
     case CARD_EXPANDED:
       return { ...state, cardExpandedId: action.payload };
     default:
