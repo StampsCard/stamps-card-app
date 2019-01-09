@@ -8,7 +8,7 @@ import {
   PURCHASE_CANCELED,
   GENERATE_ANOTHER_PURCHASE
 } from './types';
-import { getStampCardsQuery } from './queries/PurchaseQueries';
+import { getStampsCardsQuery } from './queries/PurchaseQueries';
 import {
   registerPurchaseMutation,
   cancelPurchaseMutation
@@ -30,12 +30,12 @@ export const generatePurchase = ({ businessId, concept, amount }) => {
     dispatch({ type: PURCHASE_GENERATION_STARTS });
 
     Client.query({
-			query: getStampCardsQuery,
+			query: getStampsCardsQuery,
 			variables: { businessId }
 		}).then((stampsResponse) => {
         // Get the first stampCard
-        const stampCards = stampsResponse.data.business.stampCards;
-        if (!stampCards.length) {
+        const stampsCards = stampsResponse.data.business.stampCards;
+        if (!stampsCards.length) {
           dispatch({ type: PURCHASE_GENERATION_FAILED });
           console.log(
             `WARNING: You need to create a stamp card before for business ${businessId}!`
@@ -45,7 +45,7 @@ export const generatePurchase = ({ businessId, concept, amount }) => {
 
         Client.mutate({
           mutation: registerPurchaseMutation,
-          variables: { concept, amount: parseFloat(amount), stampId: stampCards[0].id }
+          variables: { concept, amount: parseFloat(amount), stampId: stampsCards[0].id }
         }).then((purchaseResponse) => {
             const data = purchaseResponse.data.createPurchase;
             if (data) {

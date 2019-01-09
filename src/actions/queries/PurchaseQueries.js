@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const getStampCardsQuery = gql`
+export const getStampsCardsQuery = gql`
 query getStampsCardFromBusiness($businessId: ID!) {
   business(id:$businessId) {
     stampCards {
@@ -38,10 +38,10 @@ query getUser($id: ID!) {
   }
 }`;
 
-export const getStampCardInfo = gql`
-query getStampCardInfo($purchaseId: ID!) {
-  stampCardByPurchase(purchaseId: $purchaseId) {
-    stampCard {
+export const getStampsCardInfo = gql`
+query getStampsCardInfo($purchaseId: ID!) {
+  stampsCardByPurchase(purchaseId: $purchaseId) {
+    stampsCard {
       id
       discount
       total

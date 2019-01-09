@@ -16,7 +16,7 @@ class PurchaseFinished extends React.Component {
   render() {
     const { contentStyle, h2Style, h3Style, boldStyle, buttonStyle } = styles;
     const stampsInfo = this.props.stampsInfo;
-    let stamps = stampsInfo ? (stampsInfo.stampCard.total - stampsInfo.amount) : 0;
+    let stamps = stampsInfo ? (stampsInfo.stampsCard.total - stampsInfo.amount) : 0;
     if (stamps < 0) {
       stamps = 0;
     }
@@ -38,12 +38,12 @@ class PurchaseFinished extends React.Component {
                   {stamps}
                 </Text> stamps
               more to get: <Text style={boldStyle}>
-                    {stampsInfo ? stampsInfo.stampCard.discount : ''}
+                    {stampsInfo ? stampsInfo.stampsCard.discount : ''}
                 </Text>
             </Text>
 
-            <Button style={buttonStyle} onPress={() => { Actions.myStampCards(); }}>
-              Go to My stamps
+            <Button style={buttonStyle} onPress={() => { Actions.myStampsCards(); }}>
+              Go to My Stampscards
             </Button>
 
             <Button style={buttonStyle} onPress={() => { Actions.scanPurchase(); }}>
