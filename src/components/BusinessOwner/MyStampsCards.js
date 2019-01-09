@@ -6,7 +6,7 @@ import {
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage } from '../common';
-import { fetchStampCards, changeBackground } from '../../actions';
+import { fetchStampsCards, changeBackground } from '../../actions';
 import MyStampsCardItem from './fragments/items/MyStampsCardItem';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
@@ -14,7 +14,7 @@ class MyStampsCards extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
-    this.props.fetchStampCards(this.props.businessId);
+    this.props.fetchStampsCards(this.props.businessId);
   }
 
   renderItems() {
@@ -32,7 +32,7 @@ class MyStampsCards extends React.Component {
         <NavBar
           navigation={this.props.navigation}
           profile={BUSINESS_OWNER}
-          title="My stamp cards"
+          title="My Stampscards"
         >
           <BackgroundImage image={this.props.background} />
           <Content padder>
@@ -53,5 +53,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(
-  mapStateToProps, { fetchStampCards, changeBackground }
+  mapStateToProps, { fetchStampsCards, changeBackground }
 )(MyStampsCards);

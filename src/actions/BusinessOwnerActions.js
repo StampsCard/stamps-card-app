@@ -48,7 +48,7 @@ export const fetchLastPurchases = (businessId) => {
   };
 };
 
-export const fetchStampCards = (businessId) => {
+export const fetchStampsCards = (businessId) => {
   return (dispatch) => {
     Client.query({
       query: getStampsCardsQuery,
