@@ -98,7 +98,7 @@ class CustomerHomeScreen extends React.Component {
                   style={menuButton}
                   onPress={() => { Actions.scanPurchase(); }}
                 >
-                  Scan a purcharse code
+                  Scan a purchase code
                 </Button>
                 <Button
                   style={menuButton}

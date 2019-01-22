@@ -1,15 +1,26 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, BackHandler, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanPurchase extends React.Component {
+
+  componentDidMount() {
+    BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
 
   onSuccess(e) {
     this.handleURL(e.data);
     // Linking
     //   .openURL(e.data)
     //   .catch(err => console.error('An error occured', err));
+  }
+
+  handleBackPress() {
+    return Actions.pop();
   }
 
   handleURL(scannedUrl) {
@@ -28,7 +39,7 @@ class ScanPurchase extends React.Component {
           showMarker
           onRead={this.onSuccess.bind(this)}
           topContent={
-            <Text style={styles.centerText}>
+            <Text style={styles.boxContent}>
               Use the camera to scan the QR Code from a purchase
             </Text>
           }
@@ -38,18 +49,13 @@ class ScanPurchase extends React.Component {
 }
 
 const styles = {
-  centerText: {
+  boxContent: {
     flex: 1,
-    fontSize: 18,
-    padding: 32
-  },
-  buttonText: {
-    fontSize: 21,
-    color: '#80ADD3',
+    fontSize: 22,
+    justifyContent: 'center',
+    backgroundColor: '#EA5442',
+    padding: 20,
     fontWeight: 'bold'
-  },
-  buttonTouchable: {
-    padding: 16,
   },
 };
 
