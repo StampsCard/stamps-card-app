@@ -14,25 +14,14 @@ class Welcome extends React.Component {
     }, 1500);
   }
 
-  getSourceImage() {
-    if (this.props.profile.id === CUSTOMER) {
-      return require('../../resources/img/customer-welcome-illustration.png');
-    }
-    if (this.props.profile.id === BUSINESS_OWNER) {
-      return require('../../resources/img/business-owner-welcome-illustration.png');
-    }
-  }
-
   render() {
     const { containerStyle, textStyle, headerStyle, imageStyle } = styles;
-    const sourceImage = this.getSourceImage();
-
     return (
         <Container style={containerStyle}>
           <SimpleHeader style={headerStyle} />
           <Image
             style={imageStyle}
-            source={sourceImage}
+            source={this.props.profile.imageSrc}
           />
           <Text style={textStyle}>Welcome, {this.props.user.firstName} {this.props.user.lastName}</Text>
         </Container>
