@@ -1600,7 +1600,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Ad Hoc Code Sign";
+				CODE_SIGN_IDENTITY = "iPhone Developer: stamps.card3@gmail.com (6VR24MSS8Z)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: stamps.card3@gmail.com (6VR24MSS8Z)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 4LLCJKL59Z;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1643,7 +1644,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Ad Hoc Code Sign";
+				CODE_SIGN_IDENTITY = "iPhone Developer: stamps.card3@gmail.com (6VR24MSS8Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: stamps.card3@gmail.com (6VR24MSS8Z)";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = 4LLCJKL59Z;
 				ENABLE_NS_ASSERTIONS = NO;
