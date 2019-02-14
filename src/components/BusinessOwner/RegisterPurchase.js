@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Content, Form, Toast, Label } from 'native-base';
+import { Container, Content, Form, Toast, Label, Picker } from 'native-base';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { View, Keyboard, Alert, Picker } from 'react-native';
+import { View, Keyboard, Alert } from 'react-native';
 import QRCode from 'react-native-qrcode';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
@@ -105,7 +105,7 @@ class RegisterPurchase extends React.Component {
             onValueChange={(item) => {
               this.props.stampsCardChanged(item);
             }}
-            itemStyle={styles.pickerStyle}
+            style={styles.pickerStyle}
           >
           {items}
           </Picker>
