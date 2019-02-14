@@ -66,7 +66,7 @@ export const purchaseGenerated = (dispatch, purchaseId) => {
   });
 };
 
-export const generateAnotherPurchase = (userId, businessId) => {
+export const generateAnotherPurchase = () => {
   return (dispatch) => {
       dispatch({
         type: GENERATE_ANOTHER_PURCHASE
