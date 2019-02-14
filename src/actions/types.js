@@ -36,11 +36,13 @@ export const STAMPS_CARD_CREATION_SUCCESS = 'stamp_card_creation_success';
 // REGISTER PURCHASE
 export const PRODUCT_CONCEPT_CHANGED = 'product_concept_changed';
 export const AMOUNT_CHANGED = 'amount_changed';
+export const STAMPS_CARD_ID_CHANGED = 'stamps_card_id_changed';
 export const PURCHASE_GENERATION_SUCCESS = 'purchase_generation_success';
 export const PURCHASE_GENERATION_FAILED = 'purchase_generation_failed';
 export const PURCHASE_GENERATION_STARTS = 'purchase_generation_starts';
 export const PURCHASE_CANCELED = 'purchase_canceled';
 export const GENERATE_ANOTHER_PURCHASE = 'generate_another_purchase';
+export const AVAILABLE_STAMPS_CARDS_FETCH_SUCCESS = 'available_stamps_cards_fetch_success';
 
 //CONFIRM PURCHASE
 export const PURCHASE_CONFIRMED = 'purchase_confirmed';

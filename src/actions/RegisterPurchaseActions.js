@@ -1,12 +1,14 @@
-import { Actions } from 'react-native-router-flux';
+import _ from 'lodash';
 import {
   PRODUCT_CONCEPT_CHANGED,
   AMOUNT_CHANGED,
+  STAMPS_CARD_ID_CHANGED,
   PURCHASE_GENERATION_SUCCESS,
   PURCHASE_GENERATION_FAILED,
   PURCHASE_GENERATION_STARTS,
   PURCHASE_CANCELED,
-  GENERATE_ANOTHER_PURCHASE
+  GENERATE_ANOTHER_PURCHASE,
+  AVAILABLE_STAMPS_CARDS_FETCH_SUCCESS
 } from './types';
 import { getStampsCardsQuery } from './queries/PurchaseQueries';
 import {
@@ -25,37 +27,26 @@ export const amountChanged = (text) => ({
   payload: text
 });
 
-export const generatePurchase = ({ businessId, concept, amount }) => {
+export const stampsCardChanged = (stampsCardIdSelected) => ({
+  type: STAMPS_CARD_ID_CHANGED,
+  payload: stampsCardIdSelected
+});
+
+export const generatePurchase = ({ stampsCardIdSelected, concept, amount }) => {
   return (dispatch) => {
     dispatch({ type: PURCHASE_GENERATION_STARTS });
-
-    Client.query({
-			query: getStampsCardsQuery,
-			variables: { businessId }
-		}).then((stampsResponse) => {
-        // Get the first stampCard
-        const stampsCards = stampsResponse.data.business.stampCards;
-        if (!stampsCards.length) {
-          dispatch({ type: PURCHASE_GENERATION_FAILED });
-          console.log(
-            `WARNING: You need to create a stamp card before for business ${businessId}!`
-          );
-          Actions.businessOwnerHomeScreen();
-        }
-
-        Client.mutate({
-          mutation: registerPurchaseMutation,
-          variables: { concept, amount: parseFloat(amount), stampId: stampsCards[0].id }
-        }).then((purchaseResponse) => {
-            const data = purchaseResponse.data.createPurchase;
-            if (data) {
-              return purchaseGenerated(dispatch, data.id);
-            }
-            return purchaseGenerationFailed(dispatch);
-        }).catch((err) => {
-          console.log(err);
+      Client.mutate({
+        mutation: registerPurchaseMutation,
+        variables: { concept, amount: parseFloat(amount), stampId: stampsCardIdSelected }
+      }).then((purchaseResponse) => {
+          const data = purchaseResponse.data.createPurchase;
+          if (data) {
+            return purchaseGenerated(dispatch, data.id);
+          }
           return purchaseGenerationFailed(dispatch);
-        });
+      }).catch((err) => {
+        console.log(err);
+        return purchaseGenerationFailed(dispatch);
       });
   };
 };
@@ -99,3 +90,55 @@ export const cancelPurchase = (purchaseId) => {
     });
   };
 };
+
+export const getAvailableStampsCards = (userId, businessId) => {
+  return (dispatch) => {
+    Client.query({
+      query: getStampsCardsQuery,
+      variables: { userId }
+    }).then((response) => {
+        const userBusinesses = response.data.user.businesses;
+        let availableStampsCards = [];
+        let businessStampsCards = [];
+        _.forEach(userBusinesses, (business) => {
+          // TODO: Delete this conditional when the user can choose the business
+          if (businessId === business.id) {
+            setFirstStampCard(dispatch, availableStampsCards, business);
+            businessStampsCards = generateBusinessStampCards(business);
+            availableStampsCards = availableStampsCards.concat(businessStampsCards);
+          }
+        });
+
+        return dispatch({ 
+          type: AVAILABLE_STAMPS_CARDS_FETCH_SUCCESS,
+          payload: availableStampsCards
+        });
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+};
+
+function setFirstStampCard(dispatch, availableStampsCards, business) {
+  if (availableStampsCards.length === 0 && business.stampCards.length > 0) {
+    dispatch({
+      type: STAMPS_CARD_ID_CHANGED,
+      payload: business.stampCards[0].id
+    });
+  }
+}
+
+function generateBusinessStampCards(business) {
+  const businessStampsCards = [];
+  const businessName = business.name;
+  const currentStampsCards = business.stampCards;
+  for (let i = 0; i < currentStampsCards.length; i++) {
+    const currentStampsCard = currentStampsCards[i];
+    businessStampsCards.push({
+      id: currentStampsCard.id,
+      name: `${businessName} | ${currentStampsCard.discount}`
+    });
+  }
+
+  return businessStampsCards;
+}

@@ -19,6 +19,7 @@ export const businessOwnerSelected = (userId) => {
         Actions.login();
       }
 
+      //TODO: Update this foreach when the user can select more than one business
       dispatch({
         type: BUSINESS_OWNER_SELECTED,
         payload: { businessId: response[0].id }

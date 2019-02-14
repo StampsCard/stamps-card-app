@@ -5,7 +5,9 @@ import {
   PURCHASE_GENERATION_SUCCESS,
   PURCHASE_GENERATION_FAILED,
   PURCHASE_CANCELED,
-  GENERATE_ANOTHER_PURCHASE
+  GENERATE_ANOTHER_PURCHASE,
+  STAMPS_CARD_ID_CHANGED,
+  AVAILABLE_STAMPS_CARDS_FETCH_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -15,7 +17,9 @@ const INITIAL_STATE = {
   loading: false,
   purchaseId: null,
   link: null,
-  info: ''
+  info: '',
+  stampsCardIdSelected: null,
+  availableStampsCards: []
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -24,6 +28,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, concept: action.payload, link: null };
     case AMOUNT_CHANGED:
       return { ...state, amount: action.payload, link: null };
+    case STAMPS_CARD_ID_CHANGED:
+      return { ...state, stampsCardIdSelected: action.payload, link: null };
     case PURCHASE_GENERATION_STARTS:
       return {
         ...state,
@@ -56,6 +62,11 @@ export default (state = INITIAL_STATE, action) => {
       };
     case GENERATE_ANOTHER_PURCHASE:
       return INITIAL_STATE;
+    case AVAILABLE_STAMPS_CARDS_FETCH_SUCCESS:
+      return {
+        ...state,
+        availableStampsCards: action.payload
+      };
     default:
       return state;
   }

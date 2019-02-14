@@ -1,10 +1,15 @@
 import gql from 'graphql-tag';
 
 export const getStampsCardsQuery = gql`
-query getStampsCardFromBusiness($businessId: ID!) {
-  business(id:$businessId) {
-    stampCards {
+query getStampsCardFromBusinessOwner($userId: ID!) {
+  user(id:$userId) {
+    businesses {
       id
+      name
+      stampCards {
+        id
+        discount
+      }
     }
   }
 }`;

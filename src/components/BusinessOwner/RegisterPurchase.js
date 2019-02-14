@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, Content, Form, Toast } from 'native-base';
+import { Container, Content, Form, Toast, Label } from 'native-base';
+import _ from 'lodash';
 import { connect } from 'react-redux';
-import { View, Keyboard, Alert } from 'react-native';
+import { View, Keyboard, Alert, Picker } from 'react-native';
 import QRCode from 'react-native-qrcode';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
@@ -13,7 +14,9 @@ import {
   purchaseGenerated,
   cancelPurchase,
   changeBackground,
-  generateAnotherPurchase
+  generateAnotherPurchase,
+  getAvailableStampsCards,
+  stampsCardChanged
 } from '../../actions';
 import {
   NavBar,
@@ -34,6 +37,7 @@ class RegisterPurchase extends React.Component {
   }
 
   componentWillMount() {
+    this.props.getAvailableStampsCards(this.props.user.id, this.props.businessId);
     this.props.changeBackground();
   }
 
@@ -48,9 +52,9 @@ class RegisterPurchase extends React.Component {
   generatePurchase() {
     Keyboard.dismiss();
     this.props.generatePurchase({
-      businessId: this.props.businessId,
+      stampsCardIdSelected: this.props.stampsCardIdSelected,
       concept: this.props.concept,
-      amount: this.props.amount
+      amount: this.props.amount,
     });
   }
 
@@ -82,10 +86,39 @@ class RegisterPurchase extends React.Component {
     );
   }
 
+  renderStampsCardPickerItem(id, name) {
+    return (
+      <Picker.Item label={name} key={id} value={id} />
+    );
+  }
+
+  renderStampsCardPicker() {
+    const items = _.map(this.props.availableStampsCards, (stampsCard) => {
+      return this.renderStampsCardPickerItem(stampsCard.id, stampsCard.name);
+    });
+
+    return (
+      <FormItem>
+          <Label style={styles.labelStyle}>Stamps card</Label>
+          <Picker
+            selectedValue={this.props.stampsCardIdSelected}
+            onValueChange={(item) => {
+              this.props.stampsCardChanged(item);
+            }}
+            itemStyle={styles.pickerStyle}
+          >
+          {items}
+          </Picker>
+      </FormItem>
+      
+    );
+  }
+
   renderForm() {
     const { formStyle } = styles;
     return (
       <Form style={formStyle}>
+          { this.renderStampsCardPicker() }
           <InputWithLabel
             label="Product Concept (optional)"
             onChangeText={this.onProductConceptChange.bind(this)}
@@ -94,7 +127,6 @@ class RegisterPurchase extends React.Component {
             label="Amount (€)"
             onChangeText={this.onAmountChange.bind(this)}
           />
-
           <FormItem>
             { this.renderButton() }
           </FormItem>
@@ -138,7 +170,7 @@ class RegisterPurchase extends React.Component {
           onPress={this.generateAnotherPurchase.bind(this)}
           style={styles.cancelPurchaseButton}
         >
-          Generate another purchase
+          Register another purchase
         </Button>
         <Button
           onPress={this.cancelPurchase.bind(this)}
@@ -187,6 +219,16 @@ const styles = {
   },
   cancelPurchaseButton: {
     marginTop: 15
+  },
+  labelStyle: {
+    margin: 3,
+    color: '#80ADD3',
+    fontWeight: 'bold'
+    // placeholderTextColor: '#FFF',
+  },
+  pickerStyle: {
+    backgroundColor: '#80ADD3',
+    color: '#fff'
   }
 };
 
@@ -201,7 +243,9 @@ const mapStateToProps = state => {
     background: state.common.background,
     user: state.auth.user,
     businessId: state.profile.businessId,
-    info: state.registerPurchase.info
+    info: state.registerPurchase.info,
+    stampsCardIdSelected: state.registerPurchase.stampsCardIdSelected,
+    availableStampsCards: state.registerPurchase.availableStampsCards
   };
 };
 
@@ -213,5 +257,7 @@ export default connect(mapStateToProps, {
   purchaseGenerated,
   cancelPurchase,
   changeBackground,
-  generateAnotherPurchase
+  generateAnotherPurchase,
+  getAvailableStampsCards,
+  stampsCardChanged
 })(RegisterPurchase);
