@@ -61,7 +61,16 @@ export default (state = INITIAL_STATE, action) => {
         link: null
       };
     case GENERATE_ANOTHER_PURCHASE:
-      return INITIAL_STATE;
+      return {
+        ...state,
+        concept: '',
+        amount: null,
+        error: '',
+        loading: false,
+        purchaseId: null,
+        link: null,
+        info: ''
+      };
     case AVAILABLE_STAMPS_CARDS_FETCH_SUCCESS:
       return {
         ...state,

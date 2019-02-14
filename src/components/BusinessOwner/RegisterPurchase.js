@@ -228,7 +228,10 @@ const styles = {
   },
   pickerStyle: {
     backgroundColor: '#80ADD3',
-    color: '#fff'
+    color: '#fff',
+    borderColor: '#80ADD3',
+    borderWidth: 2,
+    borderRadius: 15,
   }
 };
 
