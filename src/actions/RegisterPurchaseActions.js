@@ -51,10 +51,8 @@ export const generatePurchase = ({ stampsCardIdSelected, concept, amount }) => {
   };
 };
 
-export const purchaseGenerationFailed = () => {
-  return (dispatch) => {
+export const purchaseGenerationFailed = (dispatch) => {
     dispatch({ type: PURCHASE_GENERATION_FAILED });
-  };
 };
 
 export const purchaseGenerated = (dispatch, purchaseId) => {
