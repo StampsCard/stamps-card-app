@@ -1,5 +1,6 @@
 import React from 'react';
-import { BackHandler } from 'react-native'; 
+import { BackHandler } from 'react-native';
+import * as moment from 'moment';
 import {
   Card,
   CardItem,
@@ -52,7 +53,7 @@ class CustomerDetail extends React.Component {
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Last Payment</Text>
-              <Text>{customer.lastPayment}</Text>
+              <Text>{moment.parseZone(customer.lastPayment).format('DD/MM/YYYY hh:mm')}</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Total spent</Text>
