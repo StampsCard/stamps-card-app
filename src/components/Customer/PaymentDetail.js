@@ -1,4 +1,5 @@
 import React from 'react';
+import * as moment from 'moment';
 import { BackHandler } from 'react-native';
 import {
   Card,
@@ -44,7 +45,7 @@ class PaymentDetail extends React.Component {
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Amount:</Text>
-              <Text> {this.props.payment.amount} $</Text>
+              <Text> {this.props.payment.amount} €</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}># of Stamps:</Text>
@@ -52,7 +53,7 @@ class PaymentDetail extends React.Component {
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Date:</Text>
-              <Text>{this.props.payment.confirmedAt}</Text>
+              <Text>{moment.parseZone(this.props.payment.confirmedAt).format('DD/MM/YY hh:mm')}</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Concept:</Text>

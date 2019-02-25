@@ -1,4 +1,5 @@
 import React from 'react';
+import * as moment from 'moment';
 import {
   Card,
   CardItem,
@@ -44,7 +45,7 @@ class PurchaseDetail extends React.Component {
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Amount:</Text>
-              <Text> {this.props.purchase.amount} $</Text>
+              <Text> {this.props.purchase.amount} €</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}># of Stamps:</Text>
@@ -52,7 +53,7 @@ class PurchaseDetail extends React.Component {
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Date:</Text>
-              <Text>{this.props.purchase.confirmedAt}</Text>
+              <Text>{moment.parseZone(this.props.purchase.confirmedAt).format('DD/MM/YYYY hh:mm')}</Text>
             </CardItem>
             <CardItem style={cardItemStyle}>
               <Text style={boldText}>Concept:</Text>
