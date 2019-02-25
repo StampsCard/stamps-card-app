@@ -67,11 +67,11 @@ const loginUserSuccess = async(dispatch, authData) => {
 
 export const logout = () => {
   return (dispatch) => {
-    dispatch({
-      type: LOGOUT
+    return Actions.login(() => {
+      dispatch({
+        type: LOGOUT
+      });
+      AsyncStorage.setItem('@userJwt', '');
     });
-    AsyncStorage.setItem('@userJwt', '');
-
-    return Actions.login();
   };
 };
