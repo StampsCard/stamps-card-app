@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 import { SimpleHeader } from './common';
 import { goToMainPage } from '../actions';
-import { CUSTOMER, BUSINESS_OWNER } from '../values/Profiles';
 
 class Welcome extends React.Component {
   componentDidMount() {

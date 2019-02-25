@@ -17,12 +17,9 @@ class MyCustomers extends React.Component {
     this.props.changeBackground();
     this.props.fetchMyCustomers(this.props.businessId);
   }
-
   componentDidMount() {
-    this.backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      this.handleBackPress.bind(this)
-    );
+    this.backHandler = BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    this.props.changeBackground();
   }
 
   componentWillUnmount() {

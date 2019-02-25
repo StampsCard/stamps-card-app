@@ -1,4 +1,5 @@
 import React from 'react';
+import { BackHandler, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import {
   Container,
@@ -14,6 +15,30 @@ class BusinessOwnerHomeScreen extends React.Component {
 
   componentWillMount() {
     this.props.changeBackground();
+  }
+
+  componentDidMount() {
+   this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
+  handleBackPress() {
+    Alert.alert(
+      'Logout',
+      'Are you sure do you want to logout?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'OK', onPress: () => Actions.login() },
+      ]
+    );
+
+    return true;
   }
 
   render() {

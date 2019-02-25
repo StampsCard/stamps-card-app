@@ -26,30 +26,28 @@ class CustomerHomeScreen extends React.Component {
   }
 
   componentDidMount() {
-   this.backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      this.handleBackPress.bind(this)
-    );
-  }
-
-  componentWillUnmount() {
-    this.backHandler.remove();
-  }
-
-  handleBackPress() {
-    if (this.defineReturnBackRoute() === LOGIN) {
-      return Alert.alert(
-        'Logout',
-        'Are you sure do you want to logout?',
+    this.backHandler = BackHandler.addEventListener(
+       'hardwareBackPress',
+       this.handleBackPress
+     );
+   }
+ 
+   componentWillUnmount() {
+     this.backHandler.remove();
+   }
+ 
+   handleBackPress() {
+     Alert.alert(
+       'Logout',
+       'Are you sure do you want to logout?',
        [
          { text: 'Cancel', style: 'cancel' },
-         { text: 'OK', onPress: () => Actions.popTo(LOGIN) },
+         { text: 'OK', onPress: () => Actions.login() },
        ]
      );
-    }
-
-    return Actions.popTo(PROFILE_SELECTOR);
-  }
+ 
+     return true;
+   }
 
   defineReturnBackRoute() {
     if (this.props.isBusinessOwner) {
