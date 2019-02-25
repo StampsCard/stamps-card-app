@@ -3,8 +3,9 @@ import {
   Container,
   Content
 } from 'native-base';
-import { FlatList } from 'react-native';
+import { FlatList, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { NavBar, BackgroundImage } from '../common';
 import { fetchLastPayments, changeBackground } from '../../actions';
 import LastPaymentItem from './fragments/LastPaymentItem';
@@ -15,6 +16,21 @@ class MyLastPayments extends React.Component {
   componentWillMount() {
     this.props.changeBackground();
     this.props.fetchLastPayments(this.props.user.id);
+  }
+
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
+  handleBackPress() {
+    return Actions.pop();
   }
 
   renderItems() {

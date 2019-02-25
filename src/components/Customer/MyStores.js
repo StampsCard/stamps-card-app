@@ -3,7 +3,8 @@ import {
   Container,
   Content
 } from 'native-base';
-import { FlatList } from 'react-native';
+import { FlatList, BackHandler } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { NavBar, BackgroundImage } from '../common';
 import { fetchBusinesses, changeBackground } from '../../actions';
@@ -15,6 +16,21 @@ class MyStores extends React.Component {
   componentWillMount() {
     this.props.changeBackground();
     this.props.fetchBusinesses(this.props.user.id);
+  }
+
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
+  handleBackPress() {
+    return Actions.pop();
   }
 
   renderItems() {

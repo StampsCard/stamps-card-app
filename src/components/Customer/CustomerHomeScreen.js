@@ -26,14 +26,14 @@ class CustomerHomeScreen extends React.Component {
   }
 
   componentDidMount() {
-    BackHandler.addEventListener(
+   this.backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       this.handleBackPress.bind(this)
     );
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress.bind(this));
+    this.backHandler.remove();
   }
 
   handleBackPress() {

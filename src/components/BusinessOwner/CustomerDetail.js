@@ -1,4 +1,5 @@
 import React from 'react';
+import { BackHandler } from 'react-native'; 
 import {
   Card,
   CardItem,
@@ -10,6 +11,22 @@ import { Actions } from 'react-native-router-flux';
 import { BackgroundImage, Button, HeaderDetail } from '../common';
 
 class CustomerDetail extends React.Component {
+  
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
+  handleBackPress() {
+    return Actions.pop();
+  }
+
   render() {
     const customer = this.props.customer;
     const user = customer.user;

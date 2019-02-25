@@ -6,10 +6,26 @@ import {
   Container,
   Content
 } from 'native-base';
+import { BackHandler } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { BackgroundImage, Button, HeaderDetail } from '../common';
 
 class PurchaseDetail extends React.Component {
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
+  handleBackPress() {
+    return Actions.pop();
+  }
+
   render() {
     const { cardItemStyle, boldText, contentStyle } = styles;
     const user = this.props.purchase.user;

@@ -3,8 +3,9 @@ import {
   Container,
   Content
 } from 'native-base';
-import { FlatList } from 'react-native';
+import { FlatList, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { NavBar, BackgroundImage } from '../common';
 import { fetchStampsCards, changeBackground } from '../../actions';
 import MyStampsCardItem from './fragments/items/MyStampsCardItem';
@@ -15,6 +16,21 @@ class MyStampsCards extends React.Component {
   componentWillMount() {
     this.props.changeBackground();
     this.props.fetchStampsCards(this.props.businessId);
+  }
+
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
+  handleBackPress() {
+    return Actions.pop();
   }
 
   renderItems() {

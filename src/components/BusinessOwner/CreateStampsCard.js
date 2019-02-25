@@ -1,5 +1,6 @@
 import React from 'react';
-import { Keyboard } from 'react-native';
+import { Keyboard, BackHandler } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Container, Content, Form, Toast } from 'native-base';
 import {
@@ -27,6 +28,17 @@ class CreateStampsCard extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
   onStampPriceChange(value) {
     this.props.stampPriceChanged(value);
   }
@@ -50,6 +62,10 @@ class CreateStampsCard extends React.Component {
     this.props.discountChanged(value);
   }
 
+  handleBackPress() {
+    return Actions.pop();
+  }
+  
   renderToast() {
     if (this.props.error) {
       Toast.show({

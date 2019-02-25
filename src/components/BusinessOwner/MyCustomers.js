@@ -3,8 +3,9 @@ import {
   Container,
   Content
 } from 'native-base';
-import { FlatList } from 'react-native';
+import { FlatList, BackHandler } from 'react-native';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { NavBar, BackgroundImage } from '../common';
 import { fetchMyCustomers, changeBackground } from '../../actions';
 import MyCustomerItem from './fragments/items/MyCustomerItem';
@@ -15,6 +16,21 @@ class MyCustomers extends React.Component {
   componentWillMount() {
     this.props.changeBackground();
     this.props.fetchMyCustomers(this.props.businessId);
+  }
+
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
+  handleBackPress() {
+    return Actions.pop();
   }
 
   renderItems() {

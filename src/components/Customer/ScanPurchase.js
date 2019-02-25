@@ -1,15 +1,19 @@
 import React from 'react';
-import { Text, BackHandler, TouchableOpacity } from 'react-native';
+import { Text, BackHandler } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 class ScanPurchase extends React.Component {
 
   componentDidMount() {
-    BackHandler.addEventListener(
+    this.backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
       this.handleBackPress.bind(this)
     );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
   }
 
   onSuccess(e) {

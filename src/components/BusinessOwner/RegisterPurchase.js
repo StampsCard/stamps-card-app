@@ -2,7 +2,8 @@ import React from 'react';
 import { Container, Content, Form, Toast, Label, Picker } from 'native-base';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { View, Keyboard, Alert } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { View, Keyboard, Alert, BackHandler } from 'react-native';
 import QRCode from 'react-native-qrcode';
 import { BUSINESS_OWNER } from '../../values/Profiles';
 
@@ -41,12 +42,27 @@ class RegisterPurchase extends React.Component {
     this.props.changeBackground();
   }
 
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackPress.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+
   onProductConceptChange(text) {
     this.props.productConceptChanged(text);
   }
 
   onAmountChange(text) {
     this.props.amountChanged(text);
+  }
+
+  handleBackPress() {
+    return Actions.pop();
   }
 
   generatePurchase() {
