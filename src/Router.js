@@ -48,7 +48,7 @@ class Router extends React.Component {
             hideNavBar
           />
 
-          <Scene key="customer" hideNavBar drawer>
+          <Scene key="customer" hideNavBar>
             <Scene
               key="customerHomeScreen"
               component={CustomerHomeScreen}
@@ -100,7 +100,6 @@ class Router extends React.Component {
           <Scene
             key="businessOwner"
             hideNavBar
-            drawer
           >
             <Scene
               key="businessOwnerHomeScreen"
