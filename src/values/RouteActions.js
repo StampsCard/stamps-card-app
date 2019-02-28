@@ -1,2 +1,2 @@
 export const LOGIN = 'login';
-export const PROFILE_SELECTOR = 'profile_selector';
+export const PROFILE_SELECTOR = 'profileSelector';
