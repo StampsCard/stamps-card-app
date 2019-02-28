@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Alert } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Content, Text, List, ListItem } from 'native-base';
+import { Container, Content, Text, List, ListItem, Icon } from 'native-base';
 import { Logo, ButtonSecondary } from '.';
 import { businessOwnerSelected, customerSelected, logout } from '../../actions';
 import GetRoutesForSideBar from '../../services/GetRoutesForSideBar';
@@ -33,7 +33,7 @@ class SideBar extends React.Component {
         listItemText,
         profileSelectionStyle,
         profileSelectionButtonStyle,
-        profileTextButtonStyle,
+        iconStyle,
         profileContainerButtonsStyle
       } = styles;
 
@@ -45,13 +45,13 @@ class SideBar extends React.Component {
                 onPress={this.pressCustomerButton.bind(this)}
                 style={profileSelectionButtonStyle}
               >
-                  <Text style={profileTextButtonStyle}>C</Text>
+                <Icon style={iconStyle} active name="cart" />
               </ButtonSecondary>
               <ButtonSecondary
                 onPress={this.pressBusinessOwnerButton.bind(this)}
                 style={profileSelectionButtonStyle}
               >
-                  <Text style={profileTextButtonStyle}>B</Text>
+                <Icon style={iconStyle} active name="cash" />
               </ButtonSecondary>
             </View>
         </View>
@@ -138,19 +138,19 @@ const styles = {
     paddingVertical: 15
   },
 
- profileSelectionButtonStyle: {
-   borderWidth: 2,
-   borderRadius: 25,
-   marginHorizontal: '5%',
-   justifyContent: 'center',
-   alignItems: 'center',
-   flex: 1
- },
-  profileTextButtonStyle: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: '#FFF'
+  profileSelectionButtonStyle: {
+    borderWidth: 2,
+    borderRadius: 25,
+    marginHorizontal: '5%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   },
+  iconStyle: {
+      fontSize: 30,
+      fontWeight: 'bold',
+      color: '#FFF'
+    },
 
   logoutButtonStyle: {
     position: 'absolute',

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { View, Text, BackHandler, Alert } from 'react-native';
 
-import { Container, Content, H2, Button } from 'native-base';
+import { Container, Content, H2, Button, Icon } from 'native-base';
 import { BackgroundImage, SimpleHeader, Title } from './common';
 import { businessOwnerSelected, customerSelected, changeBackground } from '../actions';
 
@@ -43,7 +43,7 @@ class ProfileSelector extends React.Component {
     const {
       containerButtonStyle,
       buttonStyle,
-      textButtonStyle,
+      iconStyle,
       subTitleStyle
     } = styles;
 
@@ -58,13 +58,13 @@ class ProfileSelector extends React.Component {
                   style={buttonStyle}
                   onPress={this.pressCustomerButton.bind(this)}
                 >
-                    <Text style={textButtonStyle}>C</Text>
+                  <Icon style={iconStyle} active name="cart" />
                 </Button>
                 <Button
                   style={buttonStyle}
                   onPress={this.pressBusinessOwnerButton.bind(this)}
                 >
-                    <Text style={textButtonStyle}>B</Text>
+                  <Icon style={iconStyle} active name="cash" />
                 </Button>
             </View>
             <View style={containerButtonStyle}>
@@ -111,10 +111,8 @@ const styles = {
      flex: 1
    },
 
-   textButtonStyle: {
-     fontSize: 80,
-     fontWeight: 'bold',
-     color: '#FFF'
+   iconStyle: {
+     fontSize: 50
    }
 };
 
