@@ -1,5 +1,6 @@
 # Stamps Card App
-<img src="./resources/img/stamps_card_logo.png " alt="drawing" style="width:200px;"/>
+![logo](https://images.squarespace-cdn.com/content/v1/5707c08f27d4bdcee14a44f9/1572541401149-WYWGCQCB3UADQ99JMUUY/ke17ZwdGBToddI8pDm48kCt6MzQGsJND2O8YORDFTKVZw-zPPgdn4jUwVcJE1ZvWhcwhEtWJXoshNdA9f1qD7XaGPskfQtVutuSA2B-JW6y-siY7odiHalq6Xty-0b5VLpsaPMdDGeh7H6XjVKA71A/STAMPSCARD.COM+Logo.png)
+
 ## Description
 This project contains the source code to generate the iOS and APK of the **StampsCard** app. 
 
@@ -30,7 +31,7 @@ Please, feel free to send me an email to `d.sola.03@gmail.com` and I will be gla
 ## Technology stack
 - This app has been developed using [React Native](https://reactnative.dev/).
 - You can use [Expo](https://expo.io/) to compile it and see a demo, but you won't be able to use the QR code scanner
-- This app communicates with a [GrahpQL Server](https://github.com/dsola) to fetch the data.
+- This app communicates with a [GrahpQL Server](https://github.com/StampsCard/stamps-card-api) to fetch the data.
 - I used [Redux](https://redux.js.org/) to build up the GraphQL queries and mutations and transform the data for the UI components.
 - I installed [NativeBase](https://nativebase.io/) to start from a UI-theme template.
 - I used [this library](https://github.com/moaazsidat/react-native-qrcode-scanner) to set up the QR code scanner.
