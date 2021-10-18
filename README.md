@@ -5,7 +5,7 @@
 This project contains the source code to generate the iOS and APK of the **StampsCard** app. 
 
 ### What's StampsCard?
-**StampsCard** it's a project started by [Ricard Bague](https://www.linkedin.com/in/ricard-bague-ponsa-527a863b), [Peter Joustra](https://www.linkedin.com/in/peter-joustra-49841b4/) and [Liliaan Dapaah](https://www.linkedin.com/in/lilian-dapaah-%E2%98%85-3009099/) in order to provide a tool for retailers to digitalize the stamps that since now were provided using an old fashioned paper cards.
+**StampsCard** it's a project that I started together with [Ricard Bague](https://www.linkedin.com/in/ricard-bague-ponsa-527a863b), [Peter Joustra](https://www.linkedin.com/in/peter-joustra-49841b4/) and [Liliaan Dapaah](https://www.linkedin.com/in/lilian-dapaah-%E2%98%85-3009099/) in order to provide a tool for retailers to digitalize the stamps that since now were provided using an old fashioned paper cards.
 
 The main idea is that the shop owner can generate a QR code that represents the purchase and the buyer will scan it later to collect the stamps for that purchase.
 
